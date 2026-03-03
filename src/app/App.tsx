@@ -1,12 +1,12 @@
 import { View } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
-import { RecipeCard } from '@/components/ui/card/ReusebleCard';
+import { ReusableCard } from '@/components/ui/card/ReusebleCard';
 
 export default function App() {
   return (
     <SafeAreaProvider>
       <View>
-        <RecipeCard
+        <ReusableCard
           recipeImage={
             'https://images.immediate.co.uk/production/volatile/sites/30/2020/08/chorizo-mozarella-gnocchi-bake-cropped-9ab73a3.jpg?quality=90&resize=700,636'
           }
