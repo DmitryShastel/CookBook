@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
+import { ReusableUserInfo } from '@/components/ui/userInfo/ReusableUserInfo';
 
 interface RecipeCardProps {
   userName: string;
@@ -31,8 +32,7 @@ export const RecipeCard = ({
   return (
     <View style={styles.card}>
       <View style={styles.userContainer}>
-        <Image source={{ uri: userAvatar }} style={styles.avatar} />
-        <Text style={styles.userName}>{userName}</Text>
+        <ReusableUserInfo userAvatar={userAvatar} userName={userName} />
       </View>
 
       <Image
@@ -58,12 +58,6 @@ export const RecipeCard = ({
 };
 
 const styles = StyleSheet.create({
-  avatar: {
-    borderRadius: 20,
-    height: 40,
-    marginRight: 10,
-    width: 40,
-  },
   card: {
     backgroundColor: '#fff',
     borderRadius: 12,
@@ -116,10 +110,5 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     flexDirection: 'row',
     marginBottom: 12,
-  },
-  userName: {
-    color: '#333',
-    fontSize: 16,
-    fontWeight: '600',
   },
 });
