@@ -1,16 +1,13 @@
 import { View } from 'react-native';
-import { ReusableButton } from '@/components/ui/button/ReusableButton';
+import { ReusableInput } from '@/components/ui/input/ReusableInput';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 export default function App() {
   return (
-    // eslint-disable-next-line react-native/no-inline-styles
-    // <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-    <View>
-      <ReusableButton
-        title={'test'}
-        callback={() => {}}
-        accessibilityLabel={'test123'}
-      />
-    </View>
+    <SafeAreaProvider>
+      <View>
+        <ReusableInput />
+      </View>
+    </SafeAreaProvider>
   );
 }
