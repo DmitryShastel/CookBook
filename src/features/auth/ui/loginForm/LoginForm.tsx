@@ -6,7 +6,7 @@ import {
   loginValidationSchema,
 } from '@/features/auth/model/lib/LoginValidation';
 import { styles } from '@/features/auth/ui/loginForm/LoginForm.styles';
-import { LoginFormProps } from '@/features/auth/model/types/loginForm';
+import { LoginFormProps } from '@/features/auth/model/types/LoginForm';
 
 export const LoginForm = ({
   onSubmit,
