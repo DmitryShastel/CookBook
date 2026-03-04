@@ -10,3 +10,5 @@ export const loginValidationSchema = yup.object().shape({
     .min(6, ({ min }) => `Password must be at least ${min} characters`)
     .required('Password is required'),
 });
+
+export type LoginFormData = yup.InferType<typeof loginValidationSchema>;
