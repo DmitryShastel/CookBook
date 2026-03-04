@@ -4,27 +4,26 @@ import { ReusableLike } from '@/components/ui/like/ReusableLike';
 import { styles } from '@/components/ui/card/ReusableCard.style';
 import { RecipeCardProps } from '@/components/ui/card/ReusableCard.types';
 
-export const ReusableCard = ({ initialLiked = false }: RecipeCardProps) => {
+export const ReusableCard = ({
+  initialLiked = false,
+  userName,
+  userAvatar,
+  recipeImage,
+  description,
+}: RecipeCardProps) => {
   return (
     <View style={styles.card}>
       <View style={styles.userContainer}>
-        <ReusableUserInfo
-          userAvatar={
-            'https://png.pngtree.com/png-vector/20231019/ourmid/pngtree-user-profile-avatar-png-image_10211471.png'
-          }
-          userName={'Test User'}
-        />
+        <ReusableUserInfo userAvatar={userAvatar} userName={userName} />
       </View>
 
       <Image
-        source={{
-          uri: 'https://images.immediate.co.uk/production/volatile/sites/30/2020/08/chorizo-mozarella-gnocchi-bake-cropped-9ab73a3.jpg?quality=90&resize=700,636',
-        }}
+        source={{ uri: recipeImage }}
         style={styles.recipeImage}
         resizeMode="cover"
       />
 
-      <Text style={styles.description}>{'Test description'}</Text>
+      <Text style={styles.description}>{description}</Text>
       <ReusableLike initialLiked={initialLiked} />
     </View>
   );

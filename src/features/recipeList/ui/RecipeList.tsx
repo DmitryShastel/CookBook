@@ -10,8 +10,13 @@ import { ReusableCard } from '@/components/ui/card/ReusebleCard';
 export const RecipeList = ({ recipes = MOCK_RECIPES }: RecipeListProps) => {
   const renderRecipeCard = ({ item }: { item: Recipe }) => (
     <View style={styles.cardContainer}>
-      {/*<ReusableCard initialLiked={item.isLiked} />*/}
-      <ReusableCard initialLiked={true} />
+      <ReusableCard
+        userAvatar={item.userAvatar}
+        initialLiked={item.isLiked || false}
+        recipeImage={item.recipeImage}
+        userName={item.userName}
+        description={item.description}
+      />
     </View>
   );
 
