@@ -1,12 +1,12 @@
 import { View } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
-import { RecipeList } from '@/features/recipeList/ui/RecipeList';
+import { SettingsScreen } from '@/screens/settings/SettingsScreen';
 
 export default function App() {
   return (
     <SafeAreaProvider>
       <View style={{ flex: 1, backgroundColor: '#fff' }}>
-        <RecipeList />
+        <SettingsScreen />
       </View>
     </SafeAreaProvider>
   );
