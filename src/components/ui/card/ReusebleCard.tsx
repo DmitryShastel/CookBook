@@ -5,11 +5,11 @@ import { styles } from '@/components/ui/card/ReusableCard.style';
 import { RecipeCardProps } from '@/components/ui/card/ReusableCard.types';
 
 export const ReusableCard = ({
+  initialLiked = false,
   userName,
   userAvatar,
   recipeImage,
   description,
-  initialLiked = false,
 }: RecipeCardProps) => {
   return (
     <View style={styles.card}>
