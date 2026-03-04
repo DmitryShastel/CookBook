@@ -5,7 +5,7 @@ import { RecipeList } from '@/features/recipeList/ui/RecipeList';
 export default function App() {
   return (
     <SafeAreaProvider>
-      <View>
+      <View style={{ flex: 1, backgroundColor: '#fff' }}>
         <RecipeList />
       </View>
     </SafeAreaProvider>
