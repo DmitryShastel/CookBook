@@ -1,4 +1,3 @@
-import React from 'react';
 import { Image, Text, View } from 'react-native';
 import { styles } from '@/components/ui/userInfo/ReusableUserInfo.style';
 import { UserInfoProps } from '@/components/ui/userInfo/ReusableUserInfo.types';
