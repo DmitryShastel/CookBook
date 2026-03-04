@@ -1,22 +1,12 @@
-import {
-  View,
-  Text,
-  TextInput,
-  TouchableOpacity,
-  StyleSheet,
-  Alert,
-} from 'react-native';
+import { View, Text, TextInput, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { Formik } from 'formik';
 import {
   SignUpFormData,
   signUpValidationSchema,
 } from '@/features/auth/model/lib/SignUpValidation';
-
-interface SignUpFormProps {
-  onSubmit?: (values: SignUpFormData) => void;
-  onLogin?: () => void;
-}
+import { SignUpFormProps } from '@/features/auth/model/types/SignUpForm';
+import { styles } from '@/features/auth/ui/signUpForm/SignUpForm.styles';
 
 export const SignUpForm = ({ onSubmit, onLogin }: SignUpFormProps) => {
   const handleSubmit = async (values: SignUpFormData) => {
@@ -25,10 +15,9 @@ export const SignUpForm = ({ onSubmit, onLogin }: SignUpFormProps) => {
         await onSubmit(values);
       } else {
         console.log('Sign up values:', values);
-        Alert.alert('Success', 'Account created successfully!');
       }
     } catch (error) {
-      Alert.alert('Error', 'Failed to create account');
+      console.log(error);
     }
   };
 
@@ -54,7 +43,6 @@ export const SignUpForm = ({ onSubmit, onLogin }: SignUpFormProps) => {
         dirty,
       }) => (
         <View style={styles.container}>
-          {/* Name Input */}
           <View style={styles.inputContainer}>
             <Icon name="person-outline" size={22} style={styles.icon} />
             <TextInput
@@ -69,7 +57,6 @@ export const SignUpForm = ({ onSubmit, onLogin }: SignUpFormProps) => {
             <Text style={styles.errorText}>{errors.name}</Text>
           )}
 
-          {/* Email Input */}
           <View style={styles.inputContainer}>
             <Icon name="mail-outline" size={22} style={styles.icon} />
             <TextInput
@@ -86,7 +73,6 @@ export const SignUpForm = ({ onSubmit, onLogin }: SignUpFormProps) => {
             <Text style={styles.errorText}>{errors.email}</Text>
           )}
 
-          {/* Password Input */}
           <View style={styles.inputContainer}>
             <Icon name="lock-closed-outline" size={22} style={styles.icon} />
             <TextInput
@@ -102,7 +88,6 @@ export const SignUpForm = ({ onSubmit, onLogin }: SignUpFormProps) => {
             <Text style={styles.errorText}>{errors.password}</Text>
           )}
 
-          {/* Confirm Password Input */}
           <View style={styles.inputContainer}>
             <Icon name="lock-closed-outline" size={22} style={styles.icon} />
             <TextInput
@@ -118,7 +103,6 @@ export const SignUpForm = ({ onSubmit, onLogin }: SignUpFormProps) => {
             <Text style={styles.errorText}>{errors.confirmPassword}</Text>
           )}
 
-          {/* Sign Up Button */}
           <TouchableOpacity
             style={[
               styles.button,
@@ -130,7 +114,6 @@ export const SignUpForm = ({ onSubmit, onLogin }: SignUpFormProps) => {
             <Text style={styles.buttonText}>Create Account</Text>
           </TouchableOpacity>
 
-          {/* Login Link */}
           {onLogin && (
             <TouchableOpacity onPress={onLogin}>
               <Text style={styles.loginText}>
@@ -144,63 +127,3 @@ export const SignUpForm = ({ onSubmit, onLogin }: SignUpFormProps) => {
     </Formik>
   );
 };
-
-const styles = StyleSheet.create({
-  button: {
-    alignItems: 'center',
-    backgroundColor: '#1E90FF',
-    borderRadius: 8,
-    height: 50,
-    justifyContent: 'center',
-    marginBottom: 15,
-    marginTop: 20,
-    width: '100%',
-  },
-  buttonDisabled: {
-    backgroundColor: '#87CEEB',
-    opacity: 0.7,
-  },
-  buttonText: {
-    color: '#fff',
-    fontSize: 16,
-    fontWeight: '600',
-  },
-  container: {
-    width: '100%',
-  },
-  errorText: {
-    alignSelf: 'flex-start',
-    color: '#ff4444',
-    fontSize: 12,
-    marginBottom: 15,
-    marginLeft: 5,
-  },
-  icon: {
-    color: '#666',
-    marginRight: 10,
-  },
-  input: {
-    color: '#333',
-    flex: 1,
-    height: '100%',
-  },
-  inputContainer: {
-    alignItems: 'center',
-    backgroundColor: '#f5f5f5',
-    borderRadius: 8,
-    flexDirection: 'row',
-    height: 50,
-    marginBottom: 5,
-    paddingHorizontal: 10,
-    width: '100%',
-  },
-  loginLink: {
-    color: '#1E90FF',
-    fontWeight: '600',
-  },
-  loginText: {
-    color: '#666',
-    fontSize: 14,
-    textAlign: 'center',
-  },
-});
