@@ -16,6 +16,7 @@ export const styles = StyleSheet.create({
   description: {
     color: '#666',
     fontSize: 14,
+    height: 60,
     lineHeight: 20,
     marginBottom: 12,
   },
@@ -28,6 +29,7 @@ export const styles = StyleSheet.create({
   userContainer: {
     alignItems: 'center',
     flexDirection: 'row',
+    height: 60,
     marginBottom: 12,
   },
 });
