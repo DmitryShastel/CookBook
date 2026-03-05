@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { TextInput } from 'react-native';
+import { useState } from 'react';
+import { Input } from 'react-native-elements';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { InputInterface } from '@/components/ui/input/ReusableInput.types';
 import { styles } from '@/components/ui/input/ReusableInput.style';
@@ -28,16 +28,18 @@ export const ReusableInput = ({
 
   return (
     <SafeAreaView style={style}>
-      <TextInput
-        style={[styles.input, inputStyle]}
-        onChangeText={handleChangeText}
+      <Input
         value={value}
+        onChangeText={handleChangeText}
         placeholder={placeholder}
         placeholderTextColor="#999"
         accessibilityLabel={accessibilityLabel}
         secureTextEntry={secureTextEntry}
         keyboardType={keyboardType}
         autoCapitalize={autoCapitalize}
+        inputStyle={[styles.input, inputStyle]}
+        containerStyle={styles.container}
+        inputContainerStyle={styles.inputContainer}
       />
     </SafeAreaView>
   );
