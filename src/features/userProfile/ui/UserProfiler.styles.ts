@@ -26,19 +26,19 @@ export const styles = StyleSheet.create({
     marginLeft: 10,
   },
   logoutButton: {
-    alignItems: 'center',
     backgroundColor: '#ff4444',
     borderRadius: 8,
-    flexDirection: 'row',
-    justifyContent: 'center',
     paddingHorizontal: 20,
     paddingVertical: 14,
+  },
+  logoutIcon: {
+    marginRight: 10,
   },
   logoutText: {
     color: '#fff',
     fontSize: 16,
     fontWeight: '600',
-    marginLeft: 10,
+    marginLeft: 0,
   },
   userInfoSection: {
     marginBottom: 20,
