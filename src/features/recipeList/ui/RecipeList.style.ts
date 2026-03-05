@@ -6,8 +6,9 @@ export const styles = StyleSheet.create({
     width: '50%',
   },
   columnWrapper: {
+    gap: 8,
     justifyContent: 'space-between',
-    marginHorizontal: 2,
+    paddingHorizontal: 8,
   },
   container: {
     backgroundColor: '#f5f5f5',
@@ -20,7 +21,6 @@ export const styles = StyleSheet.create({
     textAlign: 'center',
   },
   list: {
-    paddingHorizontal: 8,
     paddingVertical: 12,
   },
   loader: {
