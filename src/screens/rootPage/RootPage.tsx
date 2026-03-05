@@ -33,6 +33,11 @@ export const RootPage = ({
   const handleProfile = () => {
     navigation.navigate('Profile');
   };
+
+  const handleSettings = () => {
+    navigation.navigate('Settings');
+  };
+
   return (
     <SafeAreaView style={styles.safeArea}>
       <StatusBar barStyle="dark-content" backgroundColor="#fff" />
@@ -85,7 +90,8 @@ export const RootPage = ({
               color={activeTab === 'settings' ? '#1E90FF' : '#999'}
             />
           }
-          onPress={() => onTabPress?.('settings')}
+          // onPress={() => onTabPress?.('settings')}
+          onPress={handleSettings}
           buttonStyle={styles.tabButton}
         />
 
