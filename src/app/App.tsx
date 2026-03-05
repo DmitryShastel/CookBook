@@ -1,6 +1,6 @@
 import { View } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
-import { ReusableLike } from '@/components/ui/like/ReusableLike';
+import { ReusableSettingItem } from '@/components/ui/settingsItem/ReusebleSettingsItem';
 
 export default function App() {
   return (
@@ -21,7 +21,7 @@ export default function App() {
     // </SafeAreaProvider>
     <SafeAreaProvider>
       <View style={{ flex: 1, backgroundColor: '#fff' }}>
-        <ReusableLike />
+        <ReusableSettingItem />
       </View>
     </SafeAreaProvider>
   );
