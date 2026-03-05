@@ -1,4 +1,5 @@
-import { View, Text, ScrollView, SafeAreaView, StatusBar } from 'react-native';
+import { View, ScrollView, SafeAreaView, StatusBar } from 'react-native';
+import { Text } from 'react-native-elements';
 import { UserProfile } from '@/features/userProfile/ui/UserProfile';
 import { styles } from '@/screens/userProfile/UserProfileScreen.styles';
 
@@ -12,7 +13,9 @@ export const UserProfileScreen = () => {
       <StatusBar barStyle="dark-content" backgroundColor="#fff" />
 
       <View style={styles.header}>
-        <Text style={styles.headerTitle}>Profile</Text>
+        <Text style={styles.headerTitle} h1>
+          Profile
+        </Text>
       </View>
 
       <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
