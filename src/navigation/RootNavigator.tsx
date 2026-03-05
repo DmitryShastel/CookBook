@@ -1,13 +1,14 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { RootPage } from '@/screens/rootPage/RootPage';
-import { createStaticNavigation } from '@react-navigation/native';
 import { UserProfileScreen } from '@/screens/userProfile/UserProfileScreen';
 
-const RootStack = createNativeStackNavigator({
-  screens: {
-    RootPage: RootPage,
-    Profile: UserProfileScreen,
-  },
-});
+const Stack = createNativeStackNavigator();
 
-export const Navigation = createStaticNavigation(RootStack);
+export function RootStack() {
+  return (
+    <Stack.Navigator>
+      <Stack.Screen name="Home" component={RootPage} />
+      {/*<Stack.Screen name="profile" component={UserProfileScreen} />*/}
+    </Stack.Navigator>
+  );
+}
