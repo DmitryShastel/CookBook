@@ -3,7 +3,10 @@ import { StyleSheet } from 'react-native';
 export const styles = StyleSheet.create({
   likeButton: {
     alignItems: 'center',
+    backgroundColor: 'transparent',
     flexDirection: 'row',
+    paddingHorizontal: 0,
+    paddingVertical: 0,
   },
   likeContainer: {
     borderTopColor: '#f0f0f0',
@@ -11,15 +14,12 @@ export const styles = StyleSheet.create({
     paddingTop: 12,
   },
   likeIcon: {
-    fontSize: 20,
     marginRight: 8,
   },
   likeText: {
     color: '#666',
     fontSize: 14,
-  },
-  likedIcon: {
-    color: '#ff3b30',
+    marginLeft: 0,
   },
   likedText: {
     color: '#ff3b30',

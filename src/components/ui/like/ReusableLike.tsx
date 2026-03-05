@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import { View, Text, TouchableOpacity } from 'react-native';
+import { View } from 'react-native';
+import { Button, Icon } from 'react-native-elements';
 import { LikeButtonProps } from '@/components/ui/like/ReusableLike.types';
 import { styles } from '@/components/ui/like/ReusableLike.style';
 
@@ -18,14 +19,21 @@ export const ReusableLike = ({ initialLiked = false }: LikeButtonProps) => {
 
   return (
     <View style={styles.likeContainer}>
-      <TouchableOpacity onPress={handleLike} style={styles.likeButton}>
-        <Text style={[styles.likeIcon, liked && styles.likedIcon]}>
-          {liked ? '❤️' : '🤍'}
-        </Text>
-        <Text style={[styles.likeText, liked && styles.likedText]}>
-          {likesCount} {likesCount === 1 ? 'like' : 'likes'}
-        </Text>
-      </TouchableOpacity>
+      <Button
+        type="clear"
+        onPress={handleLike}
+        icon={
+          <Icon
+            name={liked ? 'favorite' : 'favorite-border'}
+            color={liked ? '#ff3b30' : '#666'}
+            size={24}
+          />
+        }
+        title={` ${likesCount} ${likesCount === 1 ? 'like' : 'likes'}`}
+        titleStyle={[styles.likeText, liked && styles.likedText]}
+        buttonStyle={styles.likeButton}
+        iconContainerStyle={styles.likeIcon}
+      />
     </View>
   );
 };
