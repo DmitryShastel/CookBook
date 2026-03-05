@@ -8,14 +8,11 @@ export const styles = StyleSheet.create({
     justifyContent: 'center',
     paddingHorizontal: 20,
   },
-  logo: {
-    height: 120,
+  logoContainer: {
     marginBottom: 20,
-    resizeMode: 'contain',
-    width: 120,
   },
   title: {
-    color: 'black',
+    color: '#000',
     fontSize: 32,
     fontWeight: 'bold',
     marginBottom: 40,
