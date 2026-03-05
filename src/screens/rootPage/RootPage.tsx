@@ -14,7 +14,7 @@ interface RootScreenProps {
 
 export const RootPage = ({
   children,
-  title = 'Home',
+  // title = 'Home',
   showBackButton = false,
   onBackPress,
   activeTab = 'home',
@@ -39,7 +39,7 @@ export const RootPage = ({
         </View>
 
         <Text style={styles.headerTitle} h4>
-          {title}
+          {/*{title}*/}
         </Text>
 
         <View style={styles.headerRight} />
