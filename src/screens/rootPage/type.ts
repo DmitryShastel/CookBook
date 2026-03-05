@@ -9,6 +9,7 @@ export interface RootScreenProps {
   onBackPress?: () => void;
   activeTab?: 'home' | 'settings' | 'profile';
   onTabPress?: (tab: 'home' | 'settings' | 'profile') => void;
+  hideTabs?: boolean;
 }
 
 export type HomeScreenNavigationProp = NativeStackNavigationProp<

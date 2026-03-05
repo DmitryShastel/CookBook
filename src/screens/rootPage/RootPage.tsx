@@ -14,15 +14,16 @@ export const RootPage = ({
   onBackPress,
   activeTab = 'home',
   onTabPress,
+  hideTabs = false,
 }: RootScreenProps) => {
   const navigation = useNavigation<HomeScreenNavigationProp>();
 
   const handleProfile = () => {
-    navigation.navigate('Profile');
+    navigation.navigate('MainTabs', { screen: 'Profile' });
   };
 
   const handleSettings = () => {
-    navigation.navigate('Settings');
+    navigation.navigate('MainTabs', { screen: 'Settings' });
   };
 
   return (
@@ -51,50 +52,53 @@ export const RootPage = ({
       </View>
 
       <View style={styles.content}>{children}</View>
+      {!hideTabs && (
+        <View style={styles.tabBar}>
+          <Button
+            type="clear"
+            icon={
+              <Icon
+                name={activeTab === 'home' ? 'home' : 'home-outline'}
+                type="ionicon"
+                size={24}
+                color={activeTab === 'home' ? '#1E90FF' : '#999'}
+              />
+            }
+            onPress={() => onTabPress?.('home')}
+            buttonStyle={styles.tabButton}
+          />
 
-      <View style={styles.tabBar}>
-        <Button
-          type="clear"
-          icon={
-            <Icon
-              name={activeTab === 'home' ? 'home' : 'home-outline'}
-              type="ionicon"
-              size={24}
-              color={activeTab === 'home' ? '#1E90FF' : '#999'}
-            />
-          }
-          onPress={() => onTabPress?.('home')}
-          buttonStyle={styles.tabButton}
-        />
+          <Button
+            type="clear"
+            icon={
+              <Icon
+                name={
+                  activeTab === 'settings' ? 'settings' : 'settings-outline'
+                }
+                type="ionicon"
+                size={24}
+                color={activeTab === 'settings' ? '#1E90FF' : '#999'}
+              />
+            }
+            onPress={handleSettings}
+            buttonStyle={styles.tabButton}
+          />
 
-        <Button
-          type="clear"
-          icon={
-            <Icon
-              name={activeTab === 'settings' ? 'settings' : 'settings-outline'}
-              type="ionicon"
-              size={24}
-              color={activeTab === 'settings' ? '#1E90FF' : '#999'}
-            />
-          }
-          onPress={handleSettings}
-          buttonStyle={styles.tabButton}
-        />
-
-        <Button
-          type="clear"
-          icon={
-            <Icon
-              name={activeTab === 'profile' ? 'person' : 'person-outline'}
-              type="ionicon"
-              size={24}
-              color={activeTab === 'profile' ? '#1E90FF' : '#999'}
-            />
-          }
-          onPress={handleProfile}
-          buttonStyle={styles.tabButton}
-        />
-      </View>
+          <Button
+            type="clear"
+            icon={
+              <Icon
+                name={activeTab === 'profile' ? 'person' : 'person-outline'}
+                type="ionicon"
+                size={24}
+                color={activeTab === 'profile' ? '#1E90FF' : '#999'}
+              />
+            }
+            onPress={handleProfile}
+            buttonStyle={styles.tabButton}
+          />
+        </View>
+      )}
     </SafeAreaView>
   );
 };

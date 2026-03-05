@@ -1,5 +1,8 @@
 export type RootStackParamList = {
-  MainTabs: undefined;
+  Home: undefined;
   Login: undefined;
   SignUp: undefined;
+  MainTabs: undefined;
+  Profile: undefined;
+  Settings: undefined;
 };

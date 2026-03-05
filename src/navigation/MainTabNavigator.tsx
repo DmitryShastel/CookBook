@@ -1,6 +1,5 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { RootPage } from '@/screens/rootPage/RootPage';
-import { HomeScreen } from '@/screens/home/HomeScreen';
 import { SettingsScreen } from '@/screens/settings/SettingsScreen';
 import { UserProfileScreen } from '@/screens/userProfile/UserProfileScreen';
 
@@ -25,11 +24,12 @@ export const MainTabNavigator = () => {
               navigation.navigate(tab.charAt(0).toUpperCase() + tab.slice(1));
             }}
             showBackButton={false}
+            hideTabs={false}
           ></RootPage>
         );
       }}
     >
-      <Tab.Screen name="Home" component={HomeScreen} />
+      <Tab.Screen name="Home" component={() => {}} />
       <Tab.Screen name="Settings" component={SettingsScreen} />
       <Tab.Screen name="Profile" component={UserProfileScreen} />
     </Tab.Navigator>
