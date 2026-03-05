@@ -8,12 +8,9 @@ export const styles = StyleSheet.create({
     paddingHorizontal: 24,
     paddingTop: 60,
   },
-  logo: {
+  logoContainer: {
     alignSelf: 'center',
-    borderRadius: 50,
-    height: 100,
     marginBottom: 20,
-    width: 100,
   },
   subtitle: {
     color: '#666',

@@ -1,5 +1,5 @@
-import { View, Text, TextInput, TouchableOpacity } from 'react-native';
-import Icon from 'react-native-vector-icons/Ionicons';
+import { View } from 'react-native';
+import { Input, Button, Icon } from 'react-native-elements';
 import { Formik } from 'formik';
 import {
   SignUpFormData,
@@ -43,84 +43,116 @@ export const SignUpForm = ({ onSubmit, onLogin }: SignUpFormProps) => {
         dirty,
       }) => (
         <View style={styles.container}>
-          <View style={styles.inputContainer}>
-            <Icon name="person-outline" size={22} style={styles.icon} />
-            <TextInput
-              style={styles.input}
-              placeholder="Full Name"
-              onChangeText={handleChange('name')}
-              onBlur={handleBlur('name')}
-              value={values.name}
-            />
-          </View>
-          {errors.name && touched.name && (
-            <Text style={styles.errorText}>{errors.name}</Text>
-          )}
+          <Input
+            placeholder="Full Name"
+            leftIcon={
+              <Icon
+                name="person-outline"
+                type="ionicon"
+                size={22}
+                color="#666"
+              />
+            }
+            leftIconContainerStyle={styles.iconContainer}
+            onChangeText={handleChange('name')}
+            onBlur={handleBlur('name')}
+            value={values.name}
+            errorMessage={touched.name && errors.name ? errors.name : ''}
+            errorStyle={styles.errorText}
+            inputContainerStyle={styles.inputContainer}
+            inputStyle={styles.input}
+            containerStyle={styles.inputWrapper}
+          />
 
-          <View style={styles.inputContainer}>
-            <Icon name="mail-outline" size={22} style={styles.icon} />
-            <TextInput
-              style={styles.input}
-              placeholder="Email"
-              keyboardType="email-address"
-              autoCapitalize="none"
-              onChangeText={handleChange('email')}
-              onBlur={handleBlur('email')}
-              value={values.email}
-            />
-          </View>
-          {errors.email && touched.email && (
-            <Text style={styles.errorText}>{errors.email}</Text>
-          )}
+          <Input
+            placeholder="Email"
+            leftIcon={
+              <Icon name="mail-outline" type="ionicon" size={22} color="#666" />
+            }
+            leftIconContainerStyle={styles.iconContainer}
+            onChangeText={handleChange('email')}
+            onBlur={handleBlur('email')}
+            value={values.email}
+            keyboardType="email-address"
+            autoCapitalize="none"
+            errorMessage={touched.email && errors.email ? errors.email : ''}
+            errorStyle={styles.errorText}
+            inputContainerStyle={styles.inputContainer}
+            inputStyle={styles.input}
+            containerStyle={styles.inputWrapper}
+          />
 
-          <View style={styles.inputContainer}>
-            <Icon name="lock-closed-outline" size={22} style={styles.icon} />
-            <TextInput
-              style={styles.input}
-              placeholder="Password"
-              secureTextEntry
-              onChangeText={handleChange('password')}
-              onBlur={handleBlur('password')}
-              value={values.password}
-            />
-          </View>
-          {errors.password && touched.password && (
-            <Text style={styles.errorText}>{errors.password}</Text>
-          )}
+          <Input
+            placeholder="Password"
+            leftIcon={
+              <Icon
+                name="lock-closed-outline"
+                type="ionicon"
+                size={22}
+                color="#666"
+              />
+            }
+            leftIconContainerStyle={styles.iconContainer}
+            onChangeText={handleChange('password')}
+            onBlur={handleBlur('password')}
+            value={values.password}
+            secureTextEntry
+            autoCapitalize="none"
+            errorMessage={
+              touched.password && errors.password ? errors.password : ''
+            }
+            errorStyle={styles.errorText}
+            inputContainerStyle={styles.inputContainer}
+            inputStyle={styles.input}
+            containerStyle={styles.inputWrapper}
+          />
 
-          <View style={styles.inputContainer}>
-            <Icon name="lock-closed-outline" size={22} style={styles.icon} />
-            <TextInput
-              style={styles.input}
-              placeholder="Confirm Password"
-              secureTextEntry
-              onChangeText={handleChange('confirmPassword')}
-              onBlur={handleBlur('confirmPassword')}
-              value={values.confirmPassword}
-            />
-          </View>
-          {errors.confirmPassword && touched.confirmPassword && (
-            <Text style={styles.errorText}>{errors.confirmPassword}</Text>
-          )}
+          <Input
+            placeholder="Confirm Password"
+            leftIcon={
+              <Icon
+                name="lock-closed-outline"
+                type="ionicon"
+                size={22}
+                color="#666"
+              />
+            }
+            leftIconContainerStyle={styles.iconContainer}
+            onChangeText={handleChange('confirmPassword')}
+            onBlur={handleBlur('confirmPassword')}
+            value={values.confirmPassword}
+            secureTextEntry
+            autoCapitalize="none"
+            errorMessage={
+              touched.confirmPassword && errors.confirmPassword
+                ? errors.confirmPassword
+                : ''
+            }
+            errorStyle={styles.errorText}
+            inputContainerStyle={styles.inputContainer}
+            inputStyle={styles.input}
+            containerStyle={styles.inputWrapper}
+          />
 
-          <TouchableOpacity
-            style={[
-              styles.button,
-              (!isValid || !dirty) && styles.buttonDisabled,
-            ]}
+          <Button
+            title="Create Account"
             onPress={handleSubmit}
             disabled={!isValid || !dirty}
-          >
-            <Text style={styles.buttonText}>Create Account</Text>
-          </TouchableOpacity>
+            buttonStyle={styles.button}
+            titleStyle={styles.buttonText}
+            disabledStyle={styles.buttonDisabled}
+            disabledTitleStyle={styles.buttonText}
+            containerStyle={styles.buttonContainer}
+          />
 
           {onLogin && (
-            <TouchableOpacity onPress={onLogin}>
-              <Text style={styles.loginText}>
-                Already have an account?{' '}
-                <Text style={styles.loginLink}>Sign In</Text>
-              </Text>
-            </TouchableOpacity>
+            <Button
+              title="Already have an account? Sign In"
+              type="clear"
+              onPress={onLogin}
+              titleStyle={styles.loginText}
+              containerStyle={styles.loginContainer}
+            />
           )}
         </View>
       )}

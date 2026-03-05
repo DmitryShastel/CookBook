@@ -2,18 +2,17 @@ import { StyleSheet } from 'react-native';
 
 export const styles = StyleSheet.create({
   button: {
-    alignItems: 'center',
     backgroundColor: '#1E90FF',
     borderRadius: 8,
     height: 50,
-    justifyContent: 'center',
+  },
+  buttonContainer: {
     marginBottom: 15,
     marginTop: 20,
     width: '100%',
   },
   buttonDisabled: {
     backgroundColor: '#87CEEB',
-    opacity: 0.7,
   },
   buttonText: {
     color: '#fff',
@@ -24,38 +23,34 @@ export const styles = StyleSheet.create({
     width: '100%',
   },
   errorText: {
-    alignSelf: 'flex-start',
     color: '#ff4444',
     fontSize: 12,
-    marginBottom: 15,
-    marginLeft: 5,
+    marginTop: -15,
   },
-  icon: {
-    color: '#666',
+  iconContainer: {
     marginRight: 10,
   },
   input: {
     color: '#333',
-    flex: 1,
-    height: '100%',
+    fontSize: 16,
+    paddingVertical: 0,
   },
   inputContainer: {
-    alignItems: 'center',
     backgroundColor: '#f5f5f5',
+    borderBottomWidth: 0,
     borderRadius: 8,
-    flexDirection: 'row',
     height: 50,
-    marginBottom: 5,
     paddingHorizontal: 10,
-    width: '100%',
   },
-  loginLink: {
-    color: '#1E90FF',
-    fontWeight: '600',
+  inputWrapper: {
+    marginBottom: 5,
+    paddingHorizontal: 0,
+  },
+  loginContainer: {
+    marginTop: 10,
   },
   loginText: {
     color: '#666',
     fontSize: 14,
-    textAlign: 'center',
   },
 });

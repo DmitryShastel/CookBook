@@ -1,12 +1,12 @@
 import { View } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
-import { LoginScreen } from '@/screens/auth/login/LoginScreen';
+import { SignUpScreen } from '@/screens/auth/signUp/SignUpScreen';
 
 export default function App() {
   return (
     <SafeAreaProvider>
       <View style={{ flex: 1, backgroundColor: '#fff' }}>
-        <LoginScreen />
+        <SignUpScreen />
       </View>
     </SafeAreaProvider>
   );
