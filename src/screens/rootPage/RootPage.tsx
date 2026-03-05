@@ -2,6 +2,9 @@ import React, { ReactNode } from 'react';
 import { View, SafeAreaView, StatusBar } from 'react-native';
 import { Text, Icon, Button } from 'react-native-elements';
 import { styles } from '@/screens/rootPage/RootPage.styles';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack/src';
+import { RootStackParamList } from '@/navigation/RootNavigator';
+import { useNavigation } from '@react-navigation/native/src';
 
 interface RootScreenProps {
   children: ReactNode;
@@ -12,6 +15,11 @@ interface RootScreenProps {
   onTabPress?: (tab: 'home' | 'settings' | 'profile') => void;
 }
 
+type HomeScreenNavigationProp = NativeStackNavigationProp<
+  RootStackParamList,
+  'MainTabs'
+>;
+
 export const RootPage = ({
   children,
   // title = 'Home',
@@ -20,6 +28,11 @@ export const RootPage = ({
   activeTab = 'home',
   onTabPress,
 }: RootScreenProps) => {
+  const navigation = useNavigation<HomeScreenNavigationProp>();
+
+  const handleProfile = () => {
+    navigation.navigate('Profile');
+  };
   return (
     <SafeAreaView style={styles.safeArea}>
       <StatusBar barStyle="dark-content" backgroundColor="#fff" />
@@ -86,7 +99,7 @@ export const RootPage = ({
               color={activeTab === 'profile' ? '#1E90FF' : '#999'}
             />
           }
-          onPress={() => onTabPress?.('profile')}
+          onPress={handleProfile}
           buttonStyle={styles.tabButton}
         />
       </View>
