@@ -1,5 +1,5 @@
-import { View, Text, TouchableOpacity } from 'react-native';
-import Icon from 'react-native-vector-icons/Ionicons';
+import { View } from 'react-native';
+import { ListItem, Icon } from 'react-native-elements';
 import { styles } from '@/components/ui/settingsItem/ReusebleSettingsItem.styles';
 import { SettingItemProps } from '@/components/ui/settingsItem/ReusebleSettingsItem.types';
 
@@ -11,20 +11,22 @@ export const ReusableSettingItem = ({
   value,
   onPress,
 }: SettingItemProps) => (
-  <TouchableOpacity
-    style={styles.settingItem}
+  <ListItem
+    Component={ListItem}
     onPress={onPress}
+    containerStyle={styles.settingItem}
+    pad={16}
     activeOpacity={0.7}
   >
     <View style={styles.leftContainer}>
       <View style={[styles.iconContainer, { backgroundColor: iconBgColor }]}>
-        <Icon name={icon} size={22} color={iconColor} />
+        <Icon name={icon} type="ionicon" size={22} color={iconColor} />
       </View>
-      <View style={styles.textContainer}>
-        <Text style={styles.title}>{title}</Text>
-        <Text style={styles.value}>{value}</Text>
-      </View>
+      <ListItem.Content style={styles.textContainer}>
+        <ListItem.Title style={styles.title}>{title}</ListItem.Title>
+        <ListItem.Subtitle style={styles.value}>{value}</ListItem.Subtitle>
+      </ListItem.Content>
     </View>
-    <Icon name="chevron-forward-outline" size={20} color="#999" />
-  </TouchableOpacity>
+    <ListItem.Chevron size={20} color="#999" />
+  </ListItem>
 );

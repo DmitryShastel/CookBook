@@ -15,14 +15,11 @@ export const styles = StyleSheet.create({
     flex: 1,
   },
   settingItem: {
-    alignItems: 'center',
     backgroundColor: '#fff',
     borderBottomColor: '#f0f0f0',
     borderBottomWidth: 1,
-    flexDirection: 'row',
-    justifyContent: 'space-between',
     paddingHorizontal: 16,
-    paddingVertical: 12,
+    paddingVertical: 0,
   },
   textContainer: {
     flex: 1,
