@@ -1,12 +1,12 @@
 import { View } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
-import { UserProfileScreen } from '@/screens/userProfile/UserProfileScreen';
+import { UserProfile } from '@/features/userProfile/ui/UserProfile';
 
 export default function App() {
   return (
     <SafeAreaProvider>
       <View style={{ flex: 1, backgroundColor: '#fff' }}>
-        <UserProfileScreen />
+        <UserProfile />
       </View>
     </SafeAreaProvider>
   );
