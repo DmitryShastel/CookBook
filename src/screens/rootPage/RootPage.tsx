@@ -12,7 +12,7 @@ interface RootScreenProps {
   onTabPress?: (tab: 'home' | 'settings' | 'profile') => void;
 }
 
-export const RootScreen = ({
+export const RootPage = ({
   children,
   title = 'Home',
   showBackButton = false,
@@ -24,7 +24,6 @@ export const RootScreen = ({
     <SafeAreaView style={styles.safeArea}>
       <StatusBar barStyle="dark-content" backgroundColor="#fff" />
 
-      {/* Header */}
       <View style={styles.header}>
         <View style={styles.headerLeft}>
           {showBackButton && (
@@ -46,10 +45,8 @@ export const RootScreen = ({
         <View style={styles.headerRight} />
       </View>
 
-      {/* Content */}
       <View style={styles.content}>{children}</View>
 
-      {/* Bottom Tabs */}
       <View style={styles.tabBar}>
         <Button
           type="clear"
