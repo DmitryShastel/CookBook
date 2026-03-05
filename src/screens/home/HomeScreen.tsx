@@ -1,8 +1,26 @@
 import { View, Text } from 'react-native';
 import { Button, Icon } from 'react-native-elements';
 import { styles } from '@/screens/home/HomeScreen.styles';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import { RootStackParamList } from '@/navigation/RootNavigator';
+import { useNavigation } from '@react-navigation/native';
+
+type HomeScreenNavigationProp = NativeStackNavigationProp<
+  RootStackParamList,
+  'MainTabs'
+>;
 
 export const HomeScreen = () => {
+  const navigation = useNavigation<HomeScreenNavigationProp>();
+
+  const handleSignIn = () => {
+    navigation.navigate('Login');
+  };
+
+  const handleSignUp = () => {
+    navigation.navigate('SignUp');
+  };
+
   return (
     <View style={styles.container}>
       <View style={styles.content}>
@@ -16,14 +34,14 @@ export const HomeScreen = () => {
       <View style={styles.buttonContainer}>
         <Button
           title="Sign In"
-          onPress={() => {}}
+          onPress={handleSignIn}
           buttonStyle={styles.button}
           titleStyle={styles.buttonTitle}
         />
 
         <Button
           title="Sign Up"
-          onPress={() => {}}
+          onPress={handleSignUp}
           buttonStyle={styles.button}
           titleStyle={styles.buttonTitle}
         />
