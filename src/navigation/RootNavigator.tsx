@@ -4,12 +4,7 @@ import { LoginScreen } from '@/screens/auth/login/LoginScreen';
 import { SignUpScreen } from '@/screens/auth/signUp/SignUpScreen';
 import { UserProfileScreen } from '@/screens/userProfile/UserProfileScreen';
 import { SettingsScreen } from '@/screens/settings/SettingsScreen';
-
-export type RootStackParamList = {
-  MainTabs: undefined;
-  Login: undefined;
-  SignUp: undefined;
-};
+import { RootStackParamList } from '@/navigation/type';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 

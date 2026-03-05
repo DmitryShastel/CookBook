@@ -1,24 +1,11 @@
-import React, { ReactNode } from 'react';
-import { View, SafeAreaView, StatusBar } from 'react-native';
-import { Text, Icon, Button } from 'react-native-elements';
+import { SafeAreaView, StatusBar, View } from 'react-native';
+import { Button, Icon, Text } from 'react-native-elements';
 import { styles } from '@/screens/rootPage/RootPage.styles';
-import { NativeStackNavigationProp } from '@react-navigation/native-stack/src';
-import { RootStackParamList } from '@/navigation/RootNavigator';
 import { useNavigation } from '@react-navigation/native/src';
-
-interface RootScreenProps {
-  children: ReactNode;
-  title?: string;
-  showBackButton?: boolean;
-  onBackPress?: () => void;
-  activeTab?: 'home' | 'settings' | 'profile';
-  onTabPress?: (tab: 'home' | 'settings' | 'profile') => void;
-}
-
-type HomeScreenNavigationProp = NativeStackNavigationProp<
-  RootStackParamList,
-  'MainTabs'
->;
+import {
+  HomeScreenNavigationProp,
+  RootScreenProps,
+} from '@/screens/rootPage/type';
 
 export const RootPage = ({
   children,
@@ -90,7 +77,6 @@ export const RootPage = ({
               color={activeTab === 'settings' ? '#1E90FF' : '#999'}
             />
           }
-          // onPress={() => onTabPress?.('settings')}
           onPress={handleSettings}
           buttonStyle={styles.tabButton}
         />

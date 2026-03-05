@@ -1,14 +1,8 @@
-import { View, Text } from 'react-native';
+import { Text, View } from 'react-native';
 import { Button, Icon } from 'react-native-elements';
 import { styles } from '@/screens/home/HomeScreen.styles';
-import { NativeStackNavigationProp } from '@react-navigation/native-stack';
-import { RootStackParamList } from '@/navigation/RootNavigator';
 import { useNavigation } from '@react-navigation/native';
-
-type HomeScreenNavigationProp = NativeStackNavigationProp<
-  RootStackParamList,
-  'MainTabs'
->;
+import { HomeScreenNavigationProp } from '@/screens/rootPage/type';
 
 export const HomeScreen = () => {
   const navigation = useNavigation<HomeScreenNavigationProp>();
