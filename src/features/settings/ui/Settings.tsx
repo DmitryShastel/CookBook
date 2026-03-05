@@ -1,4 +1,5 @@
-import { View, Text } from 'react-native';
+import { View } from 'react-native';
+import { Text } from 'react-native-elements';
 import { ReusableSettingItem } from '@/components/ui/settingsItem/ReusebleSettingsItem';
 import { styles } from '@/features/settings/ui/Settings.styles';
 
