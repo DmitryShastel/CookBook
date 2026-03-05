@@ -1,4 +1,5 @@
-import { View, FlatList, Text, ListRenderItem } from 'react-native';
+import { View, FlatList, ListRenderItem } from 'react-native';
+import { Text } from 'react-native-elements';
 import { MOCK_RECIPES } from '@/features/recipeList/lib/recipe.mock';
 import {
   Recipe,
