@@ -1,9 +1,9 @@
 import { View } from 'react-native';
 import { ListItem, Icon } from 'react-native-elements';
-import { styles } from '@/components/ui/settingsItem/ReusebleSettingsItem.styles';
-import { SettingItemProps } from '@/components/ui/settingsItem/ReusebleSettingsItem.types';
+import { styles } from '@/components/ui/settingsItem/SettingsItem.styles';
+import { SettingItemProps } from '@/components/ui/settingsItem/SettingsItem.types';
 
-export const ReusableSettingItem = ({
+export const SettingItem = ({
   icon,
   iconBgColor,
   iconColor,
