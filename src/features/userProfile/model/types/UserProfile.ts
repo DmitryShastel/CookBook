@@ -1,6 +1,6 @@
 export interface UserProfileProps {
-  userName: string;
-  userAvatar: string;
-  userEmail: string;
+  name: string;
+  avatar: string;
+  email: string;
   onLogout: () => void;
 }
