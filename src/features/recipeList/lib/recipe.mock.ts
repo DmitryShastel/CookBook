@@ -9,7 +9,7 @@ export const MOCK_RECIPES: Recipe[] = [
       'https://images.immediate.co.uk/production/volatile/sites/30/2020/08/chorizo-mozarella-gnocchi-bake-cropped-9ab73a3.jpg',
     description:
       'Chorizo & mozzarella gnocchi bake • Super delicious and easy to make!',
-    likesCount: 124,
+    likesCount: 1,
     isLiked: false,
   },
   {
