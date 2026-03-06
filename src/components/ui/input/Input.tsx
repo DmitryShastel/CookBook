@@ -1,10 +1,10 @@
 import { useState } from 'react';
-import { Input } from 'react-native-elements';
+import { Input as RNInput } from 'react-native-elements';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { InputInterface } from '@/components/ui/input/ReusableInput.types';
 import { styles } from '@/components/ui/input/ReusableInput.style';
 
-export const ReusableInput = ({
+export const Input = ({
   style,
   inputStyle,
   accessibilityLabel,
@@ -28,7 +28,7 @@ export const ReusableInput = ({
 
   return (
     <SafeAreaView style={style}>
-      <Input
+      <RNInput
         value={value}
         onChangeText={handleChangeText}
         placeholder={placeholder}
