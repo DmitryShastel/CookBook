@@ -1,6 +1,6 @@
 import { View } from 'react-native';
 import { Text } from 'react-native-elements';
-import { ReusableSettingItem } from '@/components/ui/settingsItem/ReusebleSettingsItem';
+import { ReusableSettingItem } from '@/components/ui/settingsItem/SettingsItem';
 import { styles } from '@/features/settings/ui/Settings.styles';
 
 export const Settings = () => {
