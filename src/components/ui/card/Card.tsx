@@ -6,7 +6,7 @@ import { styles } from '@/components/ui/card/Card.style';
 import { RecipeCardProps } from '@/components/ui/card/Card.types';
 
 export const Card = ({
-  initialLiked = false,
+  initialLiked,
   userName,
   userAvatar,
   recipeImage,
