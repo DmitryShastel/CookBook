@@ -1,11 +1,11 @@
 import { View } from 'react-native';
-import { Card, Text } from 'react-native-elements';
+import { Card as RNCard, Text } from 'react-native-elements';
 import { ReusableUserInfo } from '@/components/ui/userInfo/ReusableUserInfo';
 import { ReusableLike } from '@/components/ui/like/ReusableLike';
-import { styles } from '@/components/ui/card/ReusableCard.style';
-import { RecipeCardProps } from '@/components/ui/card/ReusableCard.types';
+import { styles } from '@/components/ui/card/Card.style';
+import { RecipeCardProps } from '@/components/ui/card/Card.types';
 
-export const ReusableCard = ({
+export const Card = ({
   initialLiked = false,
   userName,
   userAvatar,
@@ -13,12 +13,12 @@ export const ReusableCard = ({
   description,
 }: RecipeCardProps) => {
   return (
-    <Card containerStyle={styles.card}>
+    <RNCard containerStyle={styles.card}>
       <View style={styles.userContainer}>
         <ReusableUserInfo userAvatar={userAvatar} userName={userName} />
       </View>
 
-      <Card.Image
+      <RNCard.Image
         source={{ uri: recipeImage }}
         style={styles.recipeImage}
         resizeMode="cover"
@@ -26,6 +26,6 @@ export const ReusableCard = ({
 
       <Text style={styles.description}>{description}</Text>
       <ReusableLike initialLiked={initialLiked} />
-    </Card>
+    </RNCard>
   );
 };

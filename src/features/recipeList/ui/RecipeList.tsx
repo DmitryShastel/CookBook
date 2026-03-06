@@ -6,7 +6,7 @@ import {
   RecipeListProps,
 } from '@/features/recipeList/model/types/RecipeList';
 import { styles } from '@/features/recipeList/ui/RecipeList.style';
-import { ReusableCard } from '@/components/ui/card/ReusebleCard';
+import { ReusableCard } from '@/components/ui/card/Card';
 
 export const RecipeList = ({ recipes = MOCK_RECIPES }: RecipeListProps) => {
   const renderRecipeCard = ({ item }: { item: Recipe }) => (
