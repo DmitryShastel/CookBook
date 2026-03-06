@@ -19,10 +19,10 @@ export const LoginForm = ({
         await onSubmit(values);
       } else {
         console.log('Login values:', values);
-        Alert.alert('Успех', 'Вы вошли в систему');
+        Alert.alert('Success', 'You are logged in successfully');
       }
     } catch (error) {
-      Alert.alert('Ошибка', 'Не удалось войти');
+      Alert.alert('Error', 'Could not log in');
     }
   };
 
