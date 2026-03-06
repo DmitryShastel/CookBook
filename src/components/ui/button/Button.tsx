@@ -1,8 +1,8 @@
-import { Button } from 'react-native-elements';
-import { ButtonInterface } from '@/components/ui/button/ReusableButton.types';
-import { styles } from '@/components/ui/button/ReusableButton.styles';
+import { Button as RNButton } from 'react-native-elements';
+import { styles } from '@/components/ui/button/Button.styles';
+import { Props } from '@/components/ui/button/Button.types';
 
-export const ReusableButton = ({
+export const Button = ({
   callback,
   title,
   accessibilityLabel,
@@ -10,11 +10,11 @@ export const ReusableButton = ({
   style,
   textStyle,
   disabled = false,
-}: ButtonInterface) => {
+}: Props) => {
   const isDisabled = disabled || loading;
 
   return (
-    <Button
+    <RNButton
       title={title}
       onPress={callback}
       disabled={isDisabled}
