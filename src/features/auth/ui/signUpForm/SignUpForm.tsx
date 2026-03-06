@@ -11,11 +11,7 @@ import { styles } from '@/features/auth/ui/signUpForm/SignUpForm.styles';
 export const SignUpForm = ({ onSubmit, onLogin }: SignUpFormProps) => {
   const handleSubmit = async (values: SignUpFormData) => {
     try {
-      if (onSubmit) {
-        await onSubmit(values);
-      } else {
-        console.log('Sign up values:', values);
-      }
+      (await onSubmit?.(values)) ?? console.log('Sign up values:', values);
     } catch (error) {
       console.log(error);
     }
