@@ -1,6 +1,6 @@
 import { View } from 'react-native';
 import { Card as RNCard, Text } from 'react-native-elements';
-import { ReusableUserInfo } from '@/components/ui/userInfo/ReusableUserInfo';
+import { ReusableUserInfo } from '@/components/ui/userInfo/UserInfo';
 import { Like } from '@/components/ui/like/Like';
 import { styles } from '@/components/ui/card/Card.style';
 import { RecipeCardProps } from '@/components/ui/card/Card.types';

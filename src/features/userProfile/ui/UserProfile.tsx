@@ -1,6 +1,6 @@
 import { View } from 'react-native';
 import { Text, Button, Icon } from 'react-native-elements';
-import { ReusableUserInfo } from '@/components/ui/userInfo/ReusableUserInfo';
+import { ReusableUserInfo } from '@/components/ui/userInfo/UserInfo';
 import { styles } from '@/features/userProfile/ui/UserProfiler.styles';
 import { UserProfileProps } from '@/features/userProfile/model/types/UserProfile';
 

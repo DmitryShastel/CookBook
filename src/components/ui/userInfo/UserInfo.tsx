@@ -1,9 +1,9 @@
 import { View } from 'react-native';
 import { Avatar, Text } from 'react-native-elements';
-import { styles } from '@/components/ui/userInfo/ReusableUserInfo.style';
-import { UserInfoProps } from '@/components/ui/userInfo/ReusableUserInfo.types';
+import { styles } from '@/components/ui/userInfo/UserInfo.style';
+import { UserInfoProps } from '@/components/ui/userInfo/UserInfo.types';
 
-export const ReusableUserInfo = ({ userName, userAvatar }: UserInfoProps) => {
+export const UserInfo = ({ userName, userAvatar }: UserInfoProps) => {
   return (
     <View style={styles.userContainer}>
       <Avatar
