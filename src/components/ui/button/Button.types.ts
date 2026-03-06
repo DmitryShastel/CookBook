@@ -1,12 +1,12 @@
 import { TextStyle, ViewStyle } from 'react-native';
 
 export interface Props {
-  callback: () => void;
+  onPress: () => void;
   title: string;
-  accessibilityLabel: string;
+  accessibilityLabel?: string;
   style?: ViewStyle;
   textStyle?: TextStyle;
   disabled?: boolean;
   color?: string;
-  loading?: boolean;
+  isLoading?: boolean;
 }

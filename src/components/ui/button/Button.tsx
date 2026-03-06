@@ -3,27 +3,25 @@ import { styles } from '@/components/ui/button/Button.styles';
 import { Props } from '@/components/ui/button/Button.types';
 
 export const Button = ({
-  callback,
+  onPress,
   title,
-  accessibilityLabel,
-  loading = false,
+  isLoading = false,
   style,
   textStyle,
   disabled = false,
 }: Props) => {
-  const isDisabled = disabled || loading;
+  const isDisabled = disabled || isLoading;
 
   return (
     <RNButton
       title={title}
-      onPress={callback}
+      onPress={onPress}
       disabled={isDisabled}
-      loading={loading}
+      loading={isLoading}
       buttonStyle={[styles.button, style]}
       titleStyle={[styles.text, textStyle]}
       disabledStyle={styles.disabled}
       disabledTitleStyle={styles.disabledText}
-      accessibilityLabel={accessibilityLabel}
       activeOpacity={0.7}
     />
   );
