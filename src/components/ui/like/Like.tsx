@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import { View } from 'react-native';
 import { Button, Icon } from 'react-native-elements';
-import { LikeButtonProps } from '@/components/ui/like/ReusableLike.types';
-import { styles } from '@/components/ui/like/ReusableLike.style';
+import { LikeButtonProps } from '@/components/ui/like/Like.types';
+import { styles } from '@/components/ui/like/Like.style';
 
-export const ReusableLike = ({ initialLiked = false }: LikeButtonProps) => {
+export const Like = ({ initialLiked = false }: LikeButtonProps) => {
   const [liked, setLiked] = useState(initialLiked);
   const [likesCount, setLikesCount] = useState(124);
 
