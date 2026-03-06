@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { Input as RNInput } from 'react-native-elements';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { InputInterface } from '@/components/ui/input/ReusableInput.types';
-import { styles } from '@/components/ui/input/ReusableInput.style';
+import { InputInterface } from '@/components/ui/input/Input.types';
+import { styles } from '@/components/ui/input/Input.style';
 
 export const Input = ({
   style,
