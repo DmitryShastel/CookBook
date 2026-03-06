@@ -1,6 +1,6 @@
-import { TextStyle, ViewStyle } from 'react-native/types_generated';
+import { TextStyle, ViewStyle } from 'react-native';
 
-export interface ButtonInterface {
+export interface Props {
   callback: () => void;
   title: string;
   accessibilityLabel: string;
