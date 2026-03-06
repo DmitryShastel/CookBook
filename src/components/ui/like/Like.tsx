@@ -3,6 +3,7 @@ import { View } from 'react-native';
 import { Button, Icon } from 'react-native-elements';
 import { LikeButtonProps } from '@/components/ui/like/Like.types';
 import { styles } from '@/components/ui/like/Like.style';
+import { Pluralize } from '@/utils/Pluralize';
 
 export const Like = ({ initialLiked = false }: LikeButtonProps) => {
   const [liked, setLiked] = useState(initialLiked);
@@ -29,7 +30,7 @@ export const Like = ({ initialLiked = false }: LikeButtonProps) => {
             size={24}
           />
         }
-        title={` ${likesCount} ${likesCount === 1 ? 'like' : 'likes'}`}
+        title={` ${Pluralize(likesCount, 'like')}`}
         titleStyle={[styles.likeText, liked && styles.likedText]}
         buttonStyle={styles.likeButton}
         iconContainerStyle={styles.likeIcon}
