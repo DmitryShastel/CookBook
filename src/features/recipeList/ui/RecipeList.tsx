@@ -6,12 +6,12 @@ import {
   RecipeListProps,
 } from '@/features/recipeList/model/types/RecipeList';
 import { styles } from '@/features/recipeList/ui/RecipeList.style';
-import { ReusableCard } from '@/components/ui/card/Card';
+import { Card } from '@/components/ui/card/Card';
 
 export const RecipeList = ({ recipes = MOCK_RECIPES }: RecipeListProps) => {
   const renderRecipeCard = ({ item }: { item: Recipe }) => (
     <View style={styles.cardContainer}>
-      <ReusableCard
+      <Card
         userAvatar={item.userAvatar}
         initialLiked={item.isLiked || false}
         recipeImage={item.recipeImage}
