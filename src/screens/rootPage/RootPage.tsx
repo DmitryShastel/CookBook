@@ -2,6 +2,8 @@ import React, { ReactNode } from 'react';
 import { View, SafeAreaView, StatusBar } from 'react-native';
 import { Text, Icon, Button } from 'react-native-elements';
 import { styles } from '@/screens/rootPage/RootPage.styles';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import { RootStackParamList } from '@/navigation/type';
 
 interface RootScreenProps {
   children: ReactNode;
@@ -12,7 +14,13 @@ interface RootScreenProps {
   onTabPress?: (tab: 'home' | 'settings' | 'profile') => void;
 }
 
-export const RootScreen = ({
+export type HomeScreenNavigationProp = NativeStackNavigationProp<
+  RootStackParamList,
+  'MainTabs'
+>;
+
+// export const RootScreen = ({
+export const RootPage = ({
   children,
   title = 'Home',
   showBackButton = false,
