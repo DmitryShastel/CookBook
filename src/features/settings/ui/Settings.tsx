@@ -1,7 +1,7 @@
 import { View } from 'react-native';
 import { Text } from 'react-native-elements';
-import { ReusableSettingItem } from '@/components/ui/settingsItem/SettingsItem';
 import { styles } from '@/features/settings/ui/Settings.styles';
+import { SettingItem } from '@/components/ui/settingsItem/SettingsItem';
 
 export const Settings = () => {
   const handleLanguagePress = () => {
@@ -17,7 +17,7 @@ export const Settings = () => {
       <View style={styles.section}>
         <Text style={styles.sectionTitle}>Preferences</Text>
         <View style={styles.sectionContent}>
-          <ReusableSettingItem
+          <SettingItem
             icon="language-outline"
             iconBgColor="#E3F2FD"
             iconColor="#1976D2"
@@ -25,7 +25,7 @@ export const Settings = () => {
             value="English"
             onPress={handleLanguagePress}
           />
-          <ReusableSettingItem
+          <SettingItem
             icon="color-palette-outline"
             iconBgColor="#FFF3E0"
             iconColor="#FF9800"
