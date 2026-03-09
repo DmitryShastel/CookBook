@@ -5,6 +5,7 @@ export const styles = StyleSheet.create({
     backgroundColor: '#fff',
     borderRadius: 12,
     elevation: 3,
+    height: 430,
     marginHorizontal: 16,
     marginVertical: 8,
     padding: 12,
@@ -12,6 +13,10 @@ export const styles = StyleSheet.create({
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.1,
     shadowRadius: 4,
+  },
+  contentContainer: {
+    flex: 1,
+    justifyContent: 'space-between',
   },
   description: {
     color: '#666',

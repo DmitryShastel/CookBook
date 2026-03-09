@@ -28,7 +28,7 @@ export const RecipeList = ({ recipes = MOCK_RECIPES }: RecipeListProps) => {
         recipeImage={item.recipeImage}
         userName={item.userName}
         description={item.description}
-        likesCount={item.likesCount}
+        likesCount={item.likesCount || 0}
       />
     </TouchableOpacity>
   );
