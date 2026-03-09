@@ -1,4 +1,4 @@
-import { useNavigation } from '@react-navigation/native/src';
+import { useNavigation } from '@react-navigation/native';
 
 export const useNavigationHelper = () => {
   const navigation = useNavigation();
