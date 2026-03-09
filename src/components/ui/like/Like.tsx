@@ -5,9 +5,12 @@ import { LikeButtonProps } from '@/components/ui/like/Like.types';
 import { styles } from '@/components/ui/like/Like.style';
 import { Pluralize } from '@/utils/Pluralize';
 
-export const Like = ({ initialLiked = false }: LikeButtonProps) => {
+export const Like = ({
+  initialLiked = false,
+  likesCount = 0,
+}: LikeButtonProps) => {
   const [liked, setLiked] = useState(initialLiked);
-  const [likesCount, setLikesCount] = useState(124);
+  const [likeCount, setLikesCount] = useState(likesCount);
 
   const handleLike = () => {
     if (liked) {
@@ -30,7 +33,7 @@ export const Like = ({ initialLiked = false }: LikeButtonProps) => {
             size={24}
           />
         }
-        title={` ${Pluralize(likesCount, 'like')}`}
+        title={` ${Pluralize(likeCount, 'like')}`}
         titleStyle={[styles.likeText, liked && styles.likedText]}
         buttonStyle={styles.likeButton}
         iconContainerStyle={styles.likeIcon}
