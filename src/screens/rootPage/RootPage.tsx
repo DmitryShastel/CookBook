@@ -1,28 +1,11 @@
-import React, { ReactNode } from 'react';
-import { View, SafeAreaView, StatusBar } from 'react-native';
-import { Text, Icon, Button } from 'react-native-elements';
+import { SafeAreaView, StatusBar, View } from 'react-native';
+import { Button, Icon } from 'react-native-elements';
 import { styles } from '@/screens/rootPage/RootPage.styles';
-import { NativeStackNavigationProp } from '@react-navigation/native-stack';
-import { RootStackParamList } from '@/navigation/type';
+import { RootScreenProps } from '@/screens/rootPage/type';
 
-interface RootScreenProps {
-  children: ReactNode;
-  title?: string;
-  showBackButton?: boolean;
-  onBackPress?: () => void;
-  activeTab?: 'home' | 'settings' | 'profile';
-  onTabPress?: (tab: 'home' | 'settings' | 'profile') => void;
-}
-
-export type HomeScreenNavigationProp = NativeStackNavigationProp<
-  RootStackParamList,
-  'MainTabs'
->;
-
-// export const RootScreen = ({
 export const RootPage = ({
   children,
-  title = 'Home',
+  // title = 'Home',
   showBackButton = false,
   onBackPress,
   activeTab = 'home',
@@ -32,7 +15,6 @@ export const RootPage = ({
     <SafeAreaView style={styles.safeArea}>
       <StatusBar barStyle="dark-content" backgroundColor="#fff" />
 
-      {/* Header */}
       <View style={styles.header}>
         <View style={styles.headerLeft}>
           {showBackButton && (
@@ -47,17 +29,15 @@ export const RootPage = ({
           )}
         </View>
 
-        <Text style={styles.headerTitle} h4>
-          {title}
-        </Text>
+        {/*<Text style={styles.headerTitle} h4>*/}
+        {/*  /!*{title}*!/*/}
+        {/*</Text>*/}
 
         <View style={styles.headerRight} />
       </View>
 
-      {/* Content */}
       <View style={styles.content}>{children}</View>
 
-      {/* Bottom Tabs */}
       <View style={styles.tabBar}>
         <Button
           type="clear"

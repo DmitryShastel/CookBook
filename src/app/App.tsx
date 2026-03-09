@@ -2,7 +2,7 @@ import { View } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { styles } from '@/app/App.styles';
 import { NavigationContainer } from '@react-navigation/native';
-import { RootStack } from '@/navigation/RootNavigator';
+import { RootStack } from '@/navigation/RootStack';
 
 export default function App() {
   return (

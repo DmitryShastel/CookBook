@@ -1,8 +1,9 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { RootPage } from '@/screens/rootPage/RootPage';
-import { SettingsScreen } from '@/screens/settings/SettingsScreen';
 import { UserProfileScreen } from '@/screens/userProfile/UserProfileScreen';
 import { View } from 'react-native';
+import { RecipeList } from '@/features/recipeList/ui/RecipeList';
+import { SettingsScreen } from '@/screens/settings/SettingsScreen';
 
 const Tab = createBottomTabNavigator();
 
@@ -31,7 +32,7 @@ export const MainTabNavigator = () => {
           );
         }}
       >
-        <Tab.Screen name="Home" component={() => {}} />
+        <Tab.Screen name="Home" component={RecipeList} />
         <Tab.Screen name="Settings" component={SettingsScreen} />
         <Tab.Screen name="Profile" component={UserProfileScreen} />
       </Tab.Navigator>
