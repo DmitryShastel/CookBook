@@ -11,7 +11,7 @@ export type RootStackParamList = {
 
 export type HomeStackParamList = {
   RecipeList: undefined;
-  RecipeDetails: { recipeId: string };
+  Recipe: { recipeId: string };
 };
 
 export type RecipeListNavigationProp = NativeStackNavigationProp<
