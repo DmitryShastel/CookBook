@@ -4,5 +4,5 @@ export interface RecipeCardProps {
   recipeImage: string;
   description: string;
   initialLiked: boolean;
-  likeCount: number;
+  likesCount: number;
 }

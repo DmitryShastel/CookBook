@@ -5,10 +5,7 @@ import { LikeButtonProps } from '@/components/ui/like/Like.types';
 import { styles } from '@/components/ui/like/Like.style';
 import { Pluralize } from '@/utils/Pluralize';
 
-export const Like = ({
-  initialLiked = false,
-  likesCount = 0,
-}: LikeButtonProps) => {
+export const Like = ({ initialLiked = false, likesCount }: LikeButtonProps) => {
   const [liked, setLiked] = useState(initialLiked);
   const [likeCount, setLikesCount] = useState(likesCount);
 
