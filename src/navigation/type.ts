@@ -1,3 +1,5 @@
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+
 export type RootStackParamList = {
   Home: undefined;
   Login: undefined;
@@ -6,3 +8,13 @@ export type RootStackParamList = {
   Profile: undefined;
   Settings: undefined;
 };
+
+export type HomeStackParamList = {
+  RecipeList: undefined;
+  RecipeDetails: { recipeId: string };
+};
+
+export type RecipeListNavigationProp = NativeStackNavigationProp<
+  HomeStackParamList,
+  'RecipeList'
+>;

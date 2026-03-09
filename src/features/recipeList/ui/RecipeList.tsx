@@ -1,4 +1,4 @@
-import { View, FlatList, ListRenderItem } from 'react-native';
+import { FlatList, ListRenderItem, TouchableOpacity, View } from 'react-native';
 import { Text } from 'react-native-elements';
 import { MOCK_RECIPES } from '@/features/recipeList/lib/recipe.mock';
 import {
@@ -7,10 +7,21 @@ import {
 } from '@/features/recipeList/model/types/RecipeList';
 import { styles } from '@/features/recipeList/ui/RecipeList.style';
 import { Card } from '@/components/ui/card/Card';
+import { useNavigation } from '@react-navigation/native';
+import { RecipeListNavigationProp } from '@/navigation/type';
 
 export const RecipeList = ({ recipes = MOCK_RECIPES }: RecipeListProps) => {
+  const navigation = useNavigation<RecipeListNavigationProp>();
+  const handleRecipePress = (recipeId: string) => {
+    navigation.navigate('Recipe', { recipeId });
+  };
+
   const renderRecipeCard = ({ item }: { item: Recipe }) => (
-    <View style={styles.cardContainer}>
+    <TouchableOpacity
+      onPress={() => handleRecipePress(item.id)}
+      activeOpacity={0.7}
+      style={styles.cardContainer}
+    >
       <Card
         userAvatar={item.userAvatar}
         initialLiked={item.isLiked || false}
@@ -19,7 +30,7 @@ export const RecipeList = ({ recipes = MOCK_RECIPES }: RecipeListProps) => {
         description={item.description}
         likesCount={item.likesCount}
       />
-    </View>
+    </TouchableOpacity>
   );
 
   const data = recipes || MOCK_RECIPES;
