@@ -6,8 +6,8 @@ export interface RootScreenProps {
   children: ReactNode;
   title?: string;
   showBackButton?: boolean;
-  onBackPress?: () => void;
-  activeTab?: 'home' | 'settings' | 'profile';
+  // onBackPress?: () => void;
+  // activeTab?: 'home' | 'settings' | 'profile';
   onTabPress?: (tab: 'home' | 'settings' | 'profile') => void;
   hideTabs?: boolean;
 }
