@@ -10,7 +10,7 @@ export const TabBar = ({ state, navigation }: BottomTabBarProps) => {
 
   const getIconName = (routeName: string, isFocused: boolean) => {
     switch (routeName) {
-      case 'Home':
+      case 'Main':
         return isFocused ? 'home' : 'home-outline';
       case 'Settings':
         return isFocused ? 'settings' : 'settings-outline';

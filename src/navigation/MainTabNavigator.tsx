@@ -14,7 +14,7 @@ export const MainTabNavigator = () => {
       }}
       tabBar={(props) => <TabBar {...props} />}
     >
-      <Tab.Screen name="Home" component={RecipeList} />
+      <Tab.Screen name="Main" component={RecipeList} />
       <Tab.Screen name="Settings" component={SettingsScreen} />
       <Tab.Screen name="Profile" component={UserProfileScreen} />
     </Tab.Navigator>

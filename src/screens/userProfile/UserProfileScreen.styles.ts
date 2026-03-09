@@ -5,18 +5,6 @@ export const styles = StyleSheet.create({
     backgroundColor: '#f5f5f5',
     flex: 1,
   },
-  header: {
-    backgroundColor: '#fff',
-    borderBottomColor: '#f0f0f0',
-    borderBottomWidth: 1,
-    paddingHorizontal: 20,
-    paddingVertical: 16,
-  },
-  headerTitle: {
-    color: '#333',
-    fontSize: 28,
-    fontWeight: 'bold',
-  },
   infoCard: {
     backgroundColor: '#fff',
     borderRadius: 12,
@@ -50,9 +38,5 @@ export const styles = StyleSheet.create({
     color: '#333',
     fontSize: 14,
     fontWeight: '500',
-  },
-  safeArea: {
-    backgroundColor: '#fff',
-    flex: 1,
   },
 });

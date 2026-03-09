@@ -6,7 +6,7 @@ import { RootScreenProps } from '@/screens/rootPage/type';
 export const RootPage = ({
   children,
   title,
-  showBackButton = false,
+  showBackButton,
   onBackPress,
 }: RootScreenProps) => {
   return (
