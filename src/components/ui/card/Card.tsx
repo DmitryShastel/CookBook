@@ -24,9 +24,12 @@ export const Card = ({
         style={styles.recipeImage}
         resizeMode="cover"
       />
-
-      <Text style={styles.description}>{description}</Text>
-      <Like initialLiked={initialLiked} likesCount={likesCount} />
+      <View style={styles.contentContainer}>
+        <Text style={styles.description} numberOfLines={3}>
+          {description}
+        </Text>
+        <Like initialLiked={initialLiked} likesCount={likesCount} />
+      </View>
     </RNCard>
   );
 };
