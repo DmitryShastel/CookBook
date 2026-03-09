@@ -11,6 +11,7 @@ export const Card = ({
   userAvatar,
   recipeImage,
   description,
+  likesCount,
 }: RecipeCardProps) => {
   return (
     <RNCard containerStyle={styles.card}>
@@ -25,7 +26,7 @@ export const Card = ({
       />
 
       <Text style={styles.description}>{description}</Text>
-      <Like initialLiked={initialLiked} />
+      <Like initialLiked={initialLiked} likesCount={likesCount} />
     </RNCard>
   );
 };
