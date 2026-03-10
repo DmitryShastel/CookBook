@@ -7,7 +7,3 @@ export interface Recipe {
   likesCount?: number;
   isLiked?: boolean;
 }
-
-export interface RecipeListProps {
-  recipes?: Recipe[];
-}

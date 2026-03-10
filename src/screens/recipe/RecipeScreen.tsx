@@ -1,31 +1,31 @@
 import {
   Image,
+  Linking,
   ScrollView,
   Text,
-  View,
-  Linking,
   TouchableOpacity,
+  View,
 } from 'react-native';
 import { RootPage } from '@/screens/rootPage/RootPage';
 import { useRoute } from '@react-navigation/native';
 import { styles } from './RecipeScreen.styles';
-import { RecipeDetailsRouteProp } from '@/screens/recipe/type';
 import { useNavigationHelper } from '@/hooks/useNavigationHelper';
 import { useEffect, useState } from 'react';
 import { getRecipe, Recipe } from '@/shared/api/axios-instance';
 import { Ionicons } from '@expo/vector-icons';
+import { RecipeRouteProp } from '@/navigation/type';
 
 export const RecipeScreen = () => {
   const [recipe, setRecipe] = useState<Recipe | null>(null);
-  // const route = useRoute<RecipeDetailsRouteProp>();
-  // const { recipeId } = route.params;
+  const route = useRoute<RecipeRouteProp>();
+  const { recipeId } = route.params;
   const { getBack } = useNavigationHelper();
 
   useEffect(() => {
-    getRecipe('53281').then((res) => {
+    getRecipe(recipeId).then((res) => {
       setRecipe(res);
     });
-  }, []);
+  }, [recipeId]);
 
   const getIngredients = () => {
     if (!recipe) return [];
