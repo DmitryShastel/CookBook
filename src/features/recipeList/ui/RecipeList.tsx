@@ -9,21 +9,12 @@ import { styles } from '@/features/recipeList/ui/RecipeList.style';
 import { Card } from '@/components/ui/card/Card';
 import { useNavigation } from '@react-navigation/native';
 import { RecipeListNavigationProp } from '@/navigation/type';
-import { useEffect } from 'react';
-import { getRecipe } from '@/shared/api/axios-instance';
 
 export const RecipeList = ({ recipes = MOCK_RECIPES }: RecipeListProps) => {
   const navigation = useNavigation<RecipeListNavigationProp>();
   const handleRecipePress = (recipeId: string) => {
     navigation.navigate('Recipe', { recipeId });
   };
-
-  useEffect(() => {
-    getRecipe('53281').then((res) => {
-      console.log(res);
-      return res;
-    });
-  }, []);
 
   const renderRecipeCard = ({ item }: { item: Recipe }) => (
     <TouchableOpacity
