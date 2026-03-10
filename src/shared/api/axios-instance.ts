@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-export const BaseUrl = 'www.themealdb.com/api/json/v1/1/';
+export const BaseUrl = 'https://www.themealdb.com/api/json/v1/1/';
 
 export interface Category {
   strCategoryDescription: string;
@@ -15,6 +15,11 @@ export const apiClient = axios.create({
 });
 
 export const getCategories = async () => {
-  const { data } = await apiClient.get('/categories.php');
-  return data.categories as Category[];
+  try {
+    const { data } = await apiClient.get('/categories.php');
+    return data.categories as Category[];
+  } catch (error) {
+    console.error('Error fetching categories:', error);
+    return [];
+  }
 };
