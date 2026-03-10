@@ -1,0 +1,113 @@
+import axios from 'axios';
+
+export const BaseUrl = 'https://www.themealdb.com/api/json/v1/1/';
+
+export interface Category {
+  strCategoryDescription: string;
+  strCategoryThumb: string;
+  strCategory: string;
+  idCategory: string;
+}
+
+export interface MealSummary {
+  idMeal: string;
+  strMealThumb: string;
+  strMeal: string;
+}
+
+export interface Recipe {
+  idMeal: string;
+  strMeal: string;
+  strMealAlternate: string | null;
+  strCategory: string;
+  strArea: string;
+  strInstructions: string;
+  strMealThumb: string;
+  strTags: string | null;
+  strYoutube: string;
+  strIngredient1: string;
+  strIngredient2: string;
+  strIngredient3: string;
+  strIngredient4: string;
+  strIngredient5: string;
+  strIngredient6: string;
+  strIngredient7: string;
+  strIngredient8: string;
+  strIngredient9: string;
+  strIngredient10: string;
+  strIngredient11: string;
+  strIngredient12: string;
+  strIngredient13: string;
+  strIngredient14: string;
+  strIngredient15: string;
+  strIngredient16: string;
+  strIngredient17: string;
+  strIngredient18: string;
+  strIngredient19: string;
+  strIngredient20: string;
+  strMeasure1: string;
+  strMeasure2: string;
+  strMeasure3: string;
+  strMeasure4: string;
+  strMeasure5: string;
+  strMeasure6: string;
+  strMeasure7: string;
+  strMeasure8: string;
+  strMeasure9: string;
+  strMeasure10: string;
+  strMeasure11: string;
+  strMeasure12: string;
+  strMeasure13: string;
+  strMeasure14: string;
+  strMeasure15: string;
+  strMeasure16: string;
+  strMeasure17: string;
+  strMeasure18: string;
+  strMeasure19: string;
+  strMeasure20: string;
+  strSource: string;
+  strImageSource: string | null;
+  strCreativeCommonsConfirmed: string | null;
+  dateModified: string | null;
+}
+
+export const apiClient = axios.create({
+  baseURL: BaseUrl,
+  headers: { 'Content-Type': 'application/json' },
+});
+
+export const getCategories = async (): Promise<Category[]> => {
+  try {
+    const { data } = await apiClient.get('/categories.php');
+    return data.categories;
+  } catch (error) {
+    console.error('Error fetching categories:', error);
+    return [];
+  }
+};
+
+export const getCategoryByTitle = async (
+  strCategory: string,
+): Promise<MealSummary[]> => {
+  try {
+    const { data } = await apiClient.get('/filter.php', {
+      params: { c: strCategory },
+    });
+    return data.meals || [];
+  } catch (error) {
+    console.error('Error fetching categories:', error);
+    return [];
+  }
+};
+
+export const getRecipe = async (recipeId: string): Promise<Recipe[]> => {
+  try {
+    const { data } = await apiClient.get('/lookup.php', {
+      params: { i: recipeId },
+    });
+    return data.meals || [];
+  } catch (error) {
+    console.error('Error fetching categories:', error);
+    return [];
+  }
+};
