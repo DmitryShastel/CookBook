@@ -10,9 +10,15 @@ import {
 } from 'react-native';
 import { styles } from '@/screens/category/CategoryScreen.styles';
 import { Category, getCategories } from '@/shared/api/axios-instance';
+import { useNavigation } from '@react-navigation/native';
+import { RecipeListNavigationProp } from '@/navigation/type';
 
 export const CategoryScreen = () => {
   const [categories, setCategories] = useState<Category[]>([]);
+  const navigation = useNavigation<RecipeListNavigationProp>();
+  const handleCategoryPress = (categoryTitle: string) => {
+    navigation.navigate('RecipeList', { categoryTitle });
+  };
   useEffect(() => {
     getCategories().then((res) => {
       setCategories(res);
@@ -20,7 +26,11 @@ export const CategoryScreen = () => {
   }, []);
 
   const renderCategoryCard = ({ item }: { item: Category }) => (
-    <TouchableOpacity style={styles.card} activeOpacity={0.7}>
+    <TouchableOpacity
+      style={styles.card}
+      activeOpacity={0.7}
+      onPress={() => handleCategoryPress(item.strCategory)}
+    >
       <Image
         source={{ uri: item.strCategoryThumb }}
         style={styles.cardImage}

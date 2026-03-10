@@ -2,8 +2,11 @@ import { FlatList, ListRenderItem, TouchableOpacity } from 'react-native';
 import { Text } from 'react-native-elements';
 import { styles } from '@/features/recipeList/ui/RecipeList.style';
 import { Card } from '@/components/ui/card/Card';
-import { useNavigation } from '@react-navigation/native';
-import { RecipeListNavigationProp } from '@/navigation/type';
+import { useNavigation, useRoute } from '@react-navigation/native';
+import {
+  RecipeListNavigationProp,
+  RecipeListRouteProp,
+} from '@/navigation/type';
 import { useEffect, useState } from 'react';
 import { getCategoryByTitle, MealSummary } from '@/shared/api/axios-instance';
 import { RootPage } from '@/screens/rootPage/RootPage';
@@ -13,12 +16,14 @@ export const RecipeList = () => {
   const [recipes, setRecipes] = useState<MealSummary[]>([]);
   const { getBack } = useNavigationHelper();
   const navigation = useNavigation<RecipeListNavigationProp>();
+  const route = useRoute<RecipeListRouteProp>();
+  const { categoryTitle } = route.params;
   const handleRecipePress = (recipeId: string) => {
     navigation.navigate('Recipe', { recipeId });
   };
 
   useEffect(() => {
-    getCategoryByTitle('Beef').then((res) => {
+    getCategoryByTitle(categoryTitle).then((res) => {
       setRecipes(res);
     });
   });
@@ -38,7 +43,11 @@ export const RecipeList = () => {
   );
 
   return (
-    <RootPage title="Beef Recipes" showBackButton={true} onBackPress={getBack}>
+    <RootPage
+      title={`${categoryTitle} Recipes`}
+      showBackButton={true}
+      onBackPress={getBack}
+    >
       <FlatList
         data={recipes}
         renderItem={renderRecipeCard as ListRenderItem<MealSummary>}
