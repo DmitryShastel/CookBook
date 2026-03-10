@@ -10,7 +10,7 @@ import { Card } from '@/components/ui/card/Card';
 import { useNavigation } from '@react-navigation/native';
 import { RecipeListNavigationProp } from '@/navigation/type';
 import { useEffect } from 'react';
-import { getCategories } from '@/shared/api/axios-instance';
+import { getCategoryByTitle } from '@/shared/api/axios-instance';
 
 export const RecipeList = ({ recipes = MOCK_RECIPES }: RecipeListProps) => {
   const navigation = useNavigation<RecipeListNavigationProp>();
@@ -19,7 +19,7 @@ export const RecipeList = ({ recipes = MOCK_RECIPES }: RecipeListProps) => {
   };
 
   useEffect(() => {
-    getCategories().then((res) => {
+    getCategoryByTitle('Beef').then((res) => {
       console.log(res);
       return res;
     });
