@@ -10,10 +10,6 @@ export const styles = StyleSheet.create({
     justifyContent: 'space-between',
     paddingHorizontal: 8,
   },
-  container: {
-    backgroundColor: '#f5f5f5',
-    flex: 1,
-  },
   emptyText: {
     color: '#999',
     fontSize: 16,
