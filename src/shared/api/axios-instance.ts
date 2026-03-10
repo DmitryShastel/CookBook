@@ -71,6 +71,10 @@ export interface Recipe {
   dateModified: string | null;
 }
 
+interface RecipeResponse {
+  meals: Recipe[] | null;
+}
+
 export const apiClient = axios.create({
   baseURL: BaseUrl,
   headers: { 'Content-Type': 'application/json' },
@@ -100,14 +104,14 @@ export const getCategoryByTitle = async (
   }
 };
 
-export const getRecipe = async (recipeId: string): Promise<Recipe[]> => {
+export const getRecipe = async (recipeId: string): Promise<Recipe> => {
   try {
-    const { data } = await apiClient.get('/lookup.php', {
+    const { data } = await apiClient.get<RecipeResponse>('/lookup.php', {
       params: { i: recipeId },
     });
-    return data.meals || [];
+    return data.meals?.[0] || null;
   } catch (error) {
     console.error('Error fetching categories:', error);
-    return [];
+    return null;
   }
 };
