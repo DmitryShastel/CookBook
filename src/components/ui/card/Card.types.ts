@@ -1,8 +1,8 @@
 export interface RecipeCardProps {
-  userName: string;
-  userAvatar: string;
-  recipeImage: string;
-  description: string;
-  initialLiked: boolean;
-  likesCount: number;
+  userName?: string;
+  userAvatar?: string;
+  recipeImage?: string;
+  description?: string;
+  initialLiked?: boolean;
+  likesCount?: number;
 }

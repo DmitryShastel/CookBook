@@ -16,7 +16,7 @@ export const Card = ({
   return (
     <RNCard containerStyle={styles.card}>
       <View style={styles.userContainer}>
-        <UserInfo userAvatar={userAvatar} userName={userName} />
+        {/*<UserInfo userAvatar={userAvatar} userName={userName} />*/}
       </View>
 
       <RNCard.Image
@@ -28,7 +28,7 @@ export const Card = ({
         <Text style={styles.description} numberOfLines={3}>
           {description}
         </Text>
-        <Like initialLiked={initialLiked} likesCount={likesCount} />
+        {/*<Like initialLiked={initialLiked} likesCount={likesCount} />*/}
       </View>
     </RNCard>
   );
