@@ -5,24 +5,14 @@ import {
   SignUpFormData,
   signUpValidationSchema,
 } from '@/features/auth/model/lib/SignUpValidation';
-import { SignUpFormProps } from '@/features/auth/model/types/SignUpForm';
 import { styles } from '@/features/auth/ui/signUpForm/SignUpForm.styles';
 import { createUserWithEmailAndPassword } from '@firebase/auth';
 import { auth } from '../../../../../firebase-config';
 
-export const SignUpForm = ({ onSubmit, onLogin }: SignUpFormProps) => {
+export const SignUpForm = () => {
   const handleSubmit = async (values: SignUpFormData) => {
     try {
-      if (onSubmit) {
-        // (await onSubmit?.(values)) ?? console.log('Sign up values:', values);
-        const userCredential = await createUserWithEmailAndPassword(
-          auth,
-          values.email,
-          values.password,
-        );
-        const user = userCredential.user;
-        console.log(user.email);
-      }
+      await createUserWithEmailAndPassword(auth, values.email, values.password);
     } catch (error) {
       console.log(error);
     }
@@ -32,7 +22,6 @@ export const SignUpForm = ({ onSubmit, onLogin }: SignUpFormProps) => {
     <Formik
       validationSchema={signUpValidationSchema}
       initialValues={{
-        // name: '',
         email: '',
         password: '',
         confirmPassword: '',
@@ -47,30 +36,8 @@ export const SignUpForm = ({ onSubmit, onLogin }: SignUpFormProps) => {
         errors,
         touched,
         isValid,
-        dirty,
       }) => (
         <View style={styles.container}>
-          {/*<Input*/}
-          {/*  placeholder="Full Name"*/}
-          {/*  leftIcon={*/}
-          {/*    <Icon*/}
-          {/*      name="person-outline"*/}
-          {/*      type="ionicon"*/}
-          {/*      size={22}*/}
-          {/*      color="#666"*/}
-          {/*    />*/}
-          {/*  }*/}
-          {/*  leftIconContainerStyle={styles.iconContainer}*/}
-          {/*  onChangeText={handleChange('name')}*/}
-          {/*  onBlur={handleBlur('name')}*/}
-          {/*  value={values.name}*/}
-          {/*  errorMessage={touched.name && errors.name ? errors.name : ''}*/}
-          {/*  errorStyle={styles.errorText}*/}
-          {/*  inputContainerStyle={styles.inputContainer}*/}
-          {/*  inputStyle={styles.input}*/}
-          {/*  containerStyle={styles.inputWrapper}*/}
-          {/*/>*/}
-
           <Input
             placeholder="Email"
             leftIcon={
@@ -144,7 +111,7 @@ export const SignUpForm = ({ onSubmit, onLogin }: SignUpFormProps) => {
           <Button
             title="Create Account"
             onPress={handleSubmit}
-            disabled={!isValid || !dirty}
+            disabled={!isValid}
             buttonStyle={styles.button}
             titleStyle={styles.buttonText}
             disabledStyle={styles.buttonDisabled}
@@ -152,15 +119,13 @@ export const SignUpForm = ({ onSubmit, onLogin }: SignUpFormProps) => {
             containerStyle={styles.buttonContainer}
           />
 
-          {onLogin && (
-            <Button
-              title="Already have an account? Sign In"
-              type="clear"
-              onPress={onLogin}
-              titleStyle={styles.loginText}
-              containerStyle={styles.loginContainer}
-            />
-          )}
+          <Button
+            title="Already have an account? Sign In"
+            type="clear"
+            onPress={() => {}}
+            titleStyle={styles.loginText}
+            containerStyle={styles.loginContainer}
+          />
         </View>
       )}
     </Formik>

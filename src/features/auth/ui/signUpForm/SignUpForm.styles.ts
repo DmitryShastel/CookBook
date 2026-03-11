@@ -24,8 +24,7 @@ export const styles = StyleSheet.create({
   },
   errorText: {
     color: '#ff4444',
-    fontSize: 12,
-    marginTop: -15,
+    fontSize: 14,
   },
   iconContainer: {
     marginRight: 10,
@@ -43,7 +42,7 @@ export const styles = StyleSheet.create({
     paddingHorizontal: 10,
   },
   inputWrapper: {
-    marginBottom: 5,
+    marginBottom: 15,
     paddingHorizontal: 0,
   },
   loginContainer: {
