@@ -1,6 +1,5 @@
 import { TouchableOpacity, View } from 'react-native';
 import { Text } from 'react-native-elements';
-// import { LoginForm } from '@/features/auth/ui/loginForm/LoginForm';
 import { styles } from '@/screens/auth/login/LoginScreen.styles';
 import { useNavigation } from '@react-navigation/native';
 
@@ -9,6 +8,7 @@ interface LoginScreenProps {
 }
 
 export const LoginScreen = ({ onLogin }: LoginScreenProps) => {
+  // export const LoginScreen = () => {
   const navigation = useNavigation();
 
   const handleLogin = () => {
