@@ -6,29 +6,13 @@ import {
   loginValidationSchema,
 } from '@/features/auth/model/lib/LoginValidation';
 import { styles } from '@/features/auth/ui/loginForm/LoginForm.styles';
-import { LoginFormProps } from '@/features/auth/model/types/LoginForm';
-import { createUserWithEmailAndPassword } from '@firebase/auth';
+import { signInWithEmailAndPassword } from '@firebase/auth';
 import { auth } from '../../../../../firebase-config';
 
-export const LoginForm = ({
-  onSubmit,
-  onForgotPassword,
-  onSignUp,
-}: LoginFormProps) => {
+export const LoginForm = () => {
   const handleSubmit = async (values: LoginFormData) => {
     try {
-      if (onSubmit) {
-        const userCredential = await createUserWithEmailAndPassword(
-          auth,
-          values.email,
-          values.password,
-        );
-        const user = userCredential.user;
-        console.log(user.email);
-      } else {
-        console.log('Login values:', values);
-        Alert.alert('Success', 'You are logged in successfully');
-      }
+      await signInWithEmailAndPassword(auth, values.email, values.password);
     } catch (error) {
       Alert.alert('Error', 'Could not log in');
     }
@@ -86,15 +70,13 @@ export const LoginForm = ({
             containerStyle={styles.inputWrapper}
           />
 
-          {onForgotPassword && (
-            <Button
-              title="Forgot Password?"
-              type="clear"
-              onPress={onForgotPassword}
-              titleStyle={styles.forgotPassword}
-              containerStyle={styles.forgotPasswordContainer}
-            />
-          )}
+          <Button
+            title="Forgot Password?"
+            type="clear"
+            onPress={() => {}}
+            titleStyle={styles.forgotPassword}
+            containerStyle={styles.forgotPasswordContainer}
+          />
 
           <Button
             title="Login"
@@ -107,15 +89,13 @@ export const LoginForm = ({
             containerStyle={styles.buttonContainer}
           />
 
-          {onSignUp && (
-            <Button
-              title="Don't have an account? Sign Up"
-              type="clear"
-              onPress={onSignUp}
-              titleStyle={styles.signUp}
-              containerStyle={styles.signUpContainer}
-            />
-          )}
+          <Button
+            title="Don't have an account? Sign Up"
+            type="clear"
+            onPress={() => {}}
+            titleStyle={styles.signUp}
+            containerStyle={styles.signUpContainer}
+          />
         </View>
       )}
     </Formik>
