@@ -1,5 +1,5 @@
-import { View, Alert } from 'react-native';
-import { Input, Button, Icon } from 'react-native-elements';
+import { Alert, View } from 'react-native';
+import { Button, Icon, Input } from 'react-native-elements';
 import { Formik } from 'formik';
 import {
   LoginFormData,
@@ -7,6 +7,8 @@ import {
 } from '@/features/auth/model/lib/LoginValidation';
 import { styles } from '@/features/auth/ui/loginForm/LoginForm.styles';
 import { LoginFormProps } from '@/features/auth/model/types/LoginForm';
+import { createUserWithEmailAndPassword } from '@firebase/auth';
+import { auth } from '../../../../../firebase-config';
 
 export const LoginForm = ({
   onSubmit,
@@ -16,7 +18,13 @@ export const LoginForm = ({
   const handleSubmit = async (values: LoginFormData) => {
     try {
       if (onSubmit) {
-        await onSubmit(values);
+        const userCredential = await createUserWithEmailAndPassword(
+          auth,
+          values.email,
+          values.password,
+        );
+        const user = userCredential.user;
+        console.log(user.email);
       } else {
         console.log('Login values:', values);
         Alert.alert('Success', 'You are logged in successfully');

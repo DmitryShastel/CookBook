@@ -7,11 +7,22 @@ import {
 } from '@/features/auth/model/lib/SignUpValidation';
 import { SignUpFormProps } from '@/features/auth/model/types/SignUpForm';
 import { styles } from '@/features/auth/ui/signUpForm/SignUpForm.styles';
+import { createUserWithEmailAndPassword } from '@firebase/auth';
+import { auth } from '../../../../../firebase-config';
 
 export const SignUpForm = ({ onSubmit, onLogin }: SignUpFormProps) => {
   const handleSubmit = async (values: SignUpFormData) => {
     try {
-      (await onSubmit?.(values)) ?? console.log('Sign up values:', values);
+      if (onSubmit) {
+        // (await onSubmit?.(values)) ?? console.log('Sign up values:', values);
+        const userCredential = await createUserWithEmailAndPassword(
+          auth,
+          values.email,
+          values.password,
+        );
+        const user = userCredential.user;
+        console.log(user.email);
+      }
     } catch (error) {
       console.log(error);
     }
@@ -21,7 +32,7 @@ export const SignUpForm = ({ onSubmit, onLogin }: SignUpFormProps) => {
     <Formik
       validationSchema={signUpValidationSchema}
       initialValues={{
-        name: '',
+        // name: '',
         email: '',
         password: '',
         confirmPassword: '',
@@ -39,26 +50,26 @@ export const SignUpForm = ({ onSubmit, onLogin }: SignUpFormProps) => {
         dirty,
       }) => (
         <View style={styles.container}>
-          <Input
-            placeholder="Full Name"
-            leftIcon={
-              <Icon
-                name="person-outline"
-                type="ionicon"
-                size={22}
-                color="#666"
-              />
-            }
-            leftIconContainerStyle={styles.iconContainer}
-            onChangeText={handleChange('name')}
-            onBlur={handleBlur('name')}
-            value={values.name}
-            errorMessage={touched.name && errors.name ? errors.name : ''}
-            errorStyle={styles.errorText}
-            inputContainerStyle={styles.inputContainer}
-            inputStyle={styles.input}
-            containerStyle={styles.inputWrapper}
-          />
+          {/*<Input*/}
+          {/*  placeholder="Full Name"*/}
+          {/*  leftIcon={*/}
+          {/*    <Icon*/}
+          {/*      name="person-outline"*/}
+          {/*      type="ionicon"*/}
+          {/*      size={22}*/}
+          {/*      color="#666"*/}
+          {/*    />*/}
+          {/*  }*/}
+          {/*  leftIconContainerStyle={styles.iconContainer}*/}
+          {/*  onChangeText={handleChange('name')}*/}
+          {/*  onBlur={handleBlur('name')}*/}
+          {/*  value={values.name}*/}
+          {/*  errorMessage={touched.name && errors.name ? errors.name : ''}*/}
+          {/*  errorStyle={styles.errorText}*/}
+          {/*  inputContainerStyle={styles.inputContainer}*/}
+          {/*  inputStyle={styles.input}*/}
+          {/*  containerStyle={styles.inputWrapper}*/}
+          {/*/>*/}
 
           <Input
             placeholder="Email"
