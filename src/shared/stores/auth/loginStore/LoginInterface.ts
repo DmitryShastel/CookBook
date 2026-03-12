@@ -8,6 +8,6 @@ export interface LoginResponseData {}
 export interface InitialStateData {
   isLoggedIn: boolean;
   user: LoginResponseData | null;
-  signOut: () => Promise<void>;
+  signOut: () => void;
   setUser: (userData: LoginResponseData) => void;
 }
