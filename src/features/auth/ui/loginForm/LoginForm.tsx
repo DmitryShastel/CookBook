@@ -12,7 +12,13 @@ import { auth } from '../../../../../firebase-config';
 export const LoginForm = () => {
   const handleSubmit = async (values: LoginFormData) => {
     try {
-      await signInWithEmailAndPassword(auth, values.email, values.password);
+      await signInWithEmailAndPassword(
+        auth,
+        values.email,
+        values.password,
+      ).then((res) => {
+        console.log(res);
+      });
     } catch (error) {
       Alert.alert('Error', 'Could not log in');
     }
