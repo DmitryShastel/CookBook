@@ -10,5 +10,5 @@ export const useSignInStore = create<InitialStateData>()((set) => ({
 
   setUser: (userData: LoginResponseData) =>
     set({ user: userData, isLoggedIn: true }),
-  signOut: () => set({ user: null }),
+  signOut: () => set({ user: null, isLoggedIn: false }),
 }));
