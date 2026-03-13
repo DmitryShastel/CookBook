@@ -1,21 +1,17 @@
 import { View } from 'react-native';
-import { Input, Button, Icon } from 'react-native-elements';
+import { Button, Icon, Input } from 'react-native-elements';
 import { Formik } from 'formik';
 import {
   SignUpFormData,
   signUpValidationSchema,
 } from '@/features/auth/model/lib/SignUpValidation';
 import { styles } from '@/features/auth/ui/signUpForm/SignUpForm.styles';
-import { createUserWithEmailAndPassword } from '@firebase/auth';
-import { auth } from '../../../../../firebase-config';
+import { useSignUp } from '@/features/auth/hooks/signUp/useSignUp';
 
 export const SignUpForm = () => {
+  const { signUp, isLoading } = useSignUp();
   const handleSubmit = async (values: SignUpFormData) => {
-    try {
-      await createUserWithEmailAndPassword(auth, values.email, values.password);
-    } catch (error) {
-      console.log(error);
-    }
+    await signUp(values.email, values.password);
   };
 
   return (
@@ -111,7 +107,8 @@ export const SignUpForm = () => {
           <Button
             title="Create Account"
             onPress={handleSubmit}
-            disabled={!isValid}
+            disabled={!isValid || isLoading}
+            loading={isLoading}
             buttonStyle={styles.button}
             titleStyle={styles.buttonText}
             disabledStyle={styles.buttonDisabled}

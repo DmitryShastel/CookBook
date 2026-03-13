@@ -5,7 +5,7 @@ import { SignUpScreen } from '@/screens/auth/signUp/SignUpScreen';
 import { RootStackParamList } from '@/navigation/type';
 import { HomeScreen } from '@/screens/home/HomeScreen';
 import { useFirebaseLogin } from '@/features/auth/hooks/login/useFirebaseAuth';
-import { useSignInStore } from '@/shared/stores/auth/loginStore/useSignInStore';
+import { useSignInStore } from '@/shared/stores/auth/useSignInStore';
 import { Loader } from '@/utils/Loader';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();

@@ -2,7 +2,7 @@ import { create } from 'zustand';
 import {
   InitialStateData,
   LoginResponseData,
-} from '@/shared/stores/auth/loginStore/LoginInterface';
+} from '@/shared/stores/auth/LoginInterface';
 
 export const useSignInStore = create<InitialStateData>()((set) => ({
   user: null,
