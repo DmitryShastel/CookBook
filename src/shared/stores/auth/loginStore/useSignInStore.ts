@@ -6,9 +6,12 @@ import {
 
 export const useSignInStore = create<InitialStateData>()((set) => ({
   user: null,
-  // isLoggedIn: false,
+  isLoading: true,
 
   setUser: (userData: LoginResponseData) =>
-    set({ user: userData, isLoggedIn: true }),
-  signOut: () => set({ user: null, isLoggedIn: false }),
+    set({ user: userData, isLoading: false }),
+  signOut: () => set({ user: null, isLoading: false }),
+  setIsLoading: (isLoading: boolean) => {
+    set({ isLoading });
+  },
 }));

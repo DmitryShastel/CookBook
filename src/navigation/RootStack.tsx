@@ -6,12 +6,17 @@ import { RootStackParamList } from '@/navigation/type';
 import { HomeScreen } from '@/screens/home/HomeScreen';
 import { useFirebaseLogin } from '@/features/auth/hooks/login/useFirebaseAuth';
 import { useSignInStore } from '@/shared/stores/auth/loginStore/useSignInStore';
+import { Loader } from '@/utils/Loader';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
 export const RootStack = () => {
   useFirebaseLogin();
-  const { user } = useSignInStore();
+  const { user, isLoading } = useSignInStore();
+
+  if (isLoading) {
+    return <Loader />;
+  }
 
   return (
     <Stack.Navigator screenOptions={{ headerShown: false }}>

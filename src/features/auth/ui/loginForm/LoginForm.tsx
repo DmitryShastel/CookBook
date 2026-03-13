@@ -1,4 +1,4 @@
-import { Alert, View } from 'react-native';
+import { View } from 'react-native';
 import { Button, Icon, Input } from 'react-native-elements';
 import { Formik } from 'formik';
 import {
@@ -6,16 +6,12 @@ import {
   loginValidationSchema,
 } from '@/features/auth/model/lib/LoginValidation';
 import { styles } from '@/features/auth/ui/loginForm/LoginForm.styles';
-import { signInWithEmailAndPassword } from '@firebase/auth';
-import { auth } from '../../../../../firebase-config';
+import { useLogin } from '@/features/auth/hooks/login/useLogin';
 
 export const LoginForm = () => {
+  const { login, isLoading } = useLogin();
   const handleSubmit = async (values: LoginFormData) => {
-    try {
-      await signInWithEmailAndPassword(auth, values.email, values.password);
-    } catch (error) {
-      Alert.alert('Error', 'Could not log in');
-    }
+    await login(values.email, values.password);
   };
 
   return (
@@ -48,6 +44,7 @@ export const LoginForm = () => {
             inputContainerStyle={styles.inputContainer}
             inputStyle={styles.input}
             containerStyle={styles.inputWrapper}
+            disabled={isLoading}
           />
 
           <Input
@@ -68,6 +65,7 @@ export const LoginForm = () => {
             inputContainerStyle={styles.inputContainer}
             inputStyle={styles.input}
             containerStyle={styles.inputWrapper}
+            disabled={isLoading}
           />
 
           <Button
@@ -76,12 +74,14 @@ export const LoginForm = () => {
             onPress={() => {}}
             titleStyle={styles.forgotPassword}
             containerStyle={styles.forgotPasswordContainer}
+            disabled={isLoading}
           />
 
           <Button
             title="Login"
             onPress={handleSubmit}
-            disabled={!isValid}
+            disabled={!isValid || isLoading}
+            loading={isLoading}
             buttonStyle={styles.button}
             titleStyle={styles.buttonText}
             disabledStyle={styles.buttonDisabled}
