@@ -7,8 +7,10 @@ import {
 } from '@/features/auth/model/lib/LoginValidation';
 import { styles } from '@/features/auth/ui/loginForm/LoginForm.styles';
 import { useLogin } from '@/features/auth/hooks/login/useLogin';
+import { useNavigation } from '@react-navigation/native';
 
 export const LoginForm = () => {
+  const navigation = useNavigation();
   const { login, isLoading } = useLogin();
   const handleSubmit = async (values: LoginFormData) => {
     await login(values.email, values.password);
@@ -92,7 +94,7 @@ export const LoginForm = () => {
           <Button
             title="Don't have an account? Sign Up"
             type="clear"
-            onPress={() => {}}
+            onPress={() => navigation.navigate('SignUp')}
             titleStyle={styles.signUp}
             containerStyle={styles.signUpContainer}
           />
