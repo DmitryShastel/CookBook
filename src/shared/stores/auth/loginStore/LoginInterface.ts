@@ -18,7 +18,7 @@ export interface LoginResponseData {
 }
 
 export interface InitialStateData {
-  // isLoggedIn?: boolean;
+  isLoading: boolean;
   user: LoginResponseData | null;
   signOut: () => void;
   setUser: (userData: User) => void;

@@ -5,9 +5,10 @@ import { auth } from '../../../../../firebase-config';
 import { User } from 'firebase/auth';
 
 export const useFirebaseLogin = () => {
-  const { setUser } = useSignInStore();
+  const { setUser, setIsLoading } = useSignInStore();
 
   useEffect(() => {
+    setIsLoading(true);
     const unsubscribe = onAuthStateChanged(auth, (user: User) => {
       setUser(user);
     });
