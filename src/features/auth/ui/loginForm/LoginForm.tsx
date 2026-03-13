@@ -8,13 +8,24 @@ import {
 import { styles } from '@/features/auth/ui/loginForm/LoginForm.styles';
 import { signInWithEmailAndPassword } from '@firebase/auth';
 import { auth } from '../../../../../firebase-config';
+import { useState } from 'react';
+import { showMessage } from 'react-native-flash-message';
 
 export const LoginForm = () => {
+  const [isLoading, setIsLoading] = useState(false);
   const handleSubmit = async (values: LoginFormData) => {
+    setIsLoading(true);
     try {
       await signInWithEmailAndPassword(auth, values.email, values.password);
+      showMessage({
+        message: 'Welcome Back!',
+        description: 'You have successfully logged in',
+        type: 'success',
+        duration: 3000,
+      });
     } catch (error) {
       Alert.alert('Error', 'Could not log in');
+      setIsLoading(false);
     }
   };
 
@@ -48,6 +59,7 @@ export const LoginForm = () => {
             inputContainerStyle={styles.inputContainer}
             inputStyle={styles.input}
             containerStyle={styles.inputWrapper}
+            disabled={isLoading}
           />
 
           <Input
@@ -68,6 +80,7 @@ export const LoginForm = () => {
             inputContainerStyle={styles.inputContainer}
             inputStyle={styles.input}
             containerStyle={styles.inputWrapper}
+            disabled={isLoading}
           />
 
           <Button
@@ -76,12 +89,14 @@ export const LoginForm = () => {
             onPress={() => {}}
             titleStyle={styles.forgotPassword}
             containerStyle={styles.forgotPasswordContainer}
+            disabled={isLoading}
           />
 
           <Button
             title="Login"
             onPress={handleSubmit}
-            disabled={!isValid}
+            disabled={!isValid || isLoading}
+            loading={isLoading}
             buttonStyle={styles.button}
             titleStyle={styles.buttonText}
             disabledStyle={styles.buttonDisabled}
