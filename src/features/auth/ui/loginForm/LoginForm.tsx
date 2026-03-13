@@ -8,25 +8,11 @@ import {
 import { styles } from '@/features/auth/ui/loginForm/LoginForm.styles';
 import { signInWithEmailAndPassword } from '@firebase/auth';
 import { auth } from '../../../../../firebase-config';
-import { useNavigation } from '@react-navigation/native/src';
 
-interface LoginFormProps {
-  onLogin: () => void;
-}
-
-export const LoginForm = ({ onLogin }: LoginFormProps) => {
-  // const navigation = useNavigation<never>();
+export const LoginForm = () => {
   const handleSubmit = async (values: LoginFormData) => {
     try {
       await signInWithEmailAndPassword(auth, values.email, values.password);
-      onLogin();
-      //   .then((res) => {
-      //   if (res.user.email === values.email) {
-      //     // navigation.navigate('Settings');
-      //   }
-      //
-      //   console.log(res);
-      // });
     } catch (error) {
       Alert.alert('Error', 'Could not log in');
     }

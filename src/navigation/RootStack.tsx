@@ -3,41 +3,27 @@ import { MainTabNavigator } from '@/navigation/MainTabNavigator';
 import { LoginScreen } from '@/screens/auth/login/LoginScreen';
 import { SignUpScreen } from '@/screens/auth/signUp/SignUpScreen';
 import { RootStackParamList } from '@/navigation/type';
-import { useState } from 'react';
 import { HomeScreen } from '@/screens/home/HomeScreen';
+import { useFirebaseLogin } from '@/features/auth/hooks/login/useFirebaseAuth';
+import { useSignInStore } from '@/shared/stores/auth/loginStore/useSignInStore';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
 export const RootStack = () => {
-  //fake sigIn/signOut
-  const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
-
-  const handleLogin = () => {
-    setIsAuthenticated(true);
-  };
-
-  const handleLogout = () => {
-    setIsAuthenticated(false);
-  };
+  useFirebaseLogin();
+  const { user } = useSignInStore();
 
   return (
     <Stack.Navigator screenOptions={{ headerShown: false }}>
-      {!isAuthenticated ? (
+      {!user ? (
         <>
-          <Stack.Screen name="Home">
-            {() => <HomeScreen onLogin={handleLogin} />}
-          </Stack.Screen>
-          <Stack.Screen name="Login">
-            {() => <LoginScreen onLogin={handleLogin} />}
-            {/*{() => <LoginScreen />}*/}
-          </Stack.Screen>
-          <Stack.Screen name="SignUp">
-            {() => <SignUpScreen onSignUp={handleLogin} />}
-          </Stack.Screen>
+          <Stack.Screen name="Home" component={HomeScreen} />
+          <Stack.Screen name="Login" component={LoginScreen} />
+          <Stack.Screen name="SignUp" component={SignUpScreen} />
         </>
       ) : (
         <Stack.Screen name="MainTabs">
-          {() => <MainTabNavigator onLogout={handleLogout} />}
+          {() => <MainTabNavigator onLogout={() => {}} />}
         </Stack.Screen>
       )}
     </Stack.Navigator>

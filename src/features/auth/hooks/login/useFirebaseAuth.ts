@@ -2,12 +2,13 @@ import { useSignInStore } from '@/shared/stores/auth/loginStore/useSignInStore';
 import { useEffect } from 'react';
 import { onAuthStateChanged } from '@firebase/auth';
 import { auth } from '../../../../../firebase-config';
+import { User } from 'firebase/auth';
 
 export const useFirebaseLogin = () => {
   const { setUser } = useSignInStore();
 
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (user) => {
+    const unsubscribe = onAuthStateChanged(auth, (user: User) => {
       setUser(user);
     });
     return unsubscribe;
