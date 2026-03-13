@@ -4,12 +4,12 @@ import { styles } from '@/screens/auth/login/LoginScreen.styles';
 import { useNavigation } from '@react-navigation/native';
 import { LoginForm } from '@/features/auth/ui/loginForm/LoginForm';
 
-// interface LoginScreenProps {
-//   onLogin?: () => void;
-// }
+interface LoginScreenProps {
+  onLogin?: () => void;
+}
 
 // export const LoginScreen = ({ onLogin }: LoginScreenProps) => {
-export const LoginScreen = () => {
+export const LoginScreen = ({ onLogin }: LoginScreenProps) => {
   // const navigation = useNavigation();
 
   // const handleLogin = () => {
@@ -23,7 +23,7 @@ export const LoginScreen = () => {
         Login
       </Text>
 
-      <LoginForm onForgotPassword={() => {}} />
+      <LoginForm onForgotPassword={() => {}} onLogin={onLogin} />
     </View>
   );
 

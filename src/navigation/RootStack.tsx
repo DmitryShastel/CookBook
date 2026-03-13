@@ -29,6 +29,7 @@ export const RootStack = () => {
           </Stack.Screen>
           <Stack.Screen name="Login">
             {() => <LoginScreen onLogin={handleLogin} />}
+            {/*{() => <LoginScreen />}*/}
           </Stack.Screen>
           <Stack.Screen name="SignUp">
             {() => <SignUpScreen onSignUp={handleLogin} />}
