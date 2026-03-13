@@ -1,4 +1,4 @@
-import { Alert, View } from 'react-native';
+import { View } from 'react-native';
 import { Button, Icon, Input } from 'react-native-elements';
 import { Formik } from 'formik';
 import {
@@ -6,47 +6,12 @@ import {
   loginValidationSchema,
 } from '@/features/auth/model/lib/LoginValidation';
 import { styles } from '@/features/auth/ui/loginForm/LoginForm.styles';
-import { signInWithEmailAndPassword } from '@firebase/auth';
-import { auth } from '../../../../../firebase-config';
-import { useState } from 'react';
-import { showMessage } from 'react-native-flash-message';
+import { useLogin } from '@/features/auth/hooks/login/useLogin';
 
 export const LoginForm = () => {
-  const [isLoading, setIsLoading] = useState(false);
+  const { login, isLoading } = useLogin();
   const handleSubmit = async (values: LoginFormData) => {
-    setIsLoading(true);
-    try {
-      await signInWithEmailAndPassword(auth, values.email, values.password);
-      showMessage({
-        message: 'Welcome Back!',
-        description: 'You have successfully logged in',
-        type: 'success',
-        duration: 3000,
-      });
-    } catch (error: any) {
-      let errorMessage = '';
-
-      switch (error.code) {
-        case 'auth/invalid-credential':
-          errorMessage = 'Invalid email or password';
-          break;
-        case 'auth/too-many-requests':
-          errorMessage = 'Too many attempts. Try again later';
-          break;
-        case 'auth/network-request-failed':
-          errorMessage = 'Network error. Check your connection';
-          break;
-        default:
-          errorMessage = 'Could not log in. Please try again';
-      }
-      showMessage({
-        message: 'Login Failed',
-        description: errorMessage,
-        type: 'danger',
-        duration: 3000,
-      });
-      setIsLoading(false);
-    }
+    await login(values.email, values.password);
   };
 
   return (
