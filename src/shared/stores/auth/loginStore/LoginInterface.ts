@@ -1,8 +1,3 @@
-export interface LoginData {
-  email: string;
-  password: string;
-}
-
 export interface UserMetaData {
   createdAt: string;
   creationTime: string;
@@ -21,8 +16,8 @@ export interface LoginResponseData {
 }
 
 export interface InitialStateData {
-  isLoggedIn: boolean;
+  // isLoggedIn?: boolean;
   user: LoginResponseData | null;
   signOut: () => void;
-  setUser: (userData: LoginResponseData) => void;
+  setUser: (userData: User) => void;
 }
