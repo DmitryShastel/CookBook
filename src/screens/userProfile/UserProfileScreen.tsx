@@ -1,15 +1,14 @@
-import { View, ScrollView } from 'react-native';
+import { ScrollView, View } from 'react-native';
 import { Text } from 'react-native-elements';
 import { UserProfile } from '@/features/userProfile/ui/UserProfile';
 import { styles } from '@/screens/userProfile/UserProfileScreen.styles';
 import { RootPage } from '@/screens/rootPage/RootPage';
 import { useNavigationHelper } from '@/hooks/useNavigationHelper';
+import { useSignOut } from '@/features/auth/hooks/signOut/useSignOut';
 
 export const UserProfileScreen = () => {
   const { getBack } = useNavigationHelper();
-  const handleLogout = () => {
-    console.log('Logout pressed');
-  };
+  const { handleLogout } = useSignOut();
 
   return (
     <RootPage title="Profile" showBackButton={true} onBackPress={getBack}>
