@@ -23,8 +23,28 @@ export const LoginForm = () => {
         type: 'success',
         duration: 3000,
       });
-    } catch (error) {
-      Alert.alert('Error', 'Could not log in');
+    } catch (error: any) {
+      let errorMessage = '';
+
+      switch (error.code) {
+        case 'auth/invalid-credential':
+          errorMessage = 'Invalid email or password';
+          break;
+        case 'auth/too-many-requests':
+          errorMessage = 'Too many attempts. Try again later';
+          break;
+        case 'auth/network-request-failed':
+          errorMessage = 'Network error. Check your connection';
+          break;
+        default:
+          errorMessage = 'Could not log in. Please try again';
+      }
+      showMessage({
+        message: 'Login Failed',
+        description: errorMessage,
+        type: 'danger',
+        duration: 3000,
+      });
       setIsLoading(false);
     }
   };
