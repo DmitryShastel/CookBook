@@ -6,7 +6,7 @@ import {
 
 export const useSignInStore = create<InitialStateData>()((set) => ({
   user: null,
-  isLoggedIn: false,
+  // isLoggedIn: false,
 
   setUser: (userData: LoginResponseData) =>
     set({ user: userData, isLoggedIn: true }),
