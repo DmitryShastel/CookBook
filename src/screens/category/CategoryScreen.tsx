@@ -1,4 +1,3 @@
-import { useEffect, useState } from 'react';
 import {
   FlatList,
   Image,
@@ -9,21 +8,17 @@ import {
   View,
 } from 'react-native';
 import { styles } from '@/screens/category/CategoryScreen.styles';
-import { Category, getCategories } from '@/shared/api/axios-instance';
 import { useNavigation } from '@react-navigation/native';
 import { RecipeListNavigationProp } from '@/navigation/type';
+import { useCategoryQuery } from '@/features/recipeList/api/RecipeListQuery';
+import { Category } from '@/features/recipeList/api/types/RecipeList';
 
 export const CategoryScreen = () => {
-  const [categories, setCategories] = useState<Category[]>([]);
+  const { data: categories } = useCategoryQuery();
   const navigation = useNavigation<RecipeListNavigationProp>();
   const handleCategoryPress = (categoryTitle: string) => {
     navigation.navigate('RecipeList', { categoryTitle });
   };
-  useEffect(() => {
-    getCategories().then((res) => {
-      setCategories(res);
-    });
-  }, []);
 
   const renderCategoryCard = ({ item }: { item: Category }) => (
     <TouchableOpacity
@@ -54,7 +49,7 @@ export const CategoryScreen = () => {
     <View style={styles.header}>
       <Text style={styles.headerTitle}>Categories</Text>
       <Text style={styles.headerSubtitle}>
-        Explore {categories.length} delicious categories
+        Explore {categories?.length} delicious categories
       </Text>
     </View>
   );
