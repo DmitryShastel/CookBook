@@ -7,26 +7,22 @@ import {
   RecipeListNavigationProp,
   RecipeListRouteProp,
 } from '@/navigation/type';
-import { useEffect, useState } from 'react';
-import { getCategoryByTitle, MealSummary } from '@/shared/api/axios-instance';
 import { RootPage } from '@/screens/rootPage/RootPage';
 import { useNavigationHelper } from '@/hooks/useNavigationHelper';
+import { MealSummary } from '@/features/recipeList/api/types/RecipeList';
+import { useCategoryMealsQuery } from '@/features/recipeList/api/RecipeListQuery';
+import { Loader } from '@/utils/Loader';
 
 export const RecipeList = () => {
-  const [recipes, setRecipes] = useState<MealSummary[]>([]);
-  const { getBack } = useNavigationHelper();
-  const navigation = useNavigation<RecipeListNavigationProp>();
   const route = useRoute<RecipeListRouteProp>();
   const { categoryTitle } = route.params;
+  const { data: recipes, isLoading } = useCategoryMealsQuery(categoryTitle);
+  const { getBack } = useNavigationHelper();
+  const navigation = useNavigation<RecipeListNavigationProp>();
+
   const handleRecipePress = (recipeId: string) => {
     navigation.navigate('Recipe', { recipeId });
   };
-
-  useEffect(() => {
-    getCategoryByTitle(categoryTitle).then((res) => {
-      setRecipes(res);
-    });
-  });
 
   const renderRecipeCard = ({ item }: { item: MealSummary }) => (
     <TouchableOpacity
@@ -41,6 +37,10 @@ export const RecipeList = () => {
   const renderEmptyComponent = () => (
     <Text style={styles.emptyText}>No recipes found</Text>
   );
+
+  if (isLoading) {
+    return <Loader />;
+  }
 
   return (
     <RootPage
