@@ -1,13 +1,14 @@
 import { StyleSheet } from 'react-native';
+import { border, spacing, typography } from '@/shared/styles/CommonStyles';
 
 export const styles = StyleSheet.create({
   button: {
     alignItems: 'center',
     backgroundColor: '#007AFF',
-    borderRadius: 8,
+    borderRadius: border.radius.md,
     justifyContent: 'center',
-    paddingHorizontal: 24,
-    paddingVertical: 12,
+    paddingHorizontal: spacing.padding.lg,
+    paddingVertical: spacing.padding.sn,
   },
   disabled: {
     backgroundColor: '#CCCCCC',
@@ -17,7 +18,7 @@ export const styles = StyleSheet.create({
   },
   text: {
     color: '#FFFFFF',
-    fontSize: 16,
-    fontWeight: '600',
+    fontSize: typography.accent.md,
+    fontWeight: typography.weight.semiBold,
   },
 });

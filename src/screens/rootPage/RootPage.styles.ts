@@ -1,8 +1,9 @@
 import { StyleSheet } from 'react-native';
+import { border, spacing, typography } from '@/shared/styles/CommonStyles';
 
 export const styles = StyleSheet.create({
   backButton: {
-    padding: 8,
+    padding: spacing.padding.sm,
   },
   content: {
     backgroundColor: '#f5f5f5',
@@ -12,11 +13,11 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#fff',
     borderBottomColor: '#f0f0f0',
-    borderBottomWidth: 1,
+    borderBottomWidth: border.radius.sn,
     flexDirection: 'row',
     height: 60,
     justifyContent: 'space-between',
-    paddingHorizontal: 16,
+    paddingHorizontal: spacing.padding.md,
   },
   headerLeft: {
     width: 40,
@@ -26,8 +27,8 @@ export const styles = StyleSheet.create({
   },
   headerTitle: {
     color: '#333',
-    fontSize: 18,
-    fontWeight: '600',
+    fontSize: typography.accent.lg,
+    fontWeight: typography.weight.semiBold,
   },
   safeArea: {
     backgroundColor: '#fff',
@@ -37,14 +38,14 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#fff',
     borderTopColor: '#f0f0f0',
-    borderTopWidth: 1,
+    borderTopWidth: border.radius.sn,
     flexDirection: 'row',
     height: 60,
     justifyContent: 'space-around',
-    paddingHorizontal: 16,
+    paddingHorizontal: spacing.padding.md,
   },
   tabButton: {
-    paddingHorizontal: 16,
-    paddingVertical: 8,
+    paddingHorizontal: spacing.padding.md,
+    paddingVertical: spacing.padding.sm,
   },
 });

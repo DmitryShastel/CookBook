@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native';
+import { spacing, typography } from '@/shared/styles/CommonStyles';
 
 export const styles = StyleSheet.create({
   container: {
@@ -7,10 +8,10 @@ export const styles = StyleSheet.create({
   },
   footer: {
     alignItems: 'center',
-    paddingVertical: 30,
+    paddingVertical: spacing.padding.qqe,
   },
   version: {
     color: '#999',
-    fontSize: 14,
+    fontSize: typography.accent.sm,
   },
 });

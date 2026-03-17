@@ -1,10 +1,11 @@
 import { StyleSheet } from 'react-native';
+import { spacing } from '@/shared/styles/CommonStyles';
 
 export const styles = StyleSheet.create({
   container: {
-    marginHorizontal: 12,
-    marginVertical: 12,
-    paddingHorizontal: 0,
+    marginHorizontal: spacing.margin.sn,
+    marginVertical: spacing.margin.sn,
+    paddingHorizontal: spacing.padding.x,
     width: 'auto',
   },
   input: {

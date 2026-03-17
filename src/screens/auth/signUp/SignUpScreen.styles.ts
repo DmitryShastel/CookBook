@@ -1,28 +1,29 @@
 import { StyleSheet } from 'react-native';
+import { spacing, typography } from '@/shared/styles/CommonStyles';
 
 export const styles = StyleSheet.create({
   container: {
     backgroundColor: '#fff',
     flex: 1,
-    paddingBottom: 30,
-    paddingHorizontal: 24,
-    paddingTop: 60,
+    paddingBottom: spacing.padding.xl,
+    paddingHorizontal: spacing.padding.lg,
+    paddingTop: spacing.padding.xxxl,
   },
   logoContainer: {
     alignSelf: 'center',
-    marginBottom: 20,
+    marginBottom: spacing.margin.mdd,
   },
   subtitle: {
     color: '#666',
-    fontSize: 16,
-    marginBottom: 40,
+    fontSize: typography.accent.md,
+    marginBottom: spacing.margin.xl,
     textAlign: 'center',
   },
   title: {
     color: '#333',
-    fontSize: 28,
-    fontWeight: 'bold',
-    marginBottom: 8,
+    fontSize: typography.accent.xxl,
+    fontWeight: typography.weight.semiBold,
+    marginBottom: spacing.margin.sm,
     textAlign: 'center',
   },
 });

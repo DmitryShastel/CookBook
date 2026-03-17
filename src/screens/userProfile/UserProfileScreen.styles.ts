@@ -1,4 +1,10 @@
 import { StyleSheet } from 'react-native';
+import {
+  border,
+  opacity,
+  spacing,
+  typography,
+} from '@/shared/styles/CommonStyles';
 
 export const styles = StyleSheet.create({
   container: {
@@ -7,36 +13,36 @@ export const styles = StyleSheet.create({
   },
   infoCard: {
     backgroundColor: '#fff',
-    borderRadius: 12,
+    borderRadius: border.radius.lg,
     elevation: 3,
-    margin: 16,
+    margin: spacing.margin.md,
     marginTop: 0,
-    padding: 20,
+    padding: spacing.padding.mdd,
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.1,
-    shadowRadius: 4,
+    shadowOpacity: opacity.pressed,
+    shadowRadius: border.radius.sm,
   },
   infoLabel: {
     color: '#666',
-    fontSize: 14,
+    fontSize: typography.accent.sm,
   },
   infoRow: {
     borderBottomColor: '#f0f0f0',
-    borderBottomWidth: 1,
+    borderBottomWidth: spacing.padding.xxs,
     flexDirection: 'row',
     justifyContent: 'space-between',
-    paddingVertical: 12,
+    paddingVertical: spacing.padding.sn,
   },
   infoTitle: {
     color: '#333',
-    fontSize: 18,
-    fontWeight: '600',
-    marginBottom: 16,
+    fontSize: typography.accent.lg,
+    fontWeight: typography.weight.semiBold,
+    marginBottom: spacing.margin.md,
   },
   infoValue: {
     color: '#333',
-    fontSize: 14,
-    fontWeight: '500',
+    fontSize: typography.accent.sm,
+    fontWeight: typography.weight.medium,
   },
 });

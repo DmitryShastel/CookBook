@@ -1,25 +1,26 @@
 import { StyleSheet } from 'react-native';
+import { spacing, typography } from '@/shared/styles/CommonStyles';
 
 export const styles = StyleSheet.create({
   cardContainer: {
-    marginBottom: 12,
+    marginBottom: spacing.margin.sn,
     width: '50%',
   },
   columnWrapper: {
     gap: 8,
     justifyContent: 'space-between',
-    paddingHorizontal: 8,
+    paddingHorizontal: spacing.padding.sm,
   },
   emptyText: {
     color: '#999',
-    fontSize: 16,
-    marginTop: 50,
+    fontSize: typography.accent.md,
+    marginTop: spacing.margin.xxxl,
     textAlign: 'center',
   },
   list: {
-    paddingVertical: 12,
+    paddingVertical: spacing.padding.sn,
   },
   loader: {
-    marginTop: 50,
+    marginTop: spacing.margin.xxxl,
   },
 });

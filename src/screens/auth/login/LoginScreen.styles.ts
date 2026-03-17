@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native';
+import { spacing, typography } from '@/shared/styles/CommonStyles';
 
 export const styles = StyleSheet.create({
   container: {
@@ -6,15 +7,15 @@ export const styles = StyleSheet.create({
     backgroundColor: '#fff',
     flex: 1,
     justifyContent: 'center',
-    paddingHorizontal: 20,
+    paddingHorizontal: spacing.padding.mdd,
   },
   logoContainer: {
-    marginBottom: 20,
+    marginBottom: spacing.margin.mdd,
   },
   title: {
     color: '#000',
-    fontSize: 32,
-    fontWeight: 'bold',
-    marginBottom: 40,
+    fontSize: typography.accent.xmm,
+    fontWeight: typography.weight.semiBold,
+    marginBottom: spacing.margin.xxxl,
   },
 });

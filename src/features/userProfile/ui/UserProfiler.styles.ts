@@ -1,46 +1,52 @@
 import { StyleSheet } from 'react-native';
+import {
+  border,
+  opacity,
+  spacing,
+  typography,
+} from '@/shared/styles/CommonStyles';
 
 export const styles = StyleSheet.create({
   container: {
     backgroundColor: '#fff',
-    borderRadius: 12,
+    borderRadius: border.radius.lg,
     elevation: 3,
-    margin: 16,
-    padding: 20,
+    margin: spacing.margin.md,
+    padding: spacing.padding.mdd,
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.1,
-    shadowRadius: 4,
+    shadowOpacity: opacity.pressed,
+    shadowRadius: border.radius.sm,
   },
   emailContainer: {
     alignItems: 'center',
     borderTopColor: '#f0f0f0',
-    borderTopWidth: 1,
+    borderTopWidth: border.radius.sn,
     flexDirection: 'row',
-    marginTop: 12,
-    paddingTop: 12,
+    marginTop: spacing.margin.sn,
+    paddingTop: spacing.padding.sn,
   },
   emailText: {
     color: '#666',
-    fontSize: 14,
-    marginLeft: 10,
+    fontSize: typography.accent.sm,
+    marginLeft: spacing.margin.ssm,
   },
   logoutButton: {
     backgroundColor: '#ff4444',
-    borderRadius: 8,
-    paddingHorizontal: 20,
-    paddingVertical: 14,
+    borderRadius: border.radius.md,
+    paddingHorizontal: spacing.padding.mdd,
+    paddingVertical: spacing.padding.md,
   },
   logoutIcon: {
-    marginRight: 10,
+    marginRight: spacing.margin.ssm,
   },
   logoutText: {
     color: '#fff',
-    fontSize: 16,
-    fontWeight: '600',
-    marginLeft: 0,
+    fontSize: typography.accent.md,
+    fontWeight: typography.weight.semiBold,
+    marginLeft: spacing.margin.x,
   },
   userInfoSection: {
-    marginBottom: 20,
+    marginBottom: spacing.margin.mdd,
   },
 });

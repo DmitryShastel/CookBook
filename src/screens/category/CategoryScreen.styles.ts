@@ -1,45 +1,46 @@
 import { StyleSheet } from 'react-native';
+import { border, spacing, typography } from '@/shared/styles/CommonStyles';
 
 export const styles = StyleSheet.create({
   card: {
     backgroundColor: '#ffffff',
-    borderRadius: 16,
+    borderRadius: border.radius.xl,
     elevation: 4,
     flexDirection: 'row',
-    marginHorizontal: 16,
-    marginVertical: 8,
+    marginHorizontal: spacing.margin.md,
+    marginVertical: spacing.margin.sm,
     overflow: 'hidden',
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.1,
-    shadowRadius: 8,
+    shadowRadius: border.radius.md,
   },
   cardContent: {
     flex: 1,
-    paddingRight: 12,
-    paddingVertical: 12,
+    paddingRight: spacing.padding.sn,
+    paddingVertical: spacing.padding.sn,
   },
   cardFooter: {
     flexDirection: 'row',
     justifyContent: 'flex-end',
   },
   cardImage: {
-    borderRadius: 12,
+    borderRadius: border.radius.lg,
     height: 100,
-    margin: 12,
+    margin: spacing.margin.sn,
     width: 100,
   },
   categoryDescription: {
     color: '#666',
-    fontSize: 14,
+    fontSize: typography.accent.sm,
     lineHeight: 20,
-    marginBottom: 8,
+    marginBottom: spacing.margin.sm,
   },
   categoryName: {
     color: '#1a1a1a',
-    fontSize: 20,
-    fontWeight: '600',
-    marginBottom: 4,
+    fontSize: typography.accent.xl,
+    fontWeight: typography.weight.semiBold,
+    marginBottom: spacing.margin.xs,
   },
   container: {
     backgroundColor: '#f8f9fa',
@@ -47,23 +48,23 @@ export const styles = StyleSheet.create({
   },
   header: {
     backgroundColor: '#f8f9fa',
-    paddingBottom: 15,
-    paddingHorizontal: 20,
-    paddingTop: 20,
+    paddingBottom: spacing.padding.md,
+    paddingHorizontal: spacing.padding.mdd,
+    paddingTop: spacing.padding.mdd,
   },
   headerSubtitle: {
     color: '#666',
-    fontSize: 16,
+    fontSize: typography.accent.md,
   },
   headerTitle: {
     color: '#1a1a1a',
-    fontSize: 32,
-    fontWeight: 'bold',
-    marginBottom: 4,
+    fontSize: typography.accent.xmm,
+    fontWeight: typography.weight.semiBold,
+    marginBottom: spacing.margin.xs,
   },
   viewRecipeText: {
     color: '#007AFF',
-    fontSize: 14,
-    fontWeight: '500',
+    fontSize: typography.accent.sm,
+    fontWeight: typography.weight.medium,
   },
 });

@@ -1,17 +1,18 @@
 import { StyleSheet } from 'react-native';
+import { spacing, typography } from '@/shared/styles/CommonStyles';
 
 export const styles = StyleSheet.create({
   avatar: {
-    marginRight: 10,
+    marginRight: spacing.margin.ssm,
   },
   userContainer: {
     alignItems: 'center',
     flexDirection: 'row',
-    marginBottom: 12,
+    marginBottom: spacing.margin.sn,
   },
   userName: {
     color: '#333',
-    fontSize: 16,
-    fontWeight: '600',
+    fontSize: typography.accent.md,
+    fontWeight: typography.weight.semiBold,
   },
 });
