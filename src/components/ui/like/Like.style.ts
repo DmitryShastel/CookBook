@@ -1,28 +1,29 @@
 import { StyleSheet } from 'react-native';
+import { border, spacing, typography } from '@/shared/styles/CommonStyles';
 
 export const styles = StyleSheet.create({
   likeButton: {
     alignItems: 'center',
     backgroundColor: 'transparent',
     flexDirection: 'row',
-    paddingHorizontal: 0,
-    paddingVertical: 0,
+    paddingHorizontal: spacing.padding.x,
+    paddingVertical: spacing.padding.x,
   },
   likeContainer: {
     borderTopColor: '#f0f0f0',
-    borderTopWidth: 1,
-    paddingTop: 12,
+    borderTopWidth: border.radius.sn,
+    paddingTop: spacing.padding.sn,
   },
   likeIcon: {
-    marginRight: 8,
+    marginRight: spacing.margin.sm,
   },
   likeText: {
     color: '#666',
-    fontSize: 14,
-    marginLeft: 0,
+    fontSize: typography.size.sm,
+    marginLeft: spacing.margin.x,
   },
   likedText: {
     color: '#ff3b30',
-    fontWeight: '500',
+    fontWeight: typography.weight.medium,
   },
 });

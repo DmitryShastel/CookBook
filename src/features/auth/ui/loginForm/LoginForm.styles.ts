@@ -1,66 +1,72 @@
 import { StyleSheet } from 'react-native';
+import {
+  border,
+  opacity,
+  spacing,
+  typography,
+} from '@/shared/styles/CommonStyles';
 
 export const styles = StyleSheet.create({
   button: {
     backgroundColor: '#1E90FF',
-    borderRadius: 8,
+    borderRadius: border.radius.md,
     height: 50,
   },
   buttonContainer: {
-    marginBottom: 20,
+    marginBottom: spacing.margin.mmd,
     width: '100%',
   },
   buttonDisabled: {
     backgroundColor: '#1E90FF',
-    opacity: 0.5,
+    opacity: opacity.disabled,
   },
   buttonText: {
     color: '#fff',
-    fontSize: 18,
-    fontWeight: '600',
+    fontSize: typography.accent.lg,
+    fontWeight: typography.weight.semiBold,
   },
   container: {
-    paddingHorizontal: 20,
+    paddingHorizontal: spacing.padding.mdd,
     width: '100%',
   },
   errorText: {
     color: 'red',
-    fontSize: 12,
+    fontSize: typography.accent.xs,
     marginTop: -15,
   },
   forgotPassword: {
     color: '#1E90FF',
-    fontSize: 14,
+    fontSize: typography.accent.sm,
   },
   forgotPasswordContainer: {
     alignSelf: 'flex-end',
-    marginBottom: 20,
+    marginBottom: spacing.margin.mdd,
     marginTop: -10,
   },
   iconContainer: {
-    marginRight: 10,
+    marginRight: spacing.margin.ssm,
   },
   input: {
-    fontSize: 16,
+    fontSize: typography.accent.md,
     paddingVertical: 0,
   },
   inputContainer: {
     backgroundColor: '#f5f5f5',
-    borderBottomWidth: 0,
-    borderRadius: 8,
+    borderBottomWidth: border.radius.s,
+    borderRadius: border.radius.md,
     height: 50,
-    paddingHorizontal: 10,
+    paddingHorizontal: spacing.padding.sn,
   },
   inputWrapper: {
-    marginBottom: 15,
-    paddingHorizontal: 0,
+    marginBottom: spacing.margin.md,
+    paddingHorizontal: spacing.padding.x,
   },
   signUp: {
     color: '#000',
-    fontSize: 14,
-    fontWeight: '400',
+    fontSize: typography.accent.sm,
+    fontWeight: typography.weight.regular,
   },
   signUpContainer: {
-    marginTop: 10,
+    marginTop: spacing.margin.ssm,
   },
 });

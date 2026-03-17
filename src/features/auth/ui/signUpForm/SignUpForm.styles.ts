@@ -1,14 +1,15 @@
 import { StyleSheet } from 'react-native';
+import { border, spacing, typography } from '@/shared/styles/CommonStyles';
 
 export const styles = StyleSheet.create({
   button: {
     backgroundColor: '#1E90FF',
-    borderRadius: 8,
+    borderRadius: border.radius.md,
     height: 50,
   },
   buttonContainer: {
-    marginBottom: 15,
-    marginTop: 20,
+    marginBottom: border.radius.xl,
+    marginTop: border.radius.xxxl,
     width: '100%',
   },
   buttonDisabled: {
@@ -16,40 +17,40 @@ export const styles = StyleSheet.create({
   },
   buttonText: {
     color: '#fff',
-    fontSize: 16,
-    fontWeight: '600',
+    fontSize: typography.accent.md,
+    fontWeight: typography.weight.semiBold,
   },
   container: {
     width: '100%',
   },
   errorText: {
     color: '#ff4444',
-    fontSize: 14,
+    fontSize: typography.accent.sm,
   },
   iconContainer: {
-    marginRight: 10,
+    marginRight: spacing.margin.ssm,
   },
   input: {
     color: '#333',
-    fontSize: 16,
-    paddingVertical: 0,
+    fontSize: typography.accent.md,
+    paddingVertical: spacing.padding.x,
   },
   inputContainer: {
     backgroundColor: '#f5f5f5',
-    borderBottomWidth: 0,
-    borderRadius: 8,
+    borderBottomWidth: border.radius.s,
+    borderRadius: border.radius.md,
     height: 50,
-    paddingHorizontal: 10,
+    paddingHorizontal: spacing.padding.sm,
   },
   inputWrapper: {
-    marginBottom: 15,
-    paddingHorizontal: 0,
+    marginBottom: spacing.margin.md,
+    paddingHorizontal: spacing.margin.x,
   },
   loginContainer: {
-    marginTop: 10,
+    marginTop: spacing.margin.sm,
   },
   loginText: {
     color: '#666',
-    fontSize: 14,
+    fontSize: typography.accent.sm,
   },
 });

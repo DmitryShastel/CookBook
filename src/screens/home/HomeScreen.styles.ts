@@ -1,26 +1,27 @@
 import { StyleSheet } from 'react-native';
+import { border, spacing, typography } from '@/shared/styles/CommonStyles';
 
 export const styles = StyleSheet.create({
   button: {
     backgroundColor: '#2089dc',
-    borderRadius: 10,
-    paddingVertical: 15,
+    borderRadius: border.radius.lg,
+    paddingVertical: spacing.padding.md,
   },
   buttonContainer: {
     gap: 16,
-    paddingBottom: 30,
-    paddingHorizontal: 40,
+    paddingBottom: spacing.padding.qqe,
+    paddingHorizontal: spacing.padding.ssw,
   },
   buttonTitle: {
     color: '#fff',
-    fontSize: 16,
-    fontWeight: '600',
+    fontSize: typography.accent.md,
+    fontWeight: typography.weight.semiBold,
   },
   container: {
     backgroundColor: '#fff',
     flex: 1,
     justifyContent: 'space-between',
-    paddingVertical: 50,
+    paddingVertical: spacing.padding.xxxl,
   },
   content: {
     alignItems: 'center',
@@ -29,9 +30,9 @@ export const styles = StyleSheet.create({
   },
   message: {
     color: '#666',
-    fontSize: 18,
-    marginTop: 20,
-    paddingHorizontal: 40,
+    fontSize: typography.accent.lg,
+    marginTop: spacing.margin.mdd,
+    paddingHorizontal: spacing.padding.ssw,
     textAlign: 'center',
   },
 });

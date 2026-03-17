@@ -1,12 +1,13 @@
 import { StyleSheet } from 'react-native';
+import { border, spacing, typography } from '@/shared/styles/CommonStyles';
 
 export const styles = StyleSheet.create({
   iconContainer: {
     alignItems: 'center',
-    borderRadius: 20,
+    borderRadius: border.radius.xxxl,
     height: 40,
     justifyContent: 'center',
-    marginRight: 12,
+    marginRight: spacing.margin.sn,
     width: 40,
   },
   leftContainer: {
@@ -17,21 +18,21 @@ export const styles = StyleSheet.create({
   settingItem: {
     backgroundColor: '#fff',
     borderBottomColor: '#f0f0f0',
-    borderBottomWidth: 1,
-    paddingHorizontal: 16,
-    paddingVertical: 0,
+    borderBottomWidth: border.radius.sn,
+    paddingHorizontal: spacing.padding.md,
+    paddingVertical: spacing.padding.x,
   },
   textContainer: {
     flex: 1,
   },
   title: {
     color: '#333',
-    fontSize: 16,
-    fontWeight: '500',
-    marginBottom: 2,
+    fontSize: typography.accent.md,
+    fontWeight: typography.weight.medium,
+    marginBottom: spacing.margin.xxs,
   },
   value: {
     color: '#666',
-    fontSize: 14,
+    fontSize: typography.accent.sm,
   },
 });
