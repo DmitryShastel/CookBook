@@ -15,12 +15,14 @@ import { RecipeRouteProp } from '@/navigation/type';
 import { useRecipeQuery } from '@/features/recipeList/api/RecipeListQuery';
 import { Recipe } from '@/features/recipeList/api/types/RecipeList';
 import { Loader } from '@/utils/Loader';
+import { useThemeToggle } from '@/hooks/useThemeToggle';
 
 export const RecipeScreen = () => {
   const route = useRoute<RecipeRouteProp>();
   const { recipeId } = route.params;
   const { data: recipe, isLoading } = useRecipeQuery(recipeId);
   const { getBack } = useNavigationHelper();
+  const { colors } = useThemeToggle();
 
   const getIngredients = () => {
     if (!recipe) return [];
@@ -66,61 +68,136 @@ export const RecipeScreen = () => {
       showBackButton={true}
       onBackPress={getBack}
     >
-      <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
+      <ScrollView
+        contentContainerStyle={[
+          styles.centerContainer,
+          { backgroundColor: colors.background.tertiary },
+        ]}
+        showsVerticalScrollIndicator={false}
+      >
         <Image
           source={{ uri: recipe.strMealThumb }}
           style={styles.recipeImage}
           resizeMode="cover"
         />
 
-        <View style={styles.content}>
-          <Text style={styles.title}>{recipe.strMeal}</Text>
-          <Text style={styles.category}>
+        <View
+          style={[
+            styles.content,
+            { backgroundColor: colors.background.secondary },
+          ]}
+        >
+          <Text style={[styles.title, { color: colors.text.primary }]}>
+            {recipe.strMeal}
+          </Text>
+          <Text style={[styles.category, { color: colors.text.primary }]}>
             {recipe.strCategory} • {recipe.strArea}
           </Text>
 
           <View style={styles.statsContainer}>
             <View style={styles.statItem}>
-              <Text style={styles.statValue}>{ingredients.length}</Text>
-              <Text style={styles.statLabel}>Ingredients</Text>
+              <Text style={[styles.statValue, { color: colors.text.inverse }]}>
+                {ingredients.length}
+              </Text>
+              <Text style={[styles.statLabel, { color: colors.text.inverse }]}>
+                Ingredients
+              </Text>
             </View>
             <View style={styles.statItem}>
-              <Text style={styles.statValue}>30</Text>
-              <Text style={styles.statLabel}>Minutes</Text>
+              <Text style={[styles.statValue, { color: colors.text.inverse }]}>
+                30
+              </Text>
+              <Text style={[styles.statLabel, { color: colors.text.inverse }]}>
+                Minutes
+              </Text>
             </View>
             <View style={styles.statItem}>
-              <Text style={styles.statValue}>4.5</Text>
-              <Text style={styles.statLabel}>Rating</Text>
+              <Text style={[styles.statValue, { color: colors.text.inverse }]}>
+                4.5
+              </Text>
+              <Text style={[styles.statLabel, { color: colors.text.inverse }]}>
+                Rating
+              </Text>
             </View>
           </View>
 
-          <Text style={styles.sectionTitle}>Ingredients</Text>
-          <View style={styles.ingredientsContainer}>
+          <Text style={[styles.sectionTitle, { color: colors.text.secondary }]}>
+            Ingredients
+          </Text>
+          <View
+            style={[
+              styles.ingredientsContainer,
+              { backgroundColor: colors.surface },
+            ]}
+          >
             {ingredients.map((item, index) => (
-              <View key={index} style={styles.ingredientItem}>
-                <Text style={styles.ingredientName}>{item.ingredient}</Text>
-                <Text style={styles.ingredientAmount}>{item.measure}</Text>
+              <View
+                key={index}
+                style={[
+                  styles.ingredientItem,
+                  { borderBottomColor: colors.border },
+                ]}
+              >
+                <Text
+                  style={[
+                    styles.ingredientName,
+                    { color: colors.text.primary },
+                  ]}
+                >
+                  {item.ingredient}
+                </Text>
+                <Text
+                  style={[
+                    styles.ingredientAmount,
+                    { color: colors.text.secondary },
+                  ]}
+                >
+                  {item.measure}
+                </Text>
               </View>
             ))}
           </View>
 
-          <Text style={styles.sectionTitle}>Instructions</Text>
-          <Text style={styles.instructions}>{recipe.strInstructions}</Text>
+          <Text style={[styles.sectionTitle, { color: colors.text.secondary }]}>
+            Instructions
+          </Text>
+          <Text style={[styles.instructions, { color: colors.text.secondary }]}>
+            {recipe.strInstructions}
+          </Text>
 
           <View style={styles.linksContainer}>
             {recipe.strSource && (
               <TouchableOpacity
-                style={styles.linkButton}
+                style={[
+                  styles.linkButton,
+                  {
+                    backgroundColor: colors.surface,
+                    borderColor: colors.border,
+                  },
+                ]}
                 onPress={() => openLink(recipe.strSource)}
               >
-                <Ionicons name="link-outline" size={20} color="#007AFF" />
-                <Text style={styles.linkText}>View Source</Text>
+                <Ionicons
+                  name="link-outline"
+                  size={20}
+                  color={colors.primary.main}
+                />
+                <Text style={[styles.linkText, { color: colors.primary.main }]}>
+                  View Source
+                </Text>
               </TouchableOpacity>
             )}
 
             {recipe.strYoutube && (
               <TouchableOpacity
-                style={[styles.linkButton, styles.youtubeButton]}
+                style={[
+                  styles.linkButton,
+                  styles.youtubeButton,
+                  {
+                    backgroundColor: colors.surface,
+                    borderColor: colors.border,
+                  },
+                ]}
                 onPress={() => openLink(recipe.strYoutube)}
               >
                 <Ionicons name="logo-youtube" size={20} color="#FF0000" />

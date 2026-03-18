@@ -21,6 +21,7 @@ export const styles = StyleSheet.create({
     borderBottomWidth: border.radius.sn,
     paddingHorizontal: spacing.padding.md,
     paddingVertical: spacing.padding.x,
+    width: '100%',
   },
   textContainer: {
     flex: 1,

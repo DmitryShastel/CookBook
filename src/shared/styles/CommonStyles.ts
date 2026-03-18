@@ -47,46 +47,6 @@ export const spacing = {
     xxxl: 50,
   },
 } as const;
-//colors
-export const palette = {
-  primary: {
-    light: '#64B5F6',
-    main: '#2196F3',
-    dark: '#1976D2',
-  },
-
-  accent: {
-    light: '#BA68C8',
-    main: '#9C27B0',
-    dark: '#7B1FA2',
-  },
-
-  neutral: {
-    0: '#FFFFFF',
-    50: '#FAFAFA',
-    100: '#F5F5F5',
-    200: '#EEEEEE',
-    300: '#E0E0E0',
-    400: '#BDBDBD',
-    500: '#9E9E9E',
-    600: '#757575',
-    700: '#616161',
-    800: '#424242',
-    900: '#212121',
-    1000: '#000000',
-  },
-
-  success: '#4CAF50',
-  warning: '#FFC107',
-  error: '#F44336',
-  info: '#2196F3',
-
-  alpha: {
-    high: 'FF',
-    medium: '80',
-    low: '20',
-  },
-};
 //typography
 export const typography = {
   weight: {
@@ -131,3 +91,43 @@ export const opacity = {
   hover: 0.8,
   pressed: 0.6,
 } as const;
+
+export const palette = {
+  primary: {
+    light: '#64B5F6',
+    main: '#2196F3',
+    dark: '#1976D2',
+  },
+
+  accent: {
+    light: '#BA68C8',
+    main: '#9C27B0',
+    dark: '#7B1FA2',
+  },
+
+  neutral: {
+    0: '#FFFFFF',
+    50: '#FAFAFA',
+    100: '#F5F5F5',
+    200: '#EEEEEE',
+    300: '#E0E0E0',
+    400: '#BDBDBD',
+    500: '#9E9E9E',
+    600: '#757575',
+    700: '#616161',
+    800: '#424242',
+    900: '#212121',
+    1000: '#000000',
+  },
+
+  success: '#4CAF50',
+  warning: '#FFC107',
+  error: '#F44336',
+  info: '#2196F3',
+
+  alpha: {
+    high: 'FF',
+    medium: '80',
+    low: '20',
+  },
+};

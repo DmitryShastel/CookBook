@@ -5,14 +5,22 @@ import { styles } from '@/screens/userProfile/UserProfileScreen.styles';
 import { RootPage } from '@/screens/rootPage/RootPage';
 import { useNavigationHelper } from '@/hooks/useNavigationHelper';
 import { useSignOut } from '@/features/auth/hooks/signOut/useSignOut';
+import { useThemeToggle } from '@/hooks/useThemeToggle';
 
 export const UserProfileScreen = () => {
   const { getBack } = useNavigationHelper();
   const { handleLogout } = useSignOut();
+  const { colors } = useThemeToggle();
 
   return (
     <RootPage title="Profile" showBackButton={true} onBackPress={getBack}>
-      <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
+      <ScrollView
+        style={[
+          styles.container,
+          { backgroundColor: colors.background.tertiary },
+        ]}
+        showsVerticalScrollIndicator={false}
+      >
         <UserProfile
           userName="John Doe"
           userEmail="john.doe@example.com"
@@ -20,22 +28,41 @@ export const UserProfileScreen = () => {
           onLogout={handleLogout}
         />
 
-        <View style={styles.infoCard}>
-          <Text style={styles.infoTitle}>Account Information</Text>
+        <View
+          style={[
+            styles.infoCard,
+            { backgroundColor: colors.surface, borderColor: colors.border },
+          ]}
+        >
+          <Text style={[styles.infoTitle, { color: colors.text.secondary }]}>
+            Account Information
+          </Text>
 
-          <View style={styles.infoRow}>
-            <Text style={styles.infoLabel}>Member since</Text>
-            <Text style={styles.infoValue}>January 2024</Text>
+          <View style={[styles.infoRow, { borderBottomColor: colors.border }]}>
+            <Text style={[styles.infoLabel, { color: colors.text.secondary }]}>
+              Member since
+            </Text>
+            <Text style={[styles.infoValue, { color: colors.text.primary }]}>
+              January 2024
+            </Text>
           </View>
 
-          <View style={styles.infoRow}>
-            <Text style={styles.infoLabel}>Recipes created</Text>
-            <Text style={styles.infoValue}>12</Text>
+          <View style={[styles.infoRow, { borderBottomColor: colors.border }]}>
+            <Text style={[styles.infoLabel, { color: colors.text.secondary }]}>
+              Recipes created
+            </Text>
+            <Text style={[styles.infoValue, { color: colors.text.primary }]}>
+              12
+            </Text>
           </View>
 
-          <View style={styles.infoRow}>
-            <Text style={styles.infoLabel}>Saved recipes</Text>
-            <Text style={styles.infoValue}>8</Text>
+          <View style={[styles.infoRow, { borderBottomColor: colors.border }]}>
+            <Text style={[styles.infoLabel, { color: colors.text.secondary }]}>
+              Saved recipes
+            </Text>
+            <Text style={[styles.infoValue, { color: colors.text.primary }]}>
+              8
+            </Text>
           </View>
         </View>
       </ScrollView>

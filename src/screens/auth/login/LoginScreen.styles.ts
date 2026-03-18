@@ -7,7 +7,7 @@ export const styles = StyleSheet.create({
     backgroundColor: '#fff',
     flex: 1,
     justifyContent: 'center',
-    paddingHorizontal: spacing.padding.mdd,
+    paddingHorizontal: spacing.padding.x,
   },
   logoContainer: {
     marginBottom: spacing.margin.mdd,

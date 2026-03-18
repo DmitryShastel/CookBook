@@ -26,13 +26,14 @@ export const styles = StyleSheet.create({
     fontWeight: typography.weight.semiBold,
   },
   container: {
+    marginBottom: spacing.margin.mdd,
     paddingHorizontal: spacing.padding.mdd,
     width: '100%',
   },
   errorText: {
     color: 'red',
-    fontSize: typography.accent.xs,
-    marginTop: -15,
+    fontSize: typography.accent.md,
+    marginTop: 2,
   },
   forgotPassword: {
     color: '#1E90FF',
@@ -58,13 +59,12 @@ export const styles = StyleSheet.create({
     paddingHorizontal: spacing.padding.sn,
   },
   inputWrapper: {
-    marginBottom: spacing.margin.md,
+    marginBottom: spacing.margin.lg,
     paddingHorizontal: spacing.padding.x,
   },
   signUp: {
-    color: '#000',
-    fontSize: typography.accent.sm,
-    fontWeight: typography.weight.regular,
+    color: '#1E90FF',
+    fontSize: typography.accent.md,
   },
   signUpContainer: {
     marginTop: spacing.margin.ssm,

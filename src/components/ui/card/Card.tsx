@@ -4,6 +4,7 @@ import { UserInfo } from '@/components/ui/userInfo/UserInfo';
 import { Like } from '@/components/ui/like/Like';
 import { styles } from '@/components/ui/card/Card.style';
 import { RecipeCardProps } from '@/components/ui/card/Card.types';
+import { useThemeToggle } from '@/hooks/useThemeToggle';
 
 export const Card = ({
   initialLiked,
@@ -13,11 +14,23 @@ export const Card = ({
   description,
   likesCount,
 }: RecipeCardProps) => {
+  const { colors, theme } = useThemeToggle();
   return (
-    <RNCard containerStyle={styles.card}>
-      <View style={styles.userContainer}>
-        {/*<UserInfo userAvatar={userAvatar} userName={userName} />*/}
-      </View>
+    // <RNCard containerStyle={styles.card}>
+    <RNCard
+      containerStyle={[
+        styles.card,
+        {
+          backgroundColor: colors.card?.background || colors.surface,
+
+          borderColor: colors.card?.border || colors.border,
+          borderWidth: theme === 'dark' ? 1 : 0,
+
+          shadowColor: theme === 'dark' ? '#000' : '#666',
+        },
+      ]}
+    >
+      <View style={styles.userContainer}></View>
 
       <RNCard.Image
         source={{ uri: recipeImage }}
@@ -25,7 +38,15 @@ export const Card = ({
         resizeMode="cover"
       />
       <View style={styles.contentContainer}>
-        <Text style={styles.description} numberOfLines={3}>
+        <Text
+          style={[
+            styles.description,
+            {
+              color: colors.text.secondary,
+            },
+          ]}
+          numberOfLines={3}
+        >
           {description}
         </Text>
         {/*<Like initialLiked={initialLiked} likesCount={likesCount} />*/}

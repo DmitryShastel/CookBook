@@ -12,6 +12,7 @@ import { useNavigationHelper } from '@/hooks/useNavigationHelper';
 import { MealSummary } from '@/features/recipeList/api/types/RecipeList';
 import { useCategoryMealsQuery } from '@/features/recipeList/api/RecipeListQuery';
 import { Loader } from '@/utils/Loader';
+import { useThemeToggle } from '@/hooks/useThemeToggle';
 
 export const RecipeList = () => {
   const route = useRoute<RecipeListRouteProp>();
@@ -19,6 +20,7 @@ export const RecipeList = () => {
   const { data: recipes, isLoading } = useCategoryMealsQuery(categoryTitle);
   const { getBack } = useNavigationHelper();
   const navigation = useNavigation<RecipeListNavigationProp>();
+  const { colors, theme } = useThemeToggle();
 
   const handleRecipePress = (recipeId: string) => {
     navigation.navigate('Recipe', { recipeId });
@@ -28,14 +30,24 @@ export const RecipeList = () => {
     <TouchableOpacity
       onPress={() => handleRecipePress(item.idMeal)}
       activeOpacity={0.7}
-      style={styles.cardContainer}
+      style={[
+        styles.cardContainer,
+        {
+          backgroundColor: colors.card?.background || colors.surface,
+          borderColor: colors.card?.border || colors.border,
+          borderWidth: theme === 'dark' ? 1 : 0,
+          shadowColor: theme === 'dark' ? '#000' : '#666',
+        },
+      ]}
     >
       <Card recipeImage={item.strMealThumb} description={item.strMeal} />
     </TouchableOpacity>
   );
 
   const renderEmptyComponent = () => (
-    <Text style={styles.emptyText}>No recipes found</Text>
+    <Text style={[styles.emptyText, { color: colors.text.primary }]}>
+      No recipes found
+    </Text>
   );
 
   if (isLoading) {
@@ -53,7 +65,12 @@ export const RecipeList = () => {
         renderItem={renderRecipeCard as ListRenderItem<MealSummary>}
         keyExtractor={(item) => item.idMeal}
         numColumns={2}
-        contentContainerStyle={styles.list}
+        contentContainerStyle={[
+          styles.list,
+          {
+            backgroundColor: colors.background.primary,
+          },
+        ]}
         columnWrapperStyle={styles.columnWrapper}
         showsVerticalScrollIndicator={false}
         ListEmptyComponent={renderEmptyComponent}

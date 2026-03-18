@@ -25,7 +25,7 @@ export const styles = StyleSheet.create({
   },
   errorText: {
     color: '#ff4444',
-    fontSize: typography.accent.sm,
+    fontSize: typography.accent.md,
   },
   iconContainer: {
     marginRight: spacing.margin.ssm,
@@ -50,7 +50,7 @@ export const styles = StyleSheet.create({
     marginTop: spacing.margin.sm,
   },
   loginText: {
-    color: '#666',
-    fontSize: typography.accent.sm,
+    color: '#1E90FF',
+    fontSize: typography.accent.md,
   },
 });
