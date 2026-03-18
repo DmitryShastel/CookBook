@@ -18,7 +18,8 @@ export const styles = StyleSheet.create({
     flex: 1,
   },
   content: {
-    padding: spacing.padding.md,
+    borderRadius: border.radius.lg,
+    height: '100%',
   },
   ingredientAmount: {
     color: '#666',

@@ -5,8 +5,8 @@ export const styles = StyleSheet.create({
   container: {
     backgroundColor: '#fff',
     flex: 1,
-    paddingBottom: spacing.padding.xl,
-    paddingHorizontal: spacing.padding.lg,
+    justifyContent: 'center',
+    paddingHorizontal: spacing.padding.mdd,
     paddingTop: spacing.padding.xxxl,
   },
   logoContainer: {

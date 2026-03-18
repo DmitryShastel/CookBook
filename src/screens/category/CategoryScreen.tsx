@@ -12,17 +12,27 @@ import { useNavigation } from '@react-navigation/native';
 import { RecipeListNavigationProp } from '@/navigation/type';
 import { useCategoryQuery } from '@/features/recipeList/api/RecipeListQuery';
 import { Category } from '@/features/recipeList/api/types/RecipeList';
+import { useThemeToggle } from '@/hooks/useThemeToggle';
 
 export const CategoryScreen = () => {
   const { data: categories } = useCategoryQuery();
   const navigation = useNavigation<RecipeListNavigationProp>();
+  const { colors, theme } = useThemeToggle();
   const handleCategoryPress = (categoryTitle: string) => {
     navigation.navigate('RecipeList', { categoryTitle });
   };
 
   const renderCategoryCard = ({ item }: { item: Category }) => (
     <TouchableOpacity
-      style={styles.card}
+      style={[
+        styles.card,
+        {
+          backgroundColor: colors.card.background,
+
+          borderColor: colors.card.border,
+          borderWidth: theme === 'dark' ? 1 : 0,
+        },
+      ]}
       activeOpacity={0.7}
       onPress={() => handleCategoryPress(item.strCategory)}
     >
@@ -33,29 +43,42 @@ export const CategoryScreen = () => {
       />
 
       <View style={styles.cardContent}>
-        <Text style={styles.categoryName}>{item.strCategory}</Text>
-        <Text style={styles.categoryDescription} numberOfLines={2}>
+        <Text style={[styles.categoryName, { color: colors.text.primary }]}>
+          {item.strCategory}
+        </Text>
+        <Text
+          style={[styles.categoryDescription, { color: colors.text.primary }]}
+          numberOfLines={2}
+        >
           {item.strCategoryDescription}
         </Text>
 
         <View style={styles.cardFooter}>
-          <Text style={styles.viewRecipeText}>View Recipes →</Text>
+          <Text style={[styles.viewRecipeText, { color: colors.primary.main }]}>
+            View Recipes →
+          </Text>
         </View>
       </View>
     </TouchableOpacity>
   );
 
   const renderHeader = () => (
-    <View style={styles.header}>
-      <Text style={styles.headerTitle}>Categories</Text>
-      <Text style={styles.headerSubtitle}>
+    <View
+      style={[styles.header, { backgroundColor: colors.background.primary }]}
+    >
+      <Text style={[styles.headerTitle, { color: colors.text.primary }]}>
+        Categories
+      </Text>
+      <Text style={[styles.headerSubtitle, { color: colors.text.secondary }]}>
         Explore {categories?.length} delicious categories
       </Text>
     </View>
   );
 
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView
+      style={[styles.container, { backgroundColor: colors.background.primary }]}
+    >
       <FlatList
         data={categories}
         renderItem={renderCategoryCard as ListRenderItem<Category>}

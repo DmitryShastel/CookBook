@@ -2,8 +2,10 @@ import { BottomTabBarProps } from '@react-navigation/bottom-tabs';
 import { View, TouchableOpacity } from 'react-native';
 import { Icon } from 'react-native-elements';
 import { styles } from '@/navigation/Tab.styles';
+import { useThemeToggle } from '@/hooks/useThemeToggle';
 
 export const TabBar = ({ state, navigation }: BottomTabBarProps) => {
+  const { colors, theme } = useThemeToggle();
   const handleTabPress = (routeName: string) => {
     navigation.navigate(routeName);
   };
@@ -22,7 +24,19 @@ export const TabBar = ({ state, navigation }: BottomTabBarProps) => {
   };
 
   return (
-    <View style={styles.tabBar}>
+    <View
+      style={[
+        styles.tabBar,
+        {
+          backgroundColor: colors.card?.background || colors.surface,
+
+          borderTopColor: colors.card?.border || colors.border,
+          borderTopWidth: theme === 'dark' ? 1 : 0,
+
+          shadowColor: theme === 'dark' ? '#000' : '#666',
+        },
+      ]}
+    >
       {state.routes.map((route, index) => {
         const isFocused = state.index === index;
 
@@ -36,7 +50,7 @@ export const TabBar = ({ state, navigation }: BottomTabBarProps) => {
               name={getIconName(route.name, isFocused)}
               type="ionicon"
               size={24}
-              color={isFocused ? '#1E90FF' : '#999'}
+              color={isFocused ? colors.primary.main : colors.text.secondary}
             />
           </TouchableOpacity>
         );

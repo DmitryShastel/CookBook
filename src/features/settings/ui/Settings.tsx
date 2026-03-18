@@ -2,21 +2,29 @@ import { View } from 'react-native';
 import { Text } from 'react-native-elements';
 import { styles } from '@/features/settings/ui/Settings.styles';
 import { SettingItem } from '@/components/ui/settingsItem/SettingsItem';
+import { useThemeToggle } from '@/hooks/useThemeToggle';
 
 export const Settings = () => {
+  const { theme, toggleTheme, colors } = useThemeToggle();
   const handleLanguagePress = () => {
     console.log('Language pressed');
   };
 
   const handleThemePress = () => {
-    console.log('Theme pressed');
+    toggleTheme();
   };
 
   return (
-    <View style={styles.container}>
+    <View
+      style={[styles.container, { backgroundColor: colors.background.primary }]}
+    >
       <View style={styles.section}>
-        <Text style={styles.sectionTitle}>Preferences</Text>
-        <View style={styles.sectionContent}>
+        <Text style={[styles.sectionTitle, { color: colors.text.primary }]}>
+          Preferences
+        </Text>
+        <View
+          style={[styles.sectionContent, { backgroundColor: colors.primary }]}
+        >
           <SettingItem
             icon="language-outline"
             iconBgColor="#E3F2FD"
@@ -30,7 +38,7 @@ export const Settings = () => {
             iconBgColor="#FFF3E0"
             iconColor="#FF9800"
             title="Theme"
-            value="Light"
+            value={theme === 'light' ? 'Light' : 'Dark'}
             onPress={handleThemePress}
           />
         </View>

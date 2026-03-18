@@ -3,8 +3,10 @@ import { Button, Icon } from 'react-native-elements';
 import { styles } from '@/screens/home/HomeScreen.styles';
 import { useNavigation } from '@react-navigation/native';
 import { HomeScreenNavigationProp } from '@/screens/rootPage/type';
+import { useThemeToggle } from '@/hooks/useThemeToggle';
 
 export const HomeScreen = () => {
+  const { colors } = useThemeToggle();
   const navigation = useNavigation<HomeScreenNavigationProp>();
 
   const handleSignIn = () => {
@@ -16,9 +18,11 @@ export const HomeScreen = () => {
   };
 
   return (
-    <View style={styles.container}>
+    <View
+      style={[styles.container, { backgroundColor: colors.background.primary }]}
+    >
       <View style={styles.content}>
-        <Icon name="account-circle" size={100} color="#2089dc" />
+        <Icon name="account-circle" size={100} color={colors.primary.main} />
 
         <Text style={styles.message}>
           Please sign in or create an account to start using the app
