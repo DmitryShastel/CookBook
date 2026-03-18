@@ -26,19 +26,19 @@ export const HomeScreen = () => {
       <View style={styles.content}>
         <Icon name="account-circle" size={100} color={colors.primary.main} />
 
-        <Text style={styles.message}>{t('home.message')}</Text>
+        <Text style={styles.message}>{t('HomeScreen.message')}</Text>
       </View>
 
       <View style={styles.buttonContainer}>
         <Button
-          title={t('home.signIn')}
+          title={t('HomeScreen.signIn')}
           onPress={handleSignIn}
           buttonStyle={styles.button}
           titleStyle={styles.buttonTitle}
         />
 
         <Button
-          title={t('home.signUp')}
+          title={t('HomeScreen.signUp')}
           onPress={handleSignUp}
           buttonStyle={styles.button}
           titleStyle={styles.buttonTitle}

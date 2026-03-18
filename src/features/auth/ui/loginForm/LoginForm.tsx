@@ -8,6 +8,7 @@ import {
 import { styles } from '@/features/auth/ui/loginForm/LoginForm.styles';
 import { useLogin } from '@/features/auth/hooks/login/useLogin';
 import { useNavigation } from '@react-navigation/native';
+import { useTranslation } from 'react-i18next';
 
 export const LoginForm = () => {
   const navigation = useNavigation();
@@ -15,6 +16,7 @@ export const LoginForm = () => {
   const handleSubmit = async (values: LoginFormData) => {
     await login(values.email, values.password);
   };
+  const { t } = useTranslation();
 
   return (
     <Formik
@@ -33,7 +35,7 @@ export const LoginForm = () => {
       }) => (
         <View style={styles.container}>
           <Input
-            placeholder="Email"
+            placeholder={t('LoginScreen.placeholderEmail')}
             leftIcon={<Icon name="mail-outline" type="ionicon" size={25} />}
             leftIconContainerStyle={styles.iconContainer}
             onChangeText={handleChange('email')}
@@ -50,7 +52,7 @@ export const LoginForm = () => {
           />
 
           <Input
-            placeholder="Password"
+            placeholder={t('LoginScreen.placeholderPassword')}
             leftIcon={
               <Icon name="lock-closed-outline" type="ionicon" size={25} />
             }
@@ -71,7 +73,7 @@ export const LoginForm = () => {
           />
 
           <Button
-            title="Forgot Password?"
+            title={t('LoginScreen.forgotPassword')}
             type="clear"
             onPress={() => {}}
             titleStyle={styles.forgotPassword}
@@ -80,7 +82,7 @@ export const LoginForm = () => {
           />
 
           <Button
-            title="Login"
+            title={t('LoginScreen.buttonLogin')}
             onPress={handleSubmit}
             disabled={!isValid || isLoading}
             loading={isLoading}
@@ -92,7 +94,7 @@ export const LoginForm = () => {
           />
 
           <Button
-            title="Don't have an account? Sign Up"
+            title={t('LoginScreen.referenceSignUp')}
             type="clear"
             onPress={() => navigation.navigate('SignUp')}
             titleStyle={styles.signUp}

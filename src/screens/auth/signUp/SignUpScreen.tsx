@@ -1,11 +1,18 @@
 import { Image, View } from 'react-native';
-import { Text } from 'react-native-elements';
+import { Button, Text } from 'react-native-elements';
 import { SignUpForm } from '@/features/auth/ui/signUpForm/SignUpForm';
 import { styles } from '@/screens/auth/signUp/SignUpScreen.styles';
 import { useThemeToggle } from '@/hooks/useThemeToggle';
+import { useTranslation } from 'react-i18next';
 
 export const SignUpScreen = () => {
   const { colors } = useThemeToggle();
+  const { t, i18n } = useTranslation();
+
+  const changeLanguage = (lng: string) => {
+    i18n.changeLanguage(lng);
+  };
+
   return (
     <View
       style={[styles.container, { backgroundColor: colors.background.primary }]}
@@ -20,6 +27,11 @@ export const SignUpScreen = () => {
       </Text>
 
       <SignUpForm />
+
+      <View style={{ flexDirection: 'row', marginTop: 20 }}>
+        <Button title="EN" onPress={() => changeLanguage('en')} type="clear" />
+        <Button title="FR" onPress={() => changeLanguage('fr')} type="clear" />
+      </View>
     </View>
   );
 };
