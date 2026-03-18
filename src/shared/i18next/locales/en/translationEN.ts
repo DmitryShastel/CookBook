@@ -12,4 +12,13 @@ export const EN = {
     buttonLogin: 'Login',
     referenceSignUp: "Don't have an account? Sign Up",
   },
+  SignUpScreen: {
+    title: 'Create Account',
+    description: 'Sign up to get started',
+    placeholderEmail: 'Email',
+    placeholderPassword: 'Password',
+    placeholderConfirmPassword: 'Confirm Password',
+    buttonSignUp: 'Create Account',
+    referenceSignIn: 'Already have an account? Sign In',
+  },
 };

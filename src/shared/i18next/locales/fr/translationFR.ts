@@ -13,4 +13,13 @@ export const FR = {
     buttonLogin: 'Connexion',
     referenceSignUp: 'Vous n avez pas de compte? SInscrire',
   },
+  SignUpScreen: {
+    title: 'Créer un Compte',
+    description: 'Inscrivez-vous pour commencer',
+    placeholderEmail: 'Courriel',
+    placeholderPassword: 'Mot de Passe',
+    placeholderConfirmPassword: 'Confirmer Le Mot de Passe',
+    buttonSignUp: 'Créer un Compte',
+    referenceSignIn: 'Vous avez déjà un compte? Se Connecter',
+  },
 };

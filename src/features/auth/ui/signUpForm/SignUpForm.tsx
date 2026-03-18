@@ -8,6 +8,7 @@ import {
 import { styles } from '@/features/auth/ui/signUpForm/SignUpForm.styles';
 import { useSignUp } from '@/features/auth/hooks/signUp/useSignUp';
 import { useNavigation } from '@react-navigation/native/src';
+import { useTranslation } from 'react-i18next';
 
 export const SignUpForm = () => {
   const navigation = useNavigation();
@@ -15,6 +16,7 @@ export const SignUpForm = () => {
   const handleSubmit = async (values: SignUpFormData) => {
     await signUp(values.email, values.password);
   };
+  const { t } = useTranslation();
 
   return (
     <Formik
@@ -37,7 +39,7 @@ export const SignUpForm = () => {
       }) => (
         <View style={styles.container}>
           <Input
-            placeholder="Email"
+            placeholder={t('SignUpScreen.placeholderEmail')}
             leftIcon={
               <Icon name="mail-outline" type="ionicon" size={22} color="#666" />
             }
@@ -55,7 +57,7 @@ export const SignUpForm = () => {
           />
 
           <Input
-            placeholder="Password"
+            placeholder={t('SignUpScreen.placeholderPassword')}
             leftIcon={
               <Icon
                 name="lock-closed-outline"
@@ -80,7 +82,7 @@ export const SignUpForm = () => {
           />
 
           <Input
-            placeholder="Confirm Password"
+            placeholder={t('SignUpScreen.placeholderConfirmPassword')}
             leftIcon={
               <Icon
                 name="lock-closed-outline"
@@ -107,7 +109,7 @@ export const SignUpForm = () => {
           />
 
           <Button
-            title="Create Account"
+            title={t('SignUpScreen.buttonSignUp')}
             onPress={handleSubmit}
             disabled={!isValid || isLoading}
             loading={isLoading}
@@ -119,7 +121,7 @@ export const SignUpForm = () => {
           />
 
           <Button
-            title="Already have an account? Sign In"
+            title={t('SignUpScreen.referenceSignIn')}
             type="clear"
             onPress={() => navigation.navigate('Login')}
             titleStyle={styles.loginText}
