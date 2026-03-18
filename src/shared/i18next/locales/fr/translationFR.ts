@@ -22,4 +22,8 @@ export const FR = {
     buttonSignUp: 'Créer un Compte',
     referenceSignIn: 'Vous avez déjà un compte? Se Connecter',
   },
+  CategoryScreen: {
+    title: 'Catégories',
+    description: 'Explorez {{count}} les catégories délicieuses',
+  },
 };

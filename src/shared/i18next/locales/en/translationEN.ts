@@ -21,4 +21,8 @@ export const EN = {
     buttonSignUp: 'Create Account',
     referenceSignIn: 'Already have an account? Sign In',
   },
+  CategoryScreen: {
+    title: 'Categories',
+    description: 'Explore {{count}} delicious categories',
+  },
 };
