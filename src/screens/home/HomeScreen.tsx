@@ -4,10 +4,12 @@ import { styles } from '@/screens/home/HomeScreen.styles';
 import { useNavigation } from '@react-navigation/native';
 import { HomeScreenNavigationProp } from '@/screens/rootPage/type';
 import { useThemeToggle } from '@/hooks/useThemeToggle';
+import { useTranslation } from 'react-i18next';
 
 export const HomeScreen = () => {
   const { colors } = useThemeToggle();
   const navigation = useNavigation<HomeScreenNavigationProp>();
+  const { t } = useTranslation();
 
   const handleSignIn = () => {
     navigation.navigate('Login');
@@ -24,21 +26,19 @@ export const HomeScreen = () => {
       <View style={styles.content}>
         <Icon name="account-circle" size={100} color={colors.primary.main} />
 
-        <Text style={styles.message}>
-          Please sign in or create an account to start using the app
-        </Text>
+        <Text style={styles.message}>{t('home.message')}</Text>
       </View>
 
       <View style={styles.buttonContainer}>
         <Button
-          title="Sign In"
+          title={t('home.signIn')}
           onPress={handleSignIn}
           buttonStyle={styles.button}
           titleStyle={styles.buttonTitle}
         />
 
         <Button
-          title="Sign Up"
+          title={t('home.signUp')}
           onPress={handleSignUp}
           buttonStyle={styles.button}
           titleStyle={styles.buttonTitle}
