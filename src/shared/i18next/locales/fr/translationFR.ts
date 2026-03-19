@@ -108,4 +108,12 @@ export const FR = {
       theme: 'Thème',
     },
   },
+  UserProfileScreen: {
+    title: 'Profil',
+    accountInformation: 'Informations sur le Compte',
+    memberSince: 'Membre depuis',
+    recipeCreated: 'Recettes créées',
+    savedRecipes: 'Recettes sauvegardées',
+    logoutTitle: 'Déconnexion',
+  },
 };

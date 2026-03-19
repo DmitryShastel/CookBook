@@ -6,14 +6,21 @@ import { RootPage } from '@/screens/rootPage/RootPage';
 import { useNavigationHelper } from '@/hooks/useNavigationHelper';
 import { useSignOut } from '@/features/auth/hooks/signOut/useSignOut';
 import { useThemeToggle } from '@/hooks/useThemeToggle';
+import { useTranslation } from 'react-i18next';
 
 export const UserProfileScreen = () => {
   const { getBack } = useNavigationHelper();
   const { handleLogout } = useSignOut();
   const { colors } = useThemeToggle();
 
+  const { t } = useTranslation();
+
   return (
-    <RootPage title="Profile" showBackButton={true} onBackPress={getBack}>
+    <RootPage
+      title={t('UserProfileScreen.title')}
+      showBackButton={true}
+      onBackPress={getBack}
+    >
       <ScrollView
         style={[
           styles.container,
@@ -35,12 +42,12 @@ export const UserProfileScreen = () => {
           ]}
         >
           <Text style={[styles.infoTitle, { color: colors.text.secondary }]}>
-            Account Information
+            {t('UserProfileScreen.accountInformation')}
           </Text>
 
           <View style={[styles.infoRow, { borderBottomColor: colors.border }]}>
             <Text style={[styles.infoLabel, { color: colors.text.secondary }]}>
-              Member since
+              {t('UserProfileScreen.memberSince')}
             </Text>
             <Text style={[styles.infoValue, { color: colors.text.primary }]}>
               January 2024
@@ -49,7 +56,7 @@ export const UserProfileScreen = () => {
 
           <View style={[styles.infoRow, { borderBottomColor: colors.border }]}>
             <Text style={[styles.infoLabel, { color: colors.text.secondary }]}>
-              Recipes created
+              {t('UserProfileScreen.recipeCreated')}
             </Text>
             <Text style={[styles.infoValue, { color: colors.text.primary }]}>
               12
@@ -58,7 +65,7 @@ export const UserProfileScreen = () => {
 
           <View style={[styles.infoRow, { borderBottomColor: colors.border }]}>
             <Text style={[styles.infoLabel, { color: colors.text.secondary }]}>
-              Saved recipes
+              {t('UserProfileScreen.savedRecipes')}
             </Text>
             <Text style={[styles.infoValue, { color: colors.text.primary }]}>
               8

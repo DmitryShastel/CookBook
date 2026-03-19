@@ -95,4 +95,12 @@ export const EN = {
       theme: 'Theme',
     },
   },
+  UserProfileScreen: {
+    title: 'Profile',
+    accountInformation: 'Account Information',
+    memberSince: 'Member since',
+    recipeCreated: 'Recipes created',
+    savedRecipes: 'Saved recipes',
+    logoutTitle: 'Logout',
+  },
 };
