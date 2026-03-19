@@ -13,6 +13,7 @@ import { RecipeListNavigationProp } from '@/navigation/type';
 import { useCategoryQuery } from '@/features/recipeList/api/RecipeListQuery';
 import { Category } from '@/features/recipeList/api/types/RecipeList';
 import { useThemeToggle } from '@/hooks/useThemeToggle';
+import { useTranslation } from 'react-i18next';
 
 export const CategoryScreen = () => {
   const { data: categories } = useCategoryQuery();
@@ -21,6 +22,8 @@ export const CategoryScreen = () => {
   const handleCategoryPress = (categoryTitle: string) => {
     navigation.navigate('RecipeList', { categoryTitle });
   };
+
+  const { t } = useTranslation();
 
   const renderCategoryCard = ({ item }: { item: Category }) => (
     <TouchableOpacity
@@ -44,18 +47,18 @@ export const CategoryScreen = () => {
 
       <View style={styles.cardContent}>
         <Text style={[styles.categoryName, { color: colors.text.primary }]}>
-          {item.strCategory}
+          {t(`CategoryScreen.categories.${item.strCategory}`)}
         </Text>
         <Text
           style={[styles.categoryDescription, { color: colors.text.primary }]}
           numberOfLines={2}
         >
-          {item.strCategoryDescription}
+          {t(`CategoryScreen.categories.${item.strCategory}Description`)}
         </Text>
 
         <View style={styles.cardFooter}>
           <Text style={[styles.viewRecipeText, { color: colors.primary.main }]}>
-            View Recipes →
+            {t('CategoryScreen.viewRecipes')}
           </Text>
         </View>
       </View>
@@ -67,14 +70,13 @@ export const CategoryScreen = () => {
       style={[styles.header, { backgroundColor: colors.background.primary }]}
     >
       <Text style={[styles.headerTitle, { color: colors.text.primary }]}>
-        Categories
+        {t('CategoryScreen.title')}
       </Text>
       <Text style={[styles.headerSubtitle, { color: colors.text.secondary }]}>
-        Explore {categories?.length} delicious categories
+        {t('CategoryScreen.description', { count: categories?.length || 0 })}
       </Text>
     </View>
   );
-
   return (
     <SafeAreaView
       style={[styles.container, { backgroundColor: colors.background.primary }]}

@@ -13,6 +13,7 @@ import { MealSummary } from '@/features/recipeList/api/types/RecipeList';
 import { useCategoryMealsQuery } from '@/features/recipeList/api/RecipeListQuery';
 import { Loader } from '@/utils/Loader';
 import { useThemeToggle } from '@/hooks/useThemeToggle';
+import { useTranslation } from 'react-i18next';
 
 export const RecipeList = () => {
   const route = useRoute<RecipeListRouteProp>();
@@ -25,6 +26,8 @@ export const RecipeList = () => {
   const handleRecipePress = (recipeId: string) => {
     navigation.navigate('Recipe', { recipeId });
   };
+
+  const { t } = useTranslation();
 
   const renderRecipeCard = ({ item }: { item: MealSummary }) => (
     <TouchableOpacity
@@ -46,7 +49,7 @@ export const RecipeList = () => {
 
   const renderEmptyComponent = () => (
     <Text style={[styles.emptyText, { color: colors.text.primary }]}>
-      No recipes found
+      {t('RecipeList.recipeNotFound')}
     </Text>
   );
 
@@ -56,7 +59,9 @@ export const RecipeList = () => {
 
   return (
     <RootPage
-      title={`${categoryTitle} Recipes`}
+      title={t('RecipeList.title', {
+        category: t(`RecipeList.${categoryTitle}`),
+      })}
       showBackButton={true}
       onBackPress={getBack}
     >

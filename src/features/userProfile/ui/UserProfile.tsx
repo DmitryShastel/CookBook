@@ -4,6 +4,7 @@ import { UserInfo } from '@/components/ui/userInfo/UserInfo';
 import { styles } from '@/features/userProfile/ui/UserProfiler.styles';
 import { UserProfileProps } from '@/features/userProfile/model/types/UserProfile';
 import { useThemeToggle } from '@/hooks/useThemeToggle';
+import { useTranslation } from 'react-i18next';
 
 export const UserProfile = ({
   userName,
@@ -12,6 +13,9 @@ export const UserProfile = ({
   onLogout,
 }: UserProfileProps) => {
   const { colors } = useThemeToggle();
+
+  const { t } = useTranslation();
+
   return (
     <View
       style={[
@@ -36,7 +40,7 @@ export const UserProfile = ({
       </View>
 
       <Button
-        title="Logout"
+        title={t('UserProfileScreen.logoutTitle')}
         onPress={onLogout}
         icon={
           <Icon

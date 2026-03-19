@@ -4,12 +4,19 @@ import { Settings } from '@/features/settings/ui/Settings';
 import { styles } from '@/screens/settings/SettingsScreen.styles';
 import { RootPage } from '@/screens/rootPage/RootPage';
 import { useNavigationHelper } from '@/hooks/useNavigationHelper';
+import { useTranslation } from 'react-i18next';
 
 export const SettingsScreen = () => {
   const { getBack } = useNavigationHelper();
 
+  const { t } = useTranslation();
+
   return (
-    <RootPage title="Settings" showBackButton={true} onBackPress={getBack}>
+    <RootPage
+      title={t('SettingsScreen.title')}
+      showBackButton={true}
+      onBackPress={getBack}
+    >
       <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
         <Settings />
 

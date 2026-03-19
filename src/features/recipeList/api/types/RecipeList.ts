@@ -5,6 +5,10 @@ export interface Category {
   idCategory: string;
 }
 
+export interface Categories {
+  categories: Category[];
+}
+
 export interface MealSummary {
   idMeal: string;
   strMealThumb: string;

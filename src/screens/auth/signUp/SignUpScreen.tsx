@@ -3,9 +3,12 @@ import { Text } from 'react-native-elements';
 import { SignUpForm } from '@/features/auth/ui/signUpForm/SignUpForm';
 import { styles } from '@/screens/auth/signUp/SignUpScreen.styles';
 import { useThemeToggle } from '@/hooks/useThemeToggle';
+import { useTranslation } from 'react-i18next';
 
 export const SignUpScreen = () => {
   const { colors } = useThemeToggle();
+  const { t } = useTranslation();
+
   return (
     <View
       style={[styles.container, { backgroundColor: colors.background.primary }]}
@@ -13,10 +16,10 @@ export const SignUpScreen = () => {
       <Image containerStyle={styles.logoContainer} resizeMode="contain" />
 
       <Text style={[styles.title, { color: colors.text.primary }]} h1>
-        Create Account
+        {t('SignUpScreen.title')}
       </Text>
       <Text style={[styles.subtitle, { color: colors.text.primary }]}>
-        Sign up to get started
+        {t('SignUpScreen.description')}
       </Text>
 
       <SignUpForm />
