@@ -47,18 +47,18 @@ export const CategoryScreen = () => {
 
       <View style={styles.cardContent}>
         <Text style={[styles.categoryName, { color: colors.text.primary }]}>
-          {item.strCategory}
+          {t(`CategoryScreen.categories.${item.strCategory}`)}
         </Text>
         <Text
           style={[styles.categoryDescription, { color: colors.text.primary }]}
           numberOfLines={2}
         >
-          {item.strCategoryDescription}
+          {t(`CategoryScreen.categories.${item.strCategory}Description`)}
         </Text>
 
         <View style={styles.cardFooter}>
           <Text style={[styles.viewRecipeText, { color: colors.primary.main }]}>
-            View Recipes →
+            {t('CategoryScreen.viewRecipes')}
           </Text>
         </View>
       </View>
