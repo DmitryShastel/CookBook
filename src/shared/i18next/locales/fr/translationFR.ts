@@ -99,20 +99,13 @@ export const FR = {
     Vegetarian: 'Végétarien',
     Breakfast: 'Petit-déjeuner',
     Goat: 'Chèvre',
-
-    BeefRecipe: '',
-    ChickenRecipe: '',
-    DessertRecipe: '',
-    LambRecipe: '',
-    MiscellaneousRecipe: '',
-    PastaRecipe: '',
-    PorkRecipe: '',
-    SeafoodRecipe: '',
-    SideRecipe: '',
-    StarterRecipe: '',
-    VeganRecipe: '',
-    VegetarianRecipe: '',
-    BreakfastRecipe: '',
-    GoatRecipe: '',
+  },
+  SettingsScreen: {
+    title: 'Paramètres',
+    preference: 'Préférences',
+    settingsItem: {
+      language: 'Langue',
+      theme: 'Thème',
+    },
   },
 };

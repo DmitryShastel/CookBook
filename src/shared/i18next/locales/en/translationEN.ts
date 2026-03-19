@@ -86,20 +86,13 @@ export const EN = {
     Vegetarian: 'Vegetarian',
     Breakfast: 'Breakfast',
     Goat: 'Goat',
-
-    BeefRecipe: '',
-    ChickenRecipe: '',
-    DessertRecipe: '',
-    LambRecipe: '',
-    MiscellaneousRecipe: '',
-    PastaRecipe: '',
-    PorkRecipe: '',
-    SeafoodRecipe: '',
-    SideRecipe: '',
-    StarterRecipe: '',
-    VeganRecipe: '',
-    VegetarianRecipe: '',
-    BreakfastRecipe: '',
-    GoatRecipe: '',
+  },
+  SettingsScreen: {
+    title: 'Settings',
+    preference: 'Preferences',
+    settingsItem: {
+      language: 'Language',
+      theme: 'Theme',
+    },
   },
 };
