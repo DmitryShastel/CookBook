@@ -1,5 +1,3 @@
-import { User } from 'firebase/auth';
-
 export interface UserMetaData {
   createdAt: string;
   creationTime: string;
@@ -8,18 +6,20 @@ export interface UserMetaData {
 }
 
 export interface LoginResponseData {
-  accessToken: string;
-  displayName: string | null;
+  token: string;
+  uid: string;
+  accessToken?: string;
+  displayName?: string | null;
   email: string;
-  emailVerified: boolean;
-  phoneNumber: string | null;
-  photoURL: string | null;
-  metadata: UserMetaData;
+  emailVerified?: boolean;
+  phoneNumber?: string | null;
+  photoURL?: string | null;
+  metadata?: UserMetaData;
 }
 
 export interface InitialStateData {
   isLoading: boolean;
   user: LoginResponseData | null;
   signOut: () => void;
-  setUser: (userData: User) => void;
+  setUser: (userData: LoginResponseData) => void;
 }
