@@ -4,15 +4,18 @@ import { LoginScreen } from '@/screens/auth/login/LoginScreen';
 import { SignUpScreen } from '@/screens/auth/signUp/SignUpScreen';
 import { RootStackParamList } from '@/navigation/type';
 import { HomeScreen } from '@/screens/home/HomeScreen';
-import { useFirebaseLogin } from '@/features/auth/hooks/login/useFirebaseAuth';
 import { useSignInStore } from '@/shared/stores/auth/useSignInStore';
 import { Loader } from '@/utils/Loader';
+import { useEffect } from 'react';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
 export const RootStack = () => {
-  useFirebaseLogin();
-  const { user, isLoading } = useSignInStore();
+  const { setAuthMe, user, isLoading } = useSignInStore();
+
+  useEffect(() => {
+    setAuthMe();
+  }, []);
 
   if (isLoading) {
     return <Loader />;

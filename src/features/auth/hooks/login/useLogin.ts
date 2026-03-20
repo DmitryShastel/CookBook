@@ -2,15 +2,26 @@ import { signInWithEmailAndPassword } from '@firebase/auth';
 import { auth } from '../../../../../firebase-config';
 import { showMessage } from 'react-native-flash-message';
 import { useState } from 'react';
+import { useSignInStore } from '@/shared/stores/auth/useSignInStore';
+import { saveToken } from '@/shared/stores/secureStore/SecureStore';
 
 export const useLogin = () => {
   const [isLoading, setIsLoading] = useState(false);
+  const setUser = useSignInStore((state) => state.setUser);
 
   const login = async (email: string, password: string) => {
     setIsLoading(true);
 
     try {
-      await signInWithEmailAndPassword(auth, email, password);
+      const { user } = await signInWithEmailAndPassword(auth, email, password);
+      const idToken = await user.getIdToken();
+      await saveToken(idToken);
+      setUser({
+        uid: user.uid,
+        email: user.email,
+        token: idToken,
+      });
+      console.log(user);
       showMessage({
         message: 'Welcome Back!',
         description: 'You have successfully logged in',
