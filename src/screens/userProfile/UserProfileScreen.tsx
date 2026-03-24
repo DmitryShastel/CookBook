@@ -12,7 +12,6 @@ export const UserProfileScreen = () => {
   const { getBack } = useNavigationHelper();
   const { handleLogout } = useSignOut();
   const { colors } = useThemeToggle();
-
   const { t } = useTranslation();
 
   return (

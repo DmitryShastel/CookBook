@@ -8,7 +8,6 @@ import { useTranslation } from 'react-i18next';
 
 export const SettingsScreen = () => {
   const { getBack } = useNavigationHelper();
-
   const { t } = useTranslation();
 
   return (

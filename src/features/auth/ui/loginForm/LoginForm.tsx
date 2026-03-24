@@ -9,6 +9,8 @@ import { styles } from '@/features/auth/ui/loginForm/LoginForm.styles';
 import { useLogin } from '@/features/auth/hooks/login/useLogin';
 import { useNavigation } from '@react-navigation/native';
 import { useTranslation } from 'react-i18next';
+import { useAnimatedButton } from '@/shared/reanimated/hooks/useAnimatedButton';
+import Animated from 'react-native-reanimated';
 
 export const LoginForm = () => {
   const navigation = useNavigation();
@@ -17,6 +19,7 @@ export const LoginForm = () => {
     await login(values.email, values.password);
   };
   const { t } = useTranslation();
+  const { animatedStyle, onPressIn, onPressOut } = useAnimatedButton();
 
   return (
     <Formik
@@ -76,22 +79,28 @@ export const LoginForm = () => {
             title={t('LoginScreen.forgotPassword')}
             type="clear"
             onPress={() => {}}
+            onPressIn={onPressIn}
+            onPressOut={onPressOut}
             titleStyle={styles.forgotPassword}
             containerStyle={styles.forgotPasswordContainer}
             disabled={isLoading}
           />
 
-          <Button
-            title={t('LoginScreen.buttonLogin')}
-            onPress={handleSubmit}
-            disabled={!isValid || isLoading}
-            loading={isLoading}
-            buttonStyle={styles.button}
-            titleStyle={styles.buttonText}
-            disabledStyle={styles.buttonDisabled}
-            disabledTitleStyle={styles.buttonText}
-            containerStyle={styles.buttonContainer}
-          />
+          <Animated.View style={animatedStyle}>
+            <Button
+              title={t('LoginScreen.buttonLogin')}
+              onPressIn={onPressIn}
+              onPressOut={onPressOut}
+              onPress={handleSubmit}
+              disabled={!isValid || isLoading}
+              loading={isLoading}
+              buttonStyle={styles.button}
+              titleStyle={styles.buttonText}
+              disabledStyle={styles.buttonDisabled}
+              disabledTitleStyle={styles.buttonText}
+              containerStyle={styles.buttonContainer}
+            />
+          </Animated.View>
 
           <Button
             title={t('LoginScreen.referenceSignUp')}

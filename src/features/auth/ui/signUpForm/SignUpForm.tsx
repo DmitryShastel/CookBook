@@ -9,6 +9,8 @@ import { styles } from '@/features/auth/ui/signUpForm/SignUpForm.styles';
 import { useSignUp } from '@/features/auth/hooks/signUp/useSignUp';
 import { useNavigation } from '@react-navigation/native/src';
 import { useTranslation } from 'react-i18next';
+import { useAnimatedButton } from '@/shared/reanimated/hooks/useAnimatedButton';
+import Animated from 'react-native-reanimated';
 
 export const SignUpForm = () => {
   const navigation = useNavigation();
@@ -17,6 +19,7 @@ export const SignUpForm = () => {
     await signUp(values.email, values.password);
   };
   const { t } = useTranslation();
+  const { animatedStyle, onPressIn, onPressOut } = useAnimatedButton();
 
   return (
     <Formik
@@ -108,17 +111,21 @@ export const SignUpForm = () => {
             containerStyle={styles.inputWrapper}
           />
 
-          <Button
-            title={t('SignUpScreen.buttonSignUp')}
-            onPress={handleSubmit}
-            disabled={!isValid || isLoading}
-            loading={isLoading}
-            buttonStyle={styles.button}
-            titleStyle={styles.buttonText}
-            disabledStyle={styles.buttonDisabled}
-            disabledTitleStyle={styles.buttonText}
-            containerStyle={styles.buttonContainer}
-          />
+          <Animated.View style={animatedStyle}>
+            <Button
+              title={t('SignUpScreen.buttonSignUp')}
+              onPress={handleSubmit}
+              onPressIn={onPressIn}
+              onPressOut={onPressOut}
+              disabled={!isValid || isLoading}
+              loading={isLoading}
+              buttonStyle={styles.button}
+              titleStyle={styles.buttonText}
+              disabledStyle={styles.buttonDisabled}
+              disabledTitleStyle={styles.buttonText}
+              containerStyle={styles.buttonContainer}
+            />
+          </Animated.View>
 
           <Button
             title={t('SignUpScreen.referenceSignIn')}
