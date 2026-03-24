@@ -14,6 +14,8 @@ import { useCategoryQuery } from '@/features/recipeList/api/RecipeListQuery';
 import { Category } from '@/features/recipeList/api/types/RecipeList';
 import { useThemeToggle } from '@/hooks/useThemeToggle';
 import { useTranslation } from 'react-i18next';
+import { useAnimatedScreen } from '@/shared/reanimated/hooks/useAnimatedScreen';
+import Animated from 'react-native-reanimated';
 
 export const CategoryScreen = () => {
   const { data: categories } = useCategoryQuery();
@@ -24,6 +26,7 @@ export const CategoryScreen = () => {
   };
 
   const { t } = useTranslation();
+  const { animatedStyle } = useAnimatedScreen();
 
   const renderCategoryCard = ({ item }: { item: Category }) => (
     <TouchableOpacity
@@ -78,15 +81,20 @@ export const CategoryScreen = () => {
     </View>
   );
   return (
-    <SafeAreaView
-      style={[styles.container, { backgroundColor: colors.background.primary }]}
-    >
-      <FlatList
-        data={categories}
-        renderItem={renderCategoryCard as ListRenderItem<Category>}
-        keyExtractor={(item: Category) => item.idCategory}
-        ListHeaderComponent={renderHeader}
-      />
-    </SafeAreaView>
+    <Animated.View style={[styles.container, animatedStyle]}>
+      <SafeAreaView
+        style={[
+          styles.container,
+          { backgroundColor: colors.background.primary },
+        ]}
+      >
+        <FlatList
+          data={categories}
+          renderItem={renderCategoryCard as ListRenderItem<Category>}
+          keyExtractor={(item: Category) => item.idCategory}
+          ListHeaderComponent={renderHeader}
+        />
+      </SafeAreaView>
+    </Animated.View>
   );
 };

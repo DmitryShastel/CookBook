@@ -3,6 +3,8 @@ import { Text, Button, Icon } from 'react-native-elements';
 import { styles } from '@/screens/rootPage/RootPage.styles';
 import { RootScreenProps } from '@/screens/rootPage/type';
 import { useThemeToggle } from '@/hooks/useThemeToggle';
+import { useAnimatedScreen } from '@/shared/reanimated/hooks/useAnimatedScreen';
+import Animated from 'react-native-reanimated';
 
 export const RootPage = ({
   children,
@@ -11,6 +13,7 @@ export const RootPage = ({
   onBackPress,
 }: RootScreenProps) => {
   const { colors } = useThemeToggle();
+  const { animatedOut } = useAnimatedScreen();
   return (
     <SafeAreaView
       style={[styles.safeArea, { backgroundColor: colors.background.primary }]}
@@ -23,7 +26,7 @@ export const RootPage = ({
       <View
         style={[styles.header, { backgroundColor: colors.background.primary }]}
       >
-        <View style={styles.headerLeft}>
+        <Animated.View style={animatedOut}>
           {showBackButton && (
             <Button
               type="clear"
@@ -39,7 +42,7 @@ export const RootPage = ({
               buttonStyle={styles.backButton}
             />
           )}
-        </View>
+        </Animated.View>
 
         <Text style={[styles.headerTitle, { color: colors.text.primary }]} h4>
           {title}

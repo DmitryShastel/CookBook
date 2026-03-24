@@ -1,17 +1,24 @@
-import { Image, View } from 'react-native';
+import { Image } from 'react-native';
 import { Text } from 'react-native-elements';
 import { SignUpForm } from '@/features/auth/ui/signUpForm/SignUpForm';
 import { styles } from '@/screens/auth/signUp/SignUpScreen.styles';
 import { useThemeToggle } from '@/hooks/useThemeToggle';
 import { useTranslation } from 'react-i18next';
+import { useAnimatedScreen } from '@/shared/reanimated/hooks/useAnimatedScreen';
+import Animated from 'react-native-reanimated';
 
 export const SignUpScreen = () => {
   const { colors } = useThemeToggle();
   const { t } = useTranslation();
+  const { animatedStyle } = useAnimatedScreen();
 
   return (
-    <View
-      style={[styles.container, { backgroundColor: colors.background.primary }]}
+    <Animated.View
+      style={[
+        styles.container,
+        { backgroundColor: colors.background.primary },
+        animatedStyle,
+      ]}
     >
       <Image containerStyle={styles.logoContainer} resizeMode="contain" />
 
@@ -23,6 +30,6 @@ export const SignUpScreen = () => {
       </Text>
 
       <SignUpForm />
-    </View>
+    </Animated.View>
   );
 };
