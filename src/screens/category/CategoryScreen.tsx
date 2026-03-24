@@ -90,6 +90,7 @@ export const CategoryScreen = () => {
       >
         <FlatList
           data={categories}
+          windowSize={5}
           renderItem={renderCategoryCard as ListRenderItem<Category>}
           keyExtractor={(item: Category) => item.idCategory}
           ListHeaderComponent={renderHeader}

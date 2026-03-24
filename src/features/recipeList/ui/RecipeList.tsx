@@ -70,6 +70,7 @@ export const RecipeList = () => {
         renderItem={renderRecipeCard as ListRenderItem<MealSummary>}
         keyExtractor={(item) => item.idMeal}
         numColumns={2}
+        windowSize={5}
         contentContainerStyle={[
           styles.list,
           {
