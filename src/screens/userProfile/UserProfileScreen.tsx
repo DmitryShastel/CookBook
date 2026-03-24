@@ -7,71 +7,94 @@ import { useNavigationHelper } from '@/hooks/useNavigationHelper';
 import { useSignOut } from '@/features/auth/hooks/signOut/useSignOut';
 import { useThemeToggle } from '@/hooks/useThemeToggle';
 import { useTranslation } from 'react-i18next';
+import { useAnimatedScreen } from '@/shared/reanimated/hooks/useAnimatedScreen';
+import Animated from 'react-native-reanimated';
 
 export const UserProfileScreen = () => {
   const { getBack } = useNavigationHelper();
   const { handleLogout } = useSignOut();
   const { colors } = useThemeToggle();
   const { t } = useTranslation();
+  const { animatedStyle } = useAnimatedScreen();
 
   return (
-    <RootPage
-      title={t('UserProfileScreen.title')}
-      showBackButton={true}
-      onBackPress={getBack}
+    <Animated.View
+      style={[
+        styles.container,
+        { backgroundColor: colors.background.primary },
+        animatedStyle,
+      ]}
     >
-      <ScrollView
-        style={[
-          styles.container,
-          { backgroundColor: colors.background.tertiary },
-        ]}
-        showsVerticalScrollIndicator={false}
+      <RootPage
+        title={t('UserProfileScreen.title')}
+        showBackButton={true}
+        onBackPress={getBack}
       >
-        <UserProfile
-          userName="John Doe"
-          userEmail="john.doe@example.com"
-          userAvatar="https://png.pngtree.com/png-vector/20231019/ourmid/pngtree-user-profile-avatar-png-image_10211471.png"
-          onLogout={handleLogout}
-        />
-
-        <View
+        <ScrollView
           style={[
-            styles.infoCard,
-            { backgroundColor: colors.surface, borderColor: colors.border },
+            styles.container,
+            { backgroundColor: colors.background.tertiary },
           ]}
+          showsVerticalScrollIndicator={false}
         >
-          <Text style={[styles.infoTitle, { color: colors.text.secondary }]}>
-            {t('UserProfileScreen.accountInformation')}
-          </Text>
+          <UserProfile
+            userName="John Doe"
+            userEmail="john.doe@example.com"
+            userAvatar="https://png.pngtree.com/png-vector/20231019/ourmid/pngtree-user-profile-avatar-png-image_10211471.png"
+            onLogout={handleLogout}
+          />
 
-          <View style={[styles.infoRow, { borderBottomColor: colors.border }]}>
-            <Text style={[styles.infoLabel, { color: colors.text.secondary }]}>
-              {t('UserProfileScreen.memberSince')}
+          <View
+            style={[
+              styles.infoCard,
+              { backgroundColor: colors.surface, borderColor: colors.border },
+            ]}
+          >
+            <Text style={[styles.infoTitle, { color: colors.text.secondary }]}>
+              {t('UserProfileScreen.accountInformation')}
             </Text>
-            <Text style={[styles.infoValue, { color: colors.text.primary }]}>
-              January 2024
-            </Text>
-          </View>
 
-          <View style={[styles.infoRow, { borderBottomColor: colors.border }]}>
-            <Text style={[styles.infoLabel, { color: colors.text.secondary }]}>
-              {t('UserProfileScreen.recipeCreated')}
-            </Text>
-            <Text style={[styles.infoValue, { color: colors.text.primary }]}>
-              12
-            </Text>
-          </View>
+            <View
+              style={[styles.infoRow, { borderBottomColor: colors.border }]}
+            >
+              <Text
+                style={[styles.infoLabel, { color: colors.text.secondary }]}
+              >
+                {t('UserProfileScreen.memberSince')}
+              </Text>
+              <Text style={[styles.infoValue, { color: colors.text.primary }]}>
+                January 2024
+              </Text>
+            </View>
 
-          <View style={[styles.infoRow, { borderBottomColor: colors.border }]}>
-            <Text style={[styles.infoLabel, { color: colors.text.secondary }]}>
-              {t('UserProfileScreen.savedRecipes')}
-            </Text>
-            <Text style={[styles.infoValue, { color: colors.text.primary }]}>
-              8
-            </Text>
+            <View
+              style={[styles.infoRow, { borderBottomColor: colors.border }]}
+            >
+              <Text
+                style={[styles.infoLabel, { color: colors.text.secondary }]}
+              >
+                {t('UserProfileScreen.recipeCreated')}
+              </Text>
+              <Text style={[styles.infoValue, { color: colors.text.primary }]}>
+                12
+              </Text>
+            </View>
+
+            <View
+              style={[styles.infoRow, { borderBottomColor: colors.border }]}
+            >
+              <Text
+                style={[styles.infoLabel, { color: colors.text.secondary }]}
+              >
+                {t('UserProfileScreen.savedRecipes')}
+              </Text>
+              <Text style={[styles.infoValue, { color: colors.text.primary }]}>
+                8
+              </Text>
+            </View>
           </View>
-        </View>
-      </ScrollView>
-    </RootPage>
+        </ScrollView>
+      </RootPage>
+    </Animated.View>
   );
 };

@@ -7,6 +7,7 @@ import { useThemeToggle } from '@/hooks/useThemeToggle';
 import { useTranslation } from 'react-i18next';
 import { useAnimatedButton } from '@/shared/reanimated/hooks/useAnimatedButton';
 import Animated from 'react-native-reanimated';
+import { useAnimatedScreen } from '@/shared/reanimated/hooks/useAnimatedScreen';
 
 export const HomeScreen = () => {
   const { colors } = useThemeToggle();
@@ -14,6 +15,7 @@ export const HomeScreen = () => {
   const { t } = useTranslation();
   const signInBtn = useAnimatedButton();
   const signUpBtn = useAnimatedButton();
+  const { animatedStyle } = useAnimatedScreen();
 
   const handleSignIn = () => {
     navigation.navigate('Login');
@@ -24,8 +26,12 @@ export const HomeScreen = () => {
   };
 
   return (
-    <View
-      style={[styles.container, { backgroundColor: colors.background.primary }]}
+    <Animated.View
+      style={[
+        styles.container,
+        { backgroundColor: colors.background.primary },
+        animatedStyle,
+      ]}
     >
       <View style={styles.content}>
         <Icon name="account-circle" size={100} color={colors.primary.main} />
@@ -56,6 +62,6 @@ export const HomeScreen = () => {
           />
         </Animated.View>
       </View>
-    </View>
+    </Animated.View>
   );
 };

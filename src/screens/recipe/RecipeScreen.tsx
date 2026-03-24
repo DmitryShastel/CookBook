@@ -16,6 +16,8 @@ import { useRecipeQuery } from '@/features/recipeList/api/RecipeListQuery';
 import { Recipe } from '@/features/recipeList/api/types/RecipeList';
 import { Loader } from '@/utils/Loader';
 import { useThemeToggle } from '@/hooks/useThemeToggle';
+import { useAnimatedScreen } from '@/shared/reanimated/hooks/useAnimatedScreen';
+import Animated from 'react-native-reanimated';
 
 export const RecipeScreen = () => {
   const route = useRoute<RecipeRouteProp>();
@@ -23,6 +25,7 @@ export const RecipeScreen = () => {
   const { data: recipe, isLoading } = useRecipeQuery(recipeId);
   const { getBack } = useNavigationHelper();
   const { colors } = useThemeToggle();
+  const { animatedStyle } = useAnimatedScreen();
 
   const getIngredients = () => {
     if (!recipe) return [];
@@ -63,152 +66,180 @@ export const RecipeScreen = () => {
   const ingredients = getIngredients();
 
   return (
-    <RootPage
-      title={recipe.strMeal}
-      showBackButton={true}
-      onBackPress={getBack}
+    <Animated.View
+      style={[
+        styles.container,
+        { backgroundColor: colors.background.primary },
+        animatedStyle,
+      ]}
     >
-      <ScrollView
-        contentContainerStyle={[
-          styles.centerContainer,
-          { backgroundColor: colors.background.tertiary },
-        ]}
-        showsVerticalScrollIndicator={false}
+      <RootPage
+        title={recipe.strMeal}
+        showBackButton={true}
+        onBackPress={getBack}
       >
-        <Image
-          source={{ uri: recipe.strMealThumb }}
-          style={styles.recipeImage}
-          resizeMode="cover"
-        />
-
-        <View
-          style={[
-            styles.content,
-            { backgroundColor: colors.background.secondary },
+        <ScrollView
+          contentContainerStyle={[
+            styles.centerContainer,
+            { backgroundColor: colors.background.tertiary },
           ]}
+          showsVerticalScrollIndicator={false}
         >
-          <Text style={[styles.title, { color: colors.text.primary }]}>
-            {recipe.strMeal}
-          </Text>
-          <Text style={[styles.category, { color: colors.text.primary }]}>
-            {recipe.strCategory} • {recipe.strArea}
-          </Text>
+          <Image
+            source={{ uri: recipe.strMealThumb }}
+            style={styles.recipeImage}
+            resizeMode="cover"
+          />
 
-          <View style={styles.statsContainer}>
-            <View style={styles.statItem}>
-              <Text style={[styles.statValue, { color: colors.text.inverse }]}>
-                {ingredients.length}
-              </Text>
-              <Text style={[styles.statLabel, { color: colors.text.inverse }]}>
-                Ingredients
-              </Text>
-            </View>
-            <View style={styles.statItem}>
-              <Text style={[styles.statValue, { color: colors.text.inverse }]}>
-                30
-              </Text>
-              <Text style={[styles.statLabel, { color: colors.text.inverse }]}>
-                Minutes
-              </Text>
-            </View>
-            <View style={styles.statItem}>
-              <Text style={[styles.statValue, { color: colors.text.inverse }]}>
-                4.5
-              </Text>
-              <Text style={[styles.statLabel, { color: colors.text.inverse }]}>
-                Rating
-              </Text>
-            </View>
-          </View>
-
-          <Text style={[styles.sectionTitle, { color: colors.text.secondary }]}>
-            Ingredients
-          </Text>
           <View
             style={[
-              styles.ingredientsContainer,
-              { backgroundColor: colors.surface },
+              styles.content,
+              { backgroundColor: colors.background.secondary },
             ]}
           >
-            {ingredients.map((item, index) => (
-              <View
-                key={index}
-                style={[
-                  styles.ingredientItem,
-                  { borderBottomColor: colors.border },
-                ]}
-              >
+            <Text style={[styles.title, { color: colors.text.primary }]}>
+              {recipe.strMeal}
+            </Text>
+            <Text style={[styles.category, { color: colors.text.primary }]}>
+              {recipe.strCategory} • {recipe.strArea}
+            </Text>
+
+            <View style={styles.statsContainer}>
+              <View style={styles.statItem}>
                 <Text
-                  style={[
-                    styles.ingredientName,
-                    { color: colors.text.primary },
-                  ]}
+                  style={[styles.statValue, { color: colors.text.inverse }]}
                 >
-                  {item.ingredient}
+                  {ingredients.length}
                 </Text>
                 <Text
-                  style={[
-                    styles.ingredientAmount,
-                    { color: colors.text.secondary },
-                  ]}
+                  style={[styles.statLabel, { color: colors.text.inverse }]}
                 >
-                  {item.measure}
+                  Ingredients
                 </Text>
               </View>
-            ))}
-          </View>
-
-          <Text style={[styles.sectionTitle, { color: colors.text.secondary }]}>
-            Instructions
-          </Text>
-          <Text style={[styles.instructions, { color: colors.text.secondary }]}>
-            {recipe.strInstructions}
-          </Text>
-
-          <View style={styles.linksContainer}>
-            {recipe.strSource && (
-              <TouchableOpacity
-                style={[
-                  styles.linkButton,
-                  {
-                    backgroundColor: colors.surface,
-                    borderColor: colors.border,
-                  },
-                ]}
-                onPress={() => openLink(recipe.strSource)}
-              >
-                <Ionicons
-                  name="link-outline"
-                  size={20}
-                  color={colors.primary.main}
-                />
-                <Text style={[styles.linkText, { color: colors.primary.main }]}>
-                  View Source
+              <View style={styles.statItem}>
+                <Text
+                  style={[styles.statValue, { color: colors.text.inverse }]}
+                >
+                  30
                 </Text>
-              </TouchableOpacity>
-            )}
-
-            {recipe.strYoutube && (
-              <TouchableOpacity
-                style={[
-                  styles.linkButton,
-                  styles.youtubeButton,
-                  {
-                    backgroundColor: colors.surface,
-                    borderColor: colors.border,
-                  },
-                ]}
-                onPress={() => openLink(recipe.strYoutube)}
-              >
-                <Ionicons name="logo-youtube" size={20} color="#FF0000" />
-                <Text style={[styles.linkText, styles.youtubeText]}>
-                  Watch on YouTube
+                <Text
+                  style={[styles.statLabel, { color: colors.text.inverse }]}
+                >
+                  Minutes
                 </Text>
-              </TouchableOpacity>
-            )}
+              </View>
+              <View style={styles.statItem}>
+                <Text
+                  style={[styles.statValue, { color: colors.text.inverse }]}
+                >
+                  4.5
+                </Text>
+                <Text
+                  style={[styles.statLabel, { color: colors.text.inverse }]}
+                >
+                  Rating
+                </Text>
+              </View>
+            </View>
+
+            <Text
+              style={[styles.sectionTitle, { color: colors.text.secondary }]}
+            >
+              Ingredients
+            </Text>
+            <View
+              style={[
+                styles.ingredientsContainer,
+                { backgroundColor: colors.surface },
+              ]}
+            >
+              {ingredients.map((item, index) => (
+                <View
+                  key={index}
+                  style={[
+                    styles.ingredientItem,
+                    { borderBottomColor: colors.border },
+                  ]}
+                >
+                  <Text
+                    style={[
+                      styles.ingredientName,
+                      { color: colors.text.primary },
+                    ]}
+                  >
+                    {item.ingredient}
+                  </Text>
+                  <Text
+                    style={[
+                      styles.ingredientAmount,
+                      { color: colors.text.secondary },
+                    ]}
+                  >
+                    {item.measure}
+                  </Text>
+                </View>
+              ))}
+            </View>
+
+            <Text
+              style={[styles.sectionTitle, { color: colors.text.secondary }]}
+            >
+              Instructions
+            </Text>
+            <Text
+              style={[styles.instructions, { color: colors.text.secondary }]}
+            >
+              {recipe.strInstructions}
+            </Text>
+
+            <View style={styles.linksContainer}>
+              {recipe.strSource && (
+                <TouchableOpacity
+                  style={[
+                    styles.linkButton,
+                    {
+                      backgroundColor: colors.surface,
+                      borderColor: colors.border,
+                    },
+                  ]}
+                  onPress={() => openLink(recipe.strSource)}
+                >
+                  <Ionicons
+                    name="link-outline"
+                    size={20}
+                    color={colors.primary.main}
+                  />
+                  <Text
+                    style={[styles.linkText, { color: colors.primary.main }]}
+                  >
+                    View Source
+                  </Text>
+                </TouchableOpacity>
+              )}
+
+              {recipe.strYoutube && (
+                <TouchableOpacity
+                  style={[
+                    styles.linkButton,
+                    styles.youtubeButton,
+                    {
+                      backgroundColor: colors.surface,
+                      borderColor: colors.border,
+                    },
+                  ]}
+                  onPress={() => openLink(recipe.strYoutube)}
+                >
+                  <Ionicons name="logo-youtube" size={20} color="#FF0000" />
+                  <Text style={[styles.linkText, styles.youtubeText]}>
+                    Watch on YouTube
+                  </Text>
+                </TouchableOpacity>
+              )}
+            </View>
           </View>
-        </View>
-      </ScrollView>
-    </RootPage>
+        </ScrollView>
+      </RootPage>
+    </Animated.View>
   );
 };
