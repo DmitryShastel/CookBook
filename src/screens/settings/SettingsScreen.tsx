@@ -1,5 +1,4 @@
-import { ScrollView, View } from 'react-native';
-import { Text } from 'react-native-elements';
+import { ScrollView, View, Text } from 'react-native';
 import { Settings } from '@/features/settings/ui/Settings';
 import { styles } from '@/screens/settings/SettingsScreen.styles';
 import { RootPage } from '@/screens/rootPage/RootPage';

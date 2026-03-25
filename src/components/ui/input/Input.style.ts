@@ -1,22 +1,36 @@
 import { StyleSheet } from 'react-native';
-import { spacing } from '@/shared/styles/CommonStyles';
+import {
+  spacing,
+  palette,
+  border,
+  typography,
+} from '@/shared/styles/CommonStyles';
 
 export const styles = StyleSheet.create({
   container: {
-    marginHorizontal: spacing.margin.sn,
-    marginVertical: spacing.margin.sn,
-    paddingHorizontal: spacing.padding.x,
-    width: 'auto',
+    marginBottom: spacing.margin.md,
   },
+
+  errorText: {
+    color: palette.error,
+    fontSize: typography.accent.sm,
+    marginTop: spacing.margin.xxs,
+  },
+
   input: {
-    color: '#000',
-    fontSize: 16,
-    padding: 10,
+    color: palette.neutral[900],
+    flex: 1,
+    fontSize: typography.accent.md,
+    paddingVertical: spacing.padding.xs,
   },
+
   inputContainer: {
-    borderColor: '#ccc',
-    borderRadius: 8,
+    alignItems: 'center',
+    borderColor: palette.neutral[300],
+    borderRadius: border.radius.md,
     borderWidth: 1,
-    height: 40,
+    flexDirection: 'row',
+    paddingHorizontal: spacing.padding.sm,
+    paddingVertical: spacing.padding.xs,
   },
 });

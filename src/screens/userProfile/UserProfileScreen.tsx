@@ -1,5 +1,4 @@
-import { ScrollView, View } from 'react-native';
-import { Text } from 'react-native-elements';
+import { ScrollView, View, Text } from 'react-native';
 import { UserProfile } from '@/features/userProfile/ui/UserProfile';
 import { styles } from '@/screens/userProfile/UserProfileScreen.styles';
 import { RootPage } from '@/screens/rootPage/RootPage';
@@ -40,7 +39,7 @@ export const UserProfileScreen = () => {
           <UserProfile
             userName="John Doe"
             userEmail="john.doe@example.com"
-            userAvatar="https://png.pngtree.com/png-vector/20231019/ourmid/pngtree-user-profile-avatar-png-image_10211471.png"
+            userAvatar="https://randomuser.me/api/portraits/men/75.jpg"
             onLogout={handleLogout}
           />
 

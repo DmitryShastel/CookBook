@@ -1,4 +1,4 @@
-export interface LikeButtonProps {
+export interface LikeButtonInterface {
   initialLiked: boolean;
   likesCount: number;
 }

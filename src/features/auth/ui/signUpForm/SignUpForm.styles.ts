@@ -1,9 +1,14 @@
 import { StyleSheet } from 'react-native';
-import { border, spacing, typography } from '@/shared/styles/CommonStyles';
+import {
+  border,
+  palette,
+  spacing,
+  typography,
+} from '@/shared/styles/CommonStyles';
 
 export const styles = StyleSheet.create({
   button: {
-    backgroundColor: '#1E90FF',
+    backgroundColor: palette.primary.main,
     borderRadius: border.radius.md,
     height: 50,
   },
@@ -13,10 +18,9 @@ export const styles = StyleSheet.create({
     width: '100%',
   },
   buttonDisabled: {
-    backgroundColor: '#87CEEB',
+    backgroundColor: palette.primary.light,
   },
   buttonText: {
-    color: '#fff',
     fontSize: typography.accent.md,
     fontWeight: typography.weight.semiBold,
   },
@@ -24,19 +28,18 @@ export const styles = StyleSheet.create({
     width: '100%',
   },
   errorText: {
-    color: '#ff4444',
+    color: palette.error,
     fontSize: typography.accent.md,
   },
   iconContainer: {
     marginRight: spacing.margin.ssm,
   },
   input: {
-    color: '#333',
     fontSize: typography.accent.md,
     paddingVertical: spacing.padding.x,
   },
   inputContainer: {
-    backgroundColor: '#f5f5f5',
+    backgroundColor: palette.neutral['100'],
     borderBottomWidth: border.radius.s,
     borderRadius: border.radius.md,
     height: 50,
@@ -47,10 +50,11 @@ export const styles = StyleSheet.create({
     paddingHorizontal: spacing.margin.x,
   },
   loginContainer: {
+    alignItems: 'center',
     marginTop: spacing.margin.sm,
   },
   loginText: {
-    color: '#1E90FF',
+    color: palette.primary.dark,
     fontSize: typography.accent.md,
   },
 });

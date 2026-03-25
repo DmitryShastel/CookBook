@@ -1,28 +1,51 @@
-import { Button as RNButton } from 'react-native-elements';
-import { styles } from '@/components/ui/button/Button.styles';
-import { Props } from '@/components/ui/button/Button.types';
+import { ActivityIndicator, Pressable, Text, View } from 'react-native';
+import { styles } from './Button.styles';
+import { ButtonInterface } from '@/components/ui/button/Button.types';
 
 export const Button = ({
   onPress,
+  onPressIn,
+  onPressOut,
   title,
-  isLoading = false,
-  style,
+  containerStyle,
+  buttonStyle,
   textStyle,
   disabled = false,
-}: Props) => {
+  isLoading = false,
+  disabledStyle,
+  disabledTextStyle,
+}: ButtonInterface) => {
   const isDisabled = disabled || isLoading;
 
   return (
-    <RNButton
-      title={title}
-      onPress={onPress}
-      disabled={isDisabled}
-      loading={isLoading}
-      buttonStyle={[styles.button, style]}
-      titleStyle={[styles.text, textStyle]}
-      disabledStyle={styles.disabled}
-      disabledTitleStyle={styles.disabledText}
-      activeOpacity={0.7}
-    />
+    <View style={containerStyle}>
+      <Pressable
+        onPress={onPress}
+        onPressIn={onPressIn}
+        onPressOut={onPressOut}
+        disabled={isDisabled}
+        style={[
+          styles.button,
+          buttonStyle,
+          isDisabled && styles.disabled,
+          isDisabled && disabledStyle,
+        ]}
+      >
+        {isLoading ? (
+          <ActivityIndicator color="#fff" />
+        ) : (
+          <Text
+            style={[
+              styles.text,
+              textStyle,
+              isDisabled && styles.disabledText,
+              isDisabled && disabledTextStyle,
+            ]}
+          >
+            {title}
+          </Text>
+        )}
+      </Pressable>
+    </View>
   );
 };

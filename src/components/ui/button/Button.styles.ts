@@ -1,23 +1,28 @@
 import { StyleSheet } from 'react-native';
-import { border, spacing, typography } from '@/shared/styles/CommonStyles';
+import {
+  border,
+  palette,
+  spacing,
+  typography,
+} from '@/shared/styles/CommonStyles';
 
 export const styles = StyleSheet.create({
   button: {
     alignItems: 'center',
-    backgroundColor: '#007AFF',
+    backgroundColor: palette.primary.main,
     borderRadius: border.radius.md,
     justifyContent: 'center',
     paddingHorizontal: spacing.padding.lg,
     paddingVertical: spacing.padding.sn,
   },
   disabled: {
-    backgroundColor: '#CCCCCC',
+    backgroundColor: palette.neutral['400'],
   },
   disabledText: {
-    color: '#666666',
+    color: palette.neutral['0'],
   },
   text: {
-    color: '#FFFFFF',
+    color: palette.neutral['0'],
     fontSize: typography.accent.md,
     fontWeight: typography.weight.semiBold,
   },

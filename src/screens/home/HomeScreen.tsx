@@ -1,5 +1,4 @@
 import { Text, View } from 'react-native';
-import { Button, Icon } from 'react-native-elements';
 import { styles } from '@/screens/home/HomeScreen.styles';
 import { useNavigation } from '@react-navigation/native';
 import { HomeScreenNavigationProp } from '@/screens/rootPage/type';
@@ -8,6 +7,8 @@ import { useTranslation } from 'react-i18next';
 import { useAnimatedButton } from '@/shared/reanimated/hooks/useAnimatedButton';
 import Animated from 'react-native-reanimated';
 import { useAnimatedScreen } from '@/shared/reanimated/hooks/useAnimatedScreen';
+import { Button } from '@/components/ui/button/Button';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 
 export const HomeScreen = () => {
   const { colors } = useThemeToggle();

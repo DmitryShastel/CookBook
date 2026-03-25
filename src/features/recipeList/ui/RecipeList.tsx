@@ -1,5 +1,4 @@
-import { FlatList, ListRenderItem, TouchableOpacity } from 'react-native';
-import { Text } from 'react-native-elements';
+import { FlatList, ListRenderItem, TouchableOpacity, Text } from 'react-native';
 import { styles } from '@/features/recipeList/ui/RecipeList.style';
 import { Card } from '@/components/ui/card/Card';
 import { useNavigation, useRoute } from '@react-navigation/native';

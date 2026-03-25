@@ -1,8 +1,8 @@
 import { BottomTabBarProps } from '@react-navigation/bottom-tabs';
 import { View, TouchableOpacity } from 'react-native';
-import { Icon } from 'react-native-elements';
 import { styles } from '@/navigation/Tab.styles';
 import { useThemeToggle } from '@/hooks/useThemeToggle';
+import { Icon } from 'expo-router/unstable-native-tabs';
 
 export const TabBar = ({ state, navigation }: BottomTabBarProps) => {
   const { colors, theme } = useThemeToggle();

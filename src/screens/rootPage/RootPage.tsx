@@ -1,10 +1,16 @@
-import { SafeAreaView, StatusBar, View } from 'react-native';
-import { Text, Button, Icon } from 'react-native-elements';
+import {
+  SafeAreaView,
+  StatusBar,
+  View,
+  Text,
+  TouchableOpacity,
+} from 'react-native';
 import { styles } from '@/screens/rootPage/RootPage.styles';
 import { RootScreenProps } from '@/screens/rootPage/type';
 import { useThemeToggle } from '@/hooks/useThemeToggle';
 import { useAnimatedScreen } from '@/shared/reanimated/hooks/useAnimatedScreen';
 import Animated from 'react-native-reanimated';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 
 export const RootPage = ({
   children,
@@ -28,19 +34,13 @@ export const RootPage = ({
       >
         <Animated.View style={animatedOut}>
           {showBackButton && (
-            <Button
-              type="clear"
-              icon={
-                <Icon
-                  name="arrow-back"
-                  type="ionicon"
-                  size={24}
-                  color={colors.text.primary}
-                />
-              }
+            <TouchableOpacity
               onPress={onBackPress}
-              buttonStyle={styles.backButton}
-            />
+              style={styles.backButton}
+              activeOpacity={0.7}
+            >
+              <Icon name="arrow-back" size={24} color={colors.text.primary} />
+            </TouchableOpacity>
           )}
         </Animated.View>
 

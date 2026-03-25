@@ -1,4 +1,4 @@
-export interface UserInfoProps {
+export interface UserInfoInterface {
   userName: string;
   userAvatar: string;
 }

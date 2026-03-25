@@ -1,5 +1,4 @@
-import { View } from 'react-native';
-import { Text } from 'react-native-elements';
+import { View, Text } from 'react-native';
 import { styles } from '@/features/settings/ui/Settings.styles';
 import { SettingItem } from '@/components/ui/settingsItem/SettingsItem';
 import { useThemeToggle } from '@/hooks/useThemeToggle';

@@ -1,39 +1,54 @@
 import { StyleSheet } from 'react-native';
-import { border, spacing, typography } from '@/shared/styles/CommonStyles';
+import {
+  border,
+  palette,
+  spacing,
+  typography,
+} from '@/shared/styles/CommonStyles';
 
 export const styles = StyleSheet.create({
+  chevron: {
+    marginLeft: spacing.margin.sm,
+  },
+
   iconContainer: {
     alignItems: 'center',
     borderRadius: border.radius.xxxl,
-    height: 40,
     justifyContent: 'center',
-    marginRight: spacing.margin.sn,
+    marginRight: spacing.margin.sm,
+    maxHeight: 40,
     width: 40,
   },
+
   leftContainer: {
     alignItems: 'center',
     flexDirection: 'row',
     flex: 1,
   },
+
   settingItem: {
-    backgroundColor: '#fff',
-    borderBottomColor: '#f0f0f0',
+    alignItems: 'center',
     borderBottomWidth: border.radius.sn,
+    flexDirection: 'row',
     paddingHorizontal: spacing.padding.md,
-    paddingVertical: spacing.padding.x,
+    paddingVertical: border.radius.xxl,
     width: '100%',
   },
+
   textContainer: {
     flex: 1,
+    justifyContent: 'center',
   },
+
   title: {
-    color: '#333',
+    color: palette.neutral[1000],
     fontSize: typography.accent.md,
     fontWeight: typography.weight.medium,
     marginBottom: spacing.margin.xxs,
   },
+
   value: {
-    color: '#666',
+    color: palette.neutral[600],
     fontSize: typography.accent.sm,
   },
 });

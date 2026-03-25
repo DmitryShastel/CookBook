@@ -1,5 +1,4 @@
-import { Image } from 'react-native';
-import { Text } from 'react-native-elements';
+import { Image, Text } from 'react-native';
 import { styles } from '@/screens/auth/login/LoginScreen.styles';
 import { LoginForm } from '@/features/auth/ui/loginForm/LoginForm';
 import { useThemeToggle } from '@/hooks/useThemeToggle';

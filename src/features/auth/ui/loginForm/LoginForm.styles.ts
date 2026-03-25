@@ -2,13 +2,14 @@ import { StyleSheet } from 'react-native';
 import {
   border,
   opacity,
+  palette,
   spacing,
   typography,
 } from '@/shared/styles/CommonStyles';
 
 export const styles = StyleSheet.create({
   button: {
-    backgroundColor: '#1E90FF',
+    backgroundColor: palette.primary.main,
     borderRadius: border.radius.md,
     height: 50,
   },
@@ -17,11 +18,10 @@ export const styles = StyleSheet.create({
     width: '100%',
   },
   buttonDisabled: {
-    backgroundColor: '#1E90FF',
+    backgroundColor: palette.primary.dark,
     opacity: opacity.disabled,
   },
   buttonText: {
-    color: '#fff',
     fontSize: typography.accent.lg,
     fontWeight: typography.weight.semiBold,
   },
@@ -31,42 +31,34 @@ export const styles = StyleSheet.create({
     width: '100%',
   },
   errorText: {
-    color: 'red',
+    color: palette.error,
     fontSize: typography.accent.md,
-    marginTop: 2,
+    marginTop: spacing.margin.xxs,
   },
   forgotPassword: {
-    color: '#1E90FF',
-    fontSize: typography.accent.sm,
+    color: palette.primary.dark,
+    fontSize: typography.accent.md,
   },
   forgotPasswordContainer: {
     alignSelf: 'flex-end',
     marginBottom: spacing.margin.mdd,
-    marginTop: -10,
   },
   iconContainer: {
     marginRight: spacing.margin.ssm,
   },
-  input: {
-    fontSize: typography.accent.md,
-    paddingVertical: 0,
-  },
   inputContainer: {
-    backgroundColor: '#f5f5f5',
+    backgroundColor: palette.neutral['100'],
     borderBottomWidth: border.radius.s,
     borderRadius: border.radius.md,
     height: 50,
     paddingHorizontal: spacing.padding.sn,
   },
-  inputWrapper: {
-    marginBottom: spacing.margin.lg,
-    paddingHorizontal: spacing.padding.x,
-  },
   signUp: {
-    color: '#1E90FF',
+    color: palette.primary.dark,
     fontSize: typography.accent.md,
   },
   signUpContainer: {
-    marginTop: spacing.margin.ssm,
+    alignItems: 'center',
+    marginTop: spacing.margin.xl,
   },
 });
