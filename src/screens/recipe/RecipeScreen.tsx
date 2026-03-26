@@ -15,7 +15,7 @@ import { RecipeRouteProp } from '@/navigation/type';
 import { useRecipeQuery } from '@/features/recipeList/api/RecipeListQuery';
 import { Recipe } from '@/features/recipeList/api/types/RecipeList';
 import { Loader } from '@/utils/Loader';
-import { useThemeToggle } from '@/hooks/useThemeToggle';
+import { useThemeToggle } from '@/features/theme/hooks/useThemeToggle';
 import { useAnimatedScreen } from '@/shared/reanimated/hooks/useAnimatedScreen';
 import Animated from 'react-native-reanimated';
 

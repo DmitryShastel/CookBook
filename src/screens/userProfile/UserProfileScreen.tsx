@@ -4,7 +4,7 @@ import { styles } from '@/screens/userProfile/UserProfileScreen.styles';
 import { RootPage } from '@/screens/rootPage/RootPage';
 import { useNavigationHelper } from '@/hooks/useNavigationHelper';
 import { useSignOut } from '@/features/auth/hooks/signOut/useSignOut';
-import { useThemeToggle } from '@/hooks/useThemeToggle';
+import { useThemeToggle } from '@/features/theme/hooks/useThemeToggle';
 import { useTranslation } from 'react-i18next';
 import { useAnimatedScreen } from '@/shared/reanimated/hooks/useAnimatedScreen';
 import Animated from 'react-native-reanimated';

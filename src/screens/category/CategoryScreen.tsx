@@ -12,7 +12,7 @@ import { useNavigation } from '@react-navigation/native';
 import { RecipeListNavigationProp } from '@/navigation/type';
 import { useCategoryQuery } from '@/features/recipeList/api/RecipeListQuery';
 import { Category } from '@/features/recipeList/api/types/RecipeList';
-import { useThemeToggle } from '@/hooks/useThemeToggle';
+import { useThemeToggle } from '@/features/theme/hooks/useThemeToggle';
 import { useTranslation } from 'react-i18next';
 import { useAnimatedScreen } from '@/shared/reanimated/hooks/useAnimatedScreen';
 import Animated from 'react-native-reanimated';

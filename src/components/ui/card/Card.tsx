@@ -1,7 +1,7 @@
 import { Image, Text, useColorScheme, View } from 'react-native';
 import { styles } from '@/components/ui/card/Card.style';
 import { RecipeCardInterface } from '@/components/ui/card/Card.types';
-import { useThemeToggle } from '@/hooks/useThemeToggle';
+import { useThemeToggle } from '@/features/theme/hooks/useThemeToggle';
 import { palette } from '@/shared/styles/CommonStyles';
 
 export const Card = ({

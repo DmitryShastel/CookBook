@@ -11,7 +11,7 @@ import { useNavigationHelper } from '@/hooks/useNavigationHelper';
 import { MealSummary } from '@/features/recipeList/api/types/RecipeList';
 import { useCategoryMealsQuery } from '@/features/recipeList/api/RecipeListQuery';
 import { Loader } from '@/utils/Loader';
-import { useThemeToggle } from '@/hooks/useThemeToggle';
+import { useThemeToggle } from '@/features/theme/hooks/useThemeToggle';
 import { useTranslation } from 'react-i18next';
 
 export const RecipeList = () => {

@@ -7,7 +7,7 @@ import {
 } from 'react-native';
 import { styles } from '@/screens/rootPage/RootPage.styles';
 import { RootScreenProps } from '@/screens/rootPage/type';
-import { useThemeToggle } from '@/hooks/useThemeToggle';
+import { useThemeToggle } from '@/features/theme/hooks/useThemeToggle';
 import { useAnimatedScreen } from '@/shared/reanimated/hooks/useAnimatedScreen';
 import Animated from 'react-native-reanimated';
 import Icon from 'react-native-vector-icons/MaterialIcons';

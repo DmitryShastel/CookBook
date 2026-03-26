@@ -1,7 +1,7 @@
 import { Image, Text } from 'react-native';
 import { styles } from '@/screens/auth/login/LoginScreen.styles';
 import { LoginForm } from '@/features/auth/ui/loginForm/LoginForm';
-import { useThemeToggle } from '@/hooks/useThemeToggle';
+import { useThemeToggle } from '@/features/theme/hooks/useThemeToggle';
 import { useTranslation } from 'react-i18next';
 import { useAnimatedScreen } from '@/shared/reanimated/hooks/useAnimatedScreen';
 import Animated from 'react-native-reanimated';

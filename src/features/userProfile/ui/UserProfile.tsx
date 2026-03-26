@@ -2,7 +2,7 @@ import { View, Text } from 'react-native';
 import { UserInfo } from '@/components/ui/userInfo/UserInfo';
 import { styles } from '@/features/userProfile/ui/UserProfiler.styles';
 import { UserProfileProps } from '@/features/userProfile/model/types/UserProfile';
-import { useThemeToggle } from '@/hooks/useThemeToggle';
+import { useThemeToggle } from '@/features/theme/hooks/useThemeToggle';
 import { useTranslation } from 'react-i18next';
 import { useAnimatedButton } from '@/shared/reanimated/hooks/useAnimatedButton';
 import Animated from 'react-native-reanimated';

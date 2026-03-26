@@ -2,7 +2,7 @@ import { Text, View } from 'react-native';
 import { styles } from '@/screens/home/HomeScreen.styles';
 import { useNavigation } from '@react-navigation/native';
 import { HomeScreenNavigationProp } from '@/screens/rootPage/type';
-import { useThemeToggle } from '@/hooks/useThemeToggle';
+import { useThemeToggle } from '@/features/theme/hooks/useThemeToggle';
 import { useTranslation } from 'react-i18next';
 import { useAnimatedButton } from '@/shared/reanimated/hooks/useAnimatedButton';
 import Animated from 'react-native-reanimated';

@@ -2,7 +2,7 @@ import { Pressable, View, Text } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import { styles } from './SettingsItem.styles';
 import { SettingItemInterface } from './SettingsItem.types';
-import { useThemeToggle } from '@/hooks/useThemeToggle';
+import { useThemeToggle } from '@/features/theme/hooks/useThemeToggle';
 
 export const SettingItem = ({
   icon,

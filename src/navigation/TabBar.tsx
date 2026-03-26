@@ -1,7 +1,7 @@
 import { BottomTabBarProps } from '@react-navigation/bottom-tabs';
 import { View, TouchableOpacity } from 'react-native';
 import { styles } from '@/navigation/Tab.styles';
-import { useThemeToggle } from '@/hooks/useThemeToggle';
+import { useThemeToggle } from '@/features/theme/hooks/useThemeToggle';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
 export const TabBar = ({ state, navigation }: BottomTabBarProps) => {
