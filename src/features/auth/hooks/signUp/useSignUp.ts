@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import { createUserWithEmailAndPassword } from '@firebase/auth';
-import { auth } from '../../../../../firebase-config';
 import { showMessage } from 'react-native-flash-message';
 import { useSignInStore } from '@/shared/stores/auth/useSignInStore';
 import { saveToken } from '@/shared/stores/secureStore/SecureStore';
+import { auth } from '@firebase-config';
 
 export const useSignUp = () => {
   const [isLoading, setIsLoading] = useState(false);

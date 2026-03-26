@@ -1,10 +1,12 @@
+import { TabIcons } from '@/constants/TabIcons';
+
 export const GetTabIconName = (routeName: string, isFocused: boolean) => {
   switch (routeName) {
-    case 'Main':
+    case TabIcons.main:
       return isFocused ? 'home' : 'home-outline';
-    case 'Settings':
+    case TabIcons.settings:
       return isFocused ? 'settings' : 'settings-outline';
-    case 'Profile':
+    case TabIcons.profile:
       return isFocused ? 'person' : 'person-outline';
     default:
       return 'home-outline';

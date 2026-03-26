@@ -1,7 +1,7 @@
 import { LikeButtonInterface } from '@/components/ui/like/Like.types';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import { styles } from '@/components/ui/like/Like.style';
-import { Pluralize } from '@/utils/Pluralize';
+import { pluralize } from '@/utils/Pluralize';
 import { Pressable, View, Text } from 'react-native';
 import { ICONS } from '@/constants/Icons';
 import { useLike } from '@/features/like/hook/useLike';
@@ -22,7 +22,7 @@ export const Like = ({
           style={styles.likeIcon}
         />
         <Text style={[styles.likeText, liked && styles.likedText]}>
-          {Pluralize(likeCount, 'like')}
+          {pluralize(likeCount, { one: 'like', other: 'likes' })}
         </Text>
       </Pressable>
     </View>

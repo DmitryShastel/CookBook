@@ -9,7 +9,7 @@ import {
 import { RootPage } from '@/screens/rootPage/RootPage';
 import { MealSummary } from '@/features/recipeList/api/types/RecipeList';
 import { useCategoryMealsQuery } from '@/features/recipeList/api/RecipeListQuery';
-import { Loader } from '@/utils/Loader';
+import { Loader } from '@/components/ui/loader/Loader';
 import { useThemeToggle } from '@/features/theme/hooks/useThemeToggle';
 import { useTranslation } from 'react-i18next';
 

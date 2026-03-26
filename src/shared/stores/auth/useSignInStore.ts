@@ -4,13 +4,13 @@ import {
   LoginResponseData,
 } from '@/shared/stores/auth/LoginInterface';
 import { getToken } from '@/shared/stores/secureStore/SecureStore';
-import { auth } from '../../../../firebase-config';
+import { auth } from '@firebase-config';
 
 export const useSignInStore = create<InitialStateData>()((set) => ({
   user: null,
   isLoading: true,
 
-  setAuthMe: async () => {
+  initAuth: async () => {
     const token = await getToken();
     if (!token) {
       return set({ user: null, isLoading: false });

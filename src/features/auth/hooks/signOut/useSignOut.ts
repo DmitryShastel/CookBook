@@ -1,8 +1,8 @@
 import { useSignInStore } from '@/shared/stores/auth/useSignInStore';
 import { signOut as firebaseSignOut } from 'firebase/auth';
 import { showMessage } from 'react-native-flash-message';
-import { auth } from '../../../../../firebase-config';
 import { deleteToken } from '@/shared/stores/secureStore/SecureStore';
+import { auth } from '@firebase-config';
 
 export const useSignOut = () => {
   const signOut = useSignInStore((state) => state.signOut);

@@ -13,7 +13,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { RecipeRouteProp } from '@/shared/navigation/types/type';
 import { useRecipeQuery } from '@/features/recipeList/api/RecipeListQuery';
 import { Recipe } from '@/features/recipeList/api/types/RecipeList';
-import { Loader } from '@/utils/Loader';
+import { Loader } from '@/components/ui/loader/Loader';
 import { useThemeToggle } from '@/features/theme/hooks/useThemeToggle';
 import { useAnimatedScreen } from '@/shared/reanimated/hooks/useAnimatedScreen';
 import Animated from 'react-native-reanimated';

@@ -1,10 +1,10 @@
 import { signInWithEmailAndPassword } from '@firebase/auth';
-import { auth } from '../../../../../firebase-config';
 import { showMessage } from 'react-native-flash-message';
 import { useState } from 'react';
 import { useSignInStore } from '@/shared/stores/auth/useSignInStore';
 import { saveToken } from '@/shared/stores/secureStore/SecureStore';
 import { ErrorCode } from '@/constants/Errors';
+import { auth } from '@firebase-config';
 
 export const useLogin = () => {
   const [isLoading, setIsLoading] = useState(false);
