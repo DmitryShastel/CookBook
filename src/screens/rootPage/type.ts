@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
-import { RootStackParamList } from '@/navigation/type';
+import { RootStackParamList } from '@/shared/navigation/types/type';
 
 export interface RootScreenProps {
   children: ReactNode;

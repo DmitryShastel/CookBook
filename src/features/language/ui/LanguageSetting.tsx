@@ -1,4 +1,5 @@
-import { SettingItem } from '@/components/ui/settingsItem/SettingsItem';
+// import { SettingItem } from '@/components/ui/settingsItem/SettingsItem';
+import { SettingItem } from '@/components/ui/settingsItem';
 import { useLanguage } from '@/features/language/hooks/useLanguage';
 import { useTranslation } from 'react-i18next';
 

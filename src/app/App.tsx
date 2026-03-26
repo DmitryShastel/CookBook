@@ -5,7 +5,7 @@ import { queryClient } from '@/shared/api/axios-instance';
 import { QueryClientProvider } from '@tanstack/react-query';
 
 import '../shared/i18next/i18next';
-import { RootStack } from '@/navigation/RootStack';
+import { RootStack } from '@/app/navigation/RootStack';
 
 const App = () => {
   return (

@@ -9,7 +9,7 @@ import {
 } from 'react-native';
 import { styles } from '@/screens/category/CategoryScreen.styles';
 import { useNavigation } from '@react-navigation/native';
-import { RecipeListNavigationProp } from '@/navigation/type';
+import { RecipeListNavigationProp } from '@/shared/navigation/types/type';
 import { useCategoryQuery } from '@/features/recipeList/api/RecipeListQuery';
 import { Category } from '@/features/recipeList/api/types/RecipeList';
 import { useThemeToggle } from '@/features/theme/hooks/useThemeToggle';

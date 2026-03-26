@@ -5,9 +5,8 @@ import { useNavigation, useRoute } from '@react-navigation/native';
 import {
   RecipeListNavigationProp,
   RecipeListRouteProp,
-} from '@/navigation/type';
+} from '@/shared/navigation/types/type';
 import { RootPage } from '@/screens/rootPage/RootPage';
-import { useNavigationHelper } from '@/hooks/useNavigationHelper';
 import { MealSummary } from '@/features/recipeList/api/types/RecipeList';
 import { useCategoryMealsQuery } from '@/features/recipeList/api/RecipeListQuery';
 import { Loader } from '@/utils/Loader';
@@ -18,15 +17,17 @@ export const RecipeList = () => {
   const route = useRoute<RecipeListRouteProp>();
   const { categoryTitle } = route.params;
   const { data: recipes, isLoading } = useCategoryMealsQuery(categoryTitle);
-  const { getBack } = useNavigationHelper();
   const navigation = useNavigation<RecipeListNavigationProp>();
   const { colors, theme } = useThemeToggle();
+  const { t } = useTranslation();
 
   const handleRecipePress = (recipeId: string) => {
     navigation.navigate('Recipe', { recipeId });
   };
 
-  const { t } = useTranslation();
+  const getBack = () => {
+    navigation.goBack();
+  };
 
   const renderRecipeCard = ({ item }: { item: MealSummary }) => (
     <TouchableOpacity
