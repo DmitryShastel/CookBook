@@ -1,5 +1,10 @@
 import { StyleSheet } from 'react-native';
-import { border, spacing, typography } from '@/shared/styles/CommonStyles';
+import {
+  border,
+  palette,
+  spacing,
+  typography,
+} from '@/shared/styles/CommonStyles';
 
 export const styles = StyleSheet.create({
   card: {
@@ -10,7 +15,7 @@ export const styles = StyleSheet.create({
     marginHorizontal: spacing.margin.md,
     marginVertical: spacing.margin.sm,
     overflow: 'hidden',
-    shadowColor: '#000',
+    shadowColor: palette.neutral['1000'],
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.1,
     shadowRadius: border.radius.md,
@@ -26,44 +31,44 @@ export const styles = StyleSheet.create({
   },
   cardImage: {
     borderRadius: border.radius.lg,
-    height: 100,
     margin: spacing.margin.sn,
+    minHeight: 100,
     width: 100,
   },
   categoryDescription: {
-    color: '#666',
+    color: palette.neutral['600'],
     fontSize: typography.accent.sm,
     lineHeight: 20,
     marginBottom: spacing.margin.sm,
   },
   categoryName: {
-    color: '#1a1a1a',
+    color: palette.neutral['1000'],
     fontSize: typography.accent.xl,
     fontWeight: typography.weight.semiBold,
     marginBottom: spacing.margin.xs,
   },
   container: {
-    backgroundColor: '#f8f9fa',
+    backgroundColor: palette.neutral['0'],
     flex: 1,
   },
   header: {
-    backgroundColor: '#f8f9fa',
+    backgroundColor: palette.neutral['0'],
     paddingBottom: spacing.padding.md,
     paddingHorizontal: spacing.padding.mdd,
     paddingTop: spacing.padding.mdd,
   },
   headerSubtitle: {
-    color: '#666',
+    color: palette.neutral['600'],
     fontSize: typography.accent.md,
   },
   headerTitle: {
-    color: '#1a1a1a',
+    color: palette.neutral['1000'],
     fontSize: typography.accent.xmm,
     fontWeight: typography.weight.semiBold,
     marginBottom: spacing.margin.xs,
   },
   viewRecipeText: {
-    color: '#007AFF',
+    color: palette.primary.dark,
     fontSize: typography.accent.sm,
     fontWeight: typography.weight.medium,
   },

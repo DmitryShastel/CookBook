@@ -15,8 +15,8 @@ export const styles = StyleSheet.create({
     borderBottomColor: '#f0f0f0',
     borderBottomWidth: border.radius.sn,
     flexDirection: 'row',
-    height: 60,
     justifyContent: 'space-between',
+    minheight: 60,
     paddingHorizontal: spacing.padding.md,
   },
   headerLeft: {
@@ -40,8 +40,8 @@ export const styles = StyleSheet.create({
     borderTopColor: '#f0f0f0',
     borderTopWidth: border.radius.sn,
     flexDirection: 'row',
-    height: 60,
     justifyContent: 'space-around',
+    minheight: 60,
     paddingHorizontal: spacing.padding.md,
   },
   tabButton: {

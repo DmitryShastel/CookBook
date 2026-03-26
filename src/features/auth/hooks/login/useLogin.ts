@@ -4,6 +4,7 @@ import { showMessage } from 'react-native-flash-message';
 import { useState } from 'react';
 import { useSignInStore } from '@/shared/stores/auth/useSignInStore';
 import { saveToken } from '@/shared/stores/secureStore/SecureStore';
+import { ErrorCode } from '@/constants/Errors';
 
 export const useLogin = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -21,7 +22,6 @@ export const useLogin = () => {
         email: user.email,
         token: idToken,
       });
-      console.log(user);
       showMessage({
         message: 'Welcome Back!',
         description: 'You have successfully logged in',
@@ -32,13 +32,13 @@ export const useLogin = () => {
       let errorMessage = '';
 
       switch (error.code) {
-        case 'auth/invalid-credential':
+        case ErrorCode.invalidCredential:
           errorMessage = 'Invalid email or password';
           break;
-        case 'auth/too-many-requests':
+        case ErrorCode.toManyRequest:
           errorMessage = 'Too many attempts. Try again later';
           break;
-        case 'auth/network-request-failed':
+        case ErrorCode.networkRequestFailed:
           errorMessage = 'Network error. Check your connection';
           break;
         default:

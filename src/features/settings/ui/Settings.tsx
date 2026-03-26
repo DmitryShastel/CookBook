@@ -3,19 +3,11 @@ import { styles } from '@/features/settings/ui/Settings.styles';
 import { SettingItem } from '@/components/ui/settingsItem/SettingsItem';
 import { useThemeToggle } from '@/hooks/useThemeToggle';
 import { useTranslation } from 'react-i18next';
+import { LanguageSetting } from '@/features/language/ui/LanguageSetting';
 
 export const Settings = () => {
   const { theme, toggleTheme, colors } = useThemeToggle();
-  const { t, i18n } = useTranslation();
-
-  const handleLanguagePress = () => {
-    const newLanguage = i18n.language === 'en' ? 'fr' : 'en';
-    i18n.changeLanguage(newLanguage);
-  };
-
-  const getCurrentLanguage = () => {
-    return i18n.language === 'en' ? 'English' : 'Français';
-  };
+  const { t } = useTranslation();
 
   const handleThemePress = () => {
     toggleTheme();
@@ -32,14 +24,7 @@ export const Settings = () => {
         <View
           style={[styles.sectionContent, { backgroundColor: colors.primary }]}
         >
-          <SettingItem
-            icon="language-outline"
-            iconBgColor="#E3F2FD"
-            iconColor="#1976D2"
-            title={t('SettingsScreen.settingsItem.language')}
-            value={getCurrentLanguage()}
-            onPress={handleLanguagePress}
-          />
+          <LanguageSetting />
           <SettingItem
             icon="color-palette-outline"
             iconBgColor="#FFF3E0"

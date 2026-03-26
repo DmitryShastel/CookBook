@@ -9,6 +9,7 @@ import Animated from 'react-native-reanimated';
 import { useAnimatedScreen } from '@/shared/reanimated/hooks/useAnimatedScreen';
 import { Button } from '@/components/ui/button/Button';
 import Icon from 'react-native-vector-icons/MaterialIcons';
+import { Routes } from '@/constants/Routes';
 
 export const HomeScreen = () => {
   const { colors } = useThemeToggle();
@@ -19,11 +20,11 @@ export const HomeScreen = () => {
   const { animatedStyle } = useAnimatedScreen();
 
   const handleSignIn = () => {
-    navigation.navigate('Login');
+    navigation.navigate(Routes.login);
   };
 
   const handleSignUp = () => {
-    navigation.navigate('SignUp');
+    navigation.navigate(Routes.SignUp);
   };
 
   return (

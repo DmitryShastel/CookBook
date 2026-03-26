@@ -9,8 +9,8 @@ import {
 export const styles = StyleSheet.create({
   avatar: {
     borderRadius: border.radius.xxxl,
-    height: 40,
     marginRight: spacing.margin.ssm,
+    minHeight: 40,
     width: 40,
   },
   userContainer: {

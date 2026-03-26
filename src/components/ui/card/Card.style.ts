@@ -33,8 +33,8 @@ export const styles = StyleSheet.create({
   },
   recipeImage: {
     borderRadius: border.radius.md,
-    height: 200,
     marginBottom: border.radius.lg,
+    minHeight: 200,
     width: '100%',
   },
   userContainer: {

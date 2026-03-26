@@ -10,7 +10,7 @@ export const styles = StyleSheet.create({
   button: {
     backgroundColor: palette.primary.main,
     borderRadius: border.radius.md,
-    height: 50,
+    minHeight: 50,
   },
   buttonContainer: {
     marginBottom: border.radius.xl,
@@ -42,7 +42,7 @@ export const styles = StyleSheet.create({
     backgroundColor: palette.neutral['100'],
     borderBottomWidth: border.radius.s,
     borderRadius: border.radius.md,
-    height: 50,
+    minHeight: 50,
     paddingHorizontal: spacing.padding.sm,
   },
   inputWrapper: {

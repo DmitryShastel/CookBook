@@ -1,9 +1,14 @@
 import { StyleSheet } from 'react-native';
-import { border, spacing, typography } from '@/shared/styles/CommonStyles';
+import {
+  border,
+  palette,
+  spacing,
+  typography,
+} from '@/shared/styles/CommonStyles';
 
 export const styles = StyleSheet.create({
   category: {
-    color: '#666',
+    color: palette.neutral['600'],
     fontSize: typography.accent.md,
     marginBottom: spacing.margin.mdd,
   },
@@ -14,7 +19,7 @@ export const styles = StyleSheet.create({
     padding: spacing.padding.mdd,
   },
   container: {
-    backgroundColor: '#fff',
+    backgroundColor: palette.neutral['0'],
     flex: 1,
   },
   content: {
@@ -22,7 +27,7 @@ export const styles = StyleSheet.create({
     height: '100%',
   },
   ingredientAmount: {
-    color: '#666',
+    color: palette.neutral['600'],
     fontSize: typography.accent.md,
     textAlign: 'right',
   },
@@ -34,32 +39,32 @@ export const styles = StyleSheet.create({
     paddingVertical: spacing.padding.sm,
   },
   ingredientName: {
-    color: '#1a1a1a',
+    color: palette.neutral['1000'],
     flex: 1,
     fontSize: typography.accent.md,
   },
   ingredientsContainer: {
-    backgroundColor: '#f8f9fa',
+    backgroundColor: palette.neutral['0'],
     borderRadius: border.radius.lg,
     marginBottom: spacing.margin.lg,
     padding: spacing.padding.md,
   },
   instructions: {
-    color: '#333',
+    color: palette.neutral['600'],
     fontSize: typography.accent.md,
     lineHeight: 24,
     marginBottom: spacing.margin.lg,
   },
   linkButton: {
     alignItems: 'center',
-    backgroundColor: '#f0f0f0',
+    backgroundColor: palette.neutral['0'],
     borderRadius: border.radius.md,
     flexDirection: 'row',
     gap: 8,
     padding: spacing.padding.md,
   },
   linkText: {
-    color: '#007AFF',
+    color: palette.info,
     fontSize: typography.accent.md,
     fontWeight: typography.weight.medium,
   },
@@ -75,17 +80,17 @@ export const styles = StyleSheet.create({
     padding: spacing.padding.mdd,
   },
   notFoundText: {
-    color: '#ff3b30',
+    color: palette.error,
     fontSize: typography.accent.lg,
     textAlign: 'center',
   },
   recipeImage: {
-    height: 300,
+    minHeight: 300,
     resizeMode: 'cover',
     width: '100%',
   },
   sectionTitle: {
-    color: '#1a1a1a',
+    color: palette.neutral['1000'],
     fontSize: typography.accent.xl,
     fontWeight: typography.weight.semiBold,
     marginBottom: spacing.margin.sn,
@@ -94,12 +99,12 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
   },
   statLabel: {
-    color: '#666',
+    color: palette.neutral['600'],
     fontSize: typography.accent.sm,
     marginTop: spacing.margin.xs,
   },
   statValue: {
-    color: '#1a1a1a',
+    color: palette.neutral['1000'],
     fontSize: typography.accent.xl,
     fontWeight: typography.weight.semiBold,
   },
@@ -112,7 +117,7 @@ export const styles = StyleSheet.create({
     padding: spacing.padding.md,
   },
   title: {
-    color: '#1a1a1a',
+    color: palette.neutral['1000'],
     fontSize: typography.accent.xll,
     fontWeight: typography.weight.semiBold,
     marginBottom: spacing.margin.sm,
@@ -121,6 +126,6 @@ export const styles = StyleSheet.create({
     backgroundColor: '#fff0f0',
   },
   youtubeText: {
-    color: '#FF0000',
+    color: palette.error,
   },
 });

@@ -1,7 +1,8 @@
-import { Image, Text, View } from 'react-native';
+import { Image, Text, useColorScheme, View } from 'react-native';
 import { styles } from '@/components/ui/card/Card.style';
 import { RecipeCardInterface } from '@/components/ui/card/Card.types';
 import { useThemeToggle } from '@/hooks/useThemeToggle';
+import { palette } from '@/shared/styles/CommonStyles';
 
 export const Card = ({
   userName,
@@ -10,6 +11,7 @@ export const Card = ({
   description,
 }: RecipeCardInterface) => {
   const { colors, theme } = useThemeToggle();
+  const themeVariables = useColorScheme();
   return (
     <View
       style={[
@@ -17,8 +19,11 @@ export const Card = ({
         {
           backgroundColor: colors.card?.background || colors.surface,
           borderColor: colors.card?.border || colors.border,
-          borderWidth: theme === 'dark' ? 1 : 0,
-          shadowColor: theme === 'dark' ? '#000' : '#666',
+          borderWidth: theme === themeVariables ? 1 : 0,
+          shadowColor:
+            theme === themeVariables
+              ? palette.neutral['1000']
+              : palette.neutral['600'],
         },
       ]}
     >

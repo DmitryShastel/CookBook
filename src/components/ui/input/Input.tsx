@@ -17,7 +17,8 @@ export const Input = ({
   autoCapitalize = 'none',
 }: InputInterface) => {
   const [internalValue, setInternalValue] = useState('');
-  const value = externalValue !== undefined ? externalValue : internalValue;
+  const value =
+    externalValue !== undefined || null ? externalValue : internalValue;
 
   const handleChangeText = (newText: string) => {
     if (externalOnChangeText) {

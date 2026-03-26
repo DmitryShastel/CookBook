@@ -2,7 +2,7 @@ import { BottomTabBarProps } from '@react-navigation/bottom-tabs';
 import { View, TouchableOpacity } from 'react-native';
 import { styles } from '@/navigation/Tab.styles';
 import { useThemeToggle } from '@/hooks/useThemeToggle';
-import { Icon } from 'expo-router/unstable-native-tabs';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 
 export const TabBar = ({ state, navigation }: BottomTabBarProps) => {
   const { colors, theme } = useThemeToggle();
@@ -46,9 +46,8 @@ export const TabBar = ({ state, navigation }: BottomTabBarProps) => {
             onPress={() => handleTabPress(route.name)}
             style={styles.tabButton}
           >
-            <Icon
+            <Ionicons
               name={getIconName(route.name, isFocused)}
-              type="ionicon"
               size={24}
               color={isFocused ? colors.primary.main : colors.text.secondary}
             />

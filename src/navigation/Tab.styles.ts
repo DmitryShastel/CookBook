@@ -1,7 +1,7 @@
 export const styles = {
   tabBar: {
     flexDirection: 'row' as const,
-    height: 60,
+    minHeight: 60,
     backgroundColor: '#fff',
     borderTopWidth: 1,
     borderTopColor: '#f0f0f0',
