@@ -1,12 +1,14 @@
 import { signInWithEmailAndPassword } from '@firebase/auth';
-import { showMessage } from 'react-native-flash-message';
 import { useState } from 'react';
 import { useSignInStore } from '@/shared/stores/auth/useSignInStore';
 import { saveToken } from '@/shared/stores/secureStore/SecureStore';
 import { ErrorCode } from '@/constants/Errors';
 import { auth } from '@firebase-config';
+import { useToast } from '@/shared/reanimated/ToastContext';
+import { ToastType } from '@/shared/reanimated/Toast';
 
 export const useLogin = () => {
+  const toast = useToast();
   const [isLoading, setIsLoading] = useState(false);
   const setUser = useSignInStore((state) => state.setUser);
 
@@ -22,12 +24,11 @@ export const useLogin = () => {
         email: user.email,
         token: idToken,
       });
-      showMessage({
-        message: 'Welcome Back!',
-        description: 'You have successfully logged in',
-        type: 'success',
-        duration: 3000,
-      });
+      toast.show(
+        'Welcome Back! You have successfully logged in',
+        ToastType.Top,
+        '#4CAF50',
+      );
     } catch (error: any) {
       let errorMessage = '';
 
@@ -44,12 +45,7 @@ export const useLogin = () => {
         default:
           errorMessage = 'Could not log in. Please try again';
       }
-      showMessage({
-        message: 'Login Failed',
-        description: errorMessage,
-        type: 'danger',
-        duration: 3000,
-      });
+      toast.show(errorMessage, ToastType.Top, '#F44336');
       setIsLoading(false);
     }
   };

@@ -1,11 +1,13 @@
 import { useState } from 'react';
 import { createUserWithEmailAndPassword } from '@firebase/auth';
-import { showMessage } from 'react-native-flash-message';
 import { useSignInStore } from '@/shared/stores/auth/useSignInStore';
 import { saveToken } from '@/shared/stores/secureStore/SecureStore';
 import { auth } from '@firebase-config';
+import { ToastType } from '@/shared/reanimated/Toast';
+import { useToast } from '@/shared/reanimated/ToastContext';
 
 export const useSignUp = () => {
+  const toast = useToast();
   const [isLoading, setIsLoading] = useState(false);
   const setUser = useSignInStore((state) => state.setUser);
 
@@ -25,12 +27,11 @@ export const useSignUp = () => {
         email: user.email,
         token: idToken,
       });
-
-      showMessage({
-        message: 'Welcome!',
-        description: 'Account created successfully',
-        type: 'success',
-      });
+      toast.show(
+        'Welcome! Account created successfully',
+        ToastType.Top,
+        '#4CAF50',
+      );
     } catch (error: any) {
       let errorMessage = 'Could not create account';
 
@@ -41,14 +42,9 @@ export const useSignUp = () => {
         default:
           errorMessage = 'Could not create a new account';
       }
-      showMessage({
-        message: 'Sign Up Failed',
-        description: errorMessage,
-        type: 'danger',
-      });
+      toast.show(errorMessage, ToastType.Top, '#F44336');
       setIsLoading(false);
     }
   };
-
   return { signUp, isLoading };
 };

@@ -37,7 +37,6 @@ export const HomeScreen = () => {
     >
       <View style={styles.content}>
         <Icon name="account-circle" size={100} color={colors.primary.main} />
-
         <Text style={styles.message}>{t('HomeScreen.message')}</Text>
       </View>
 
@@ -52,7 +51,6 @@ export const HomeScreen = () => {
             titleStyle={styles.buttonTitle}
           />
         </Animated.View>
-
         <Animated.View style={signUpBtn.animatedStyle}>
           <Button
             title={t('HomeScreen.signUp')}
