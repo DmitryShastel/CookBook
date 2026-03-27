@@ -1,5 +1,6 @@
 import { createContext, useContext, useState } from 'react';
-import { Toast, ToastType } from '@/shared/reanimated/Toast';
+import { Toast } from '@/components/ui/toast/Toast';
+import { ToastType } from '@/components/ui/toast/Toast.types';
 
 const ToastContext = createContext({
   show: (_message: string, _type: ToastType, _color: string) => {},

@@ -4,11 +4,14 @@ import { useSignInStore } from '@/shared/stores/auth/useSignInStore';
 import { saveToken } from '@/shared/stores/secureStore/SecureStore';
 import { ErrorCode } from '@/constants/Errors';
 import { auth } from '@firebase-config';
-import { useToast } from '@/shared/reanimated/ToastContext';
-import { ToastType } from '@/shared/reanimated/Toast';
+import { useToast } from '@/app/reanimated/ToastContext';
+import { useTranslation } from 'react-i18next';
+import { palette } from '@/shared/styles/CommonStyles';
+import { ToastType } from '@/components/ui/toast/Toast.types';
 
 export const useLogin = () => {
   const toast = useToast();
+  const { t } = useTranslation();
   const [isLoading, setIsLoading] = useState(false);
   const setUser = useSignInStore((state) => state.setUser);
 
@@ -24,28 +27,24 @@ export const useLogin = () => {
         email: user.email,
         token: idToken,
       });
-      toast.show(
-        'Welcome Back! You have successfully logged in',
-        ToastType.Top,
-        '#4CAF50',
-      );
+      toast.show(t('Login.loginSuccess'), ToastType.Top, palette.success);
     } catch (error: any) {
       let errorMessage = '';
 
       switch (error.code) {
         case ErrorCode.invalidCredential:
-          errorMessage = 'Invalid email or password';
+          errorMessage = t('Login.invalidCredential');
           break;
         case ErrorCode.toManyRequest:
-          errorMessage = 'Too many attempts. Try again later';
+          errorMessage = t('Login.toManyRequest');
           break;
         case ErrorCode.networkRequestFailed:
-          errorMessage = 'Network error. Check your connection';
+          errorMessage = t('Login.networkRequestFailed');
           break;
         default:
-          errorMessage = 'Could not log in. Please try again';
+          errorMessage = t('Login.default');
       }
-      toast.show(errorMessage, ToastType.Top, '#F44336');
+      toast.show(errorMessage, ToastType.Top, palette.error);
       setIsLoading(false);
     }
   };

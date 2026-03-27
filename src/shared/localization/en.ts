@@ -103,4 +103,20 @@ export const EN = {
     savedRecipes: 'Saved recipes',
     logoutTitle: 'Logout',
   },
+  Login: {
+    loginSuccess: 'Welcome Back! You have successfully logged in',
+    invalidCredential: 'Invalid email or password',
+    toManyRequest: 'Too many attempts. Try again later',
+    networkRequestFailed: 'Network error. Check your connection',
+    default: 'Could not log in. Please try again',
+  },
+  SignUp: {
+    signUpSuccess: 'Welcome! Account created successfully',
+    emailAlreadyInUse: 'Email already in use',
+    default: 'Could not create a new account',
+  },
+  SignOut: {
+    signOutSuccess: 'Goodbye! You have been logged out',
+    error: 'Error! Could not log out',
+  },
 };

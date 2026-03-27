@@ -2,11 +2,14 @@ import { useSignInStore } from '@/shared/stores/auth/useSignInStore';
 import { signOut as firebaseSignOut } from 'firebase/auth';
 import { deleteToken } from '@/shared/stores/secureStore/SecureStore';
 import { auth } from '@firebase-config';
-import { useToast } from '@/shared/reanimated/ToastContext';
-import { ToastType } from '@/shared/reanimated/Toast';
+import { useToast } from '@/app/reanimated/ToastContext';
+import { useTranslation } from 'react-i18next';
+import { palette } from '@/shared/styles/CommonStyles';
+import { ToastType } from '@/components/ui/toast/Toast.types';
 
 export const useSignOut = () => {
   const toast = useToast();
+  const { t } = useTranslation();
   const signOut = useSignInStore((state) => state.signOut);
 
   const handleLogout = async () => {
@@ -14,9 +17,9 @@ export const useSignOut = () => {
       await firebaseSignOut(auth);
       await deleteToken();
       signOut();
-      toast.show('Goodbye! You have been logged out', ToastType.Top, '#2196F3');
+      toast.show(t('SignOut.signOutSuccess'), ToastType.Top, palette.info);
     } catch (error) {
-      toast.show('Error! Could not log out', ToastType.Top, '#F44336');
+      toast.show(t('SignOut.error'), ToastType.Top, palette.error);
     }
   };
 

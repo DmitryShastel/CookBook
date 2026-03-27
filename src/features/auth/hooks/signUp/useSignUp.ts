@@ -3,11 +3,14 @@ import { createUserWithEmailAndPassword } from '@firebase/auth';
 import { useSignInStore } from '@/shared/stores/auth/useSignInStore';
 import { saveToken } from '@/shared/stores/secureStore/SecureStore';
 import { auth } from '@firebase-config';
-import { ToastType } from '@/shared/reanimated/Toast';
-import { useToast } from '@/shared/reanimated/ToastContext';
+import { useToast } from '@/app/reanimated/ToastContext';
+import { useTranslation } from 'react-i18next';
+import { palette } from '@/shared/styles/CommonStyles';
+import { ToastType } from '@/components/ui/toast/Toast.types';
 
 export const useSignUp = () => {
   const toast = useToast();
+  const { t } = useTranslation();
   const [isLoading, setIsLoading] = useState(false);
   const setUser = useSignInStore((state) => state.setUser);
 
@@ -28,21 +31,21 @@ export const useSignUp = () => {
         token: idToken,
       });
       toast.show(
-        'Welcome! Account created successfully',
+        t('Welcome! Account created successfully'),
         ToastType.Top,
-        '#4CAF50',
+        palette.success,
       );
     } catch (error: any) {
-      let errorMessage = 'Could not create account';
+      let errorMessage = '';
 
       switch (error.code) {
         case 'auth/email-already-in-use':
-          errorMessage = 'Email already in use';
+          errorMessage = t('SignUp.emailAlreadyInUse');
           break;
         default:
-          errorMessage = 'Could not create a new account';
+          errorMessage = t('SignUp.default');
       }
-      toast.show(errorMessage, ToastType.Top, '#F44336');
+      toast.show(errorMessage, ToastType.Top, palette.error);
       setIsLoading(false);
     }
   };
