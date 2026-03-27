@@ -1,17 +1,20 @@
-import { ScrollView, View } from 'react-native';
-import { Text } from 'react-native-elements';
+import { ScrollView, View, Text } from 'react-native';
 import { Settings } from '@/features/settings/ui/Settings';
 import { styles } from '@/screens/settings/SettingsScreen.styles';
 import { RootPage } from '@/screens/rootPage/RootPage';
-import { useNavigationHelper } from '@/hooks/useNavigationHelper';
 import { useTranslation } from 'react-i18next';
 import { useAnimatedScreen } from '@/shared/reanimated/hooks/useAnimatedScreen';
 import Animated from 'react-native-reanimated';
+import { useNavigation } from '@react-navigation/native';
 
 export const SettingsScreen = () => {
-  const { getBack } = useNavigationHelper();
   const { t } = useTranslation();
   const { animatedStyle } = useAnimatedScreen();
+  const navigation = useNavigation();
+
+  const getBack = () => {
+    navigation.goBack();
+  };
 
   return (
     <Animated.View style={[styles.container, animatedStyle]}>

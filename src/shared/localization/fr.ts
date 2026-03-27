@@ -116,4 +116,21 @@ export const FR = {
     savedRecipes: 'Recettes sauvegardées',
     logoutTitle: 'Déconnexion',
   },
+  Login: {
+    loginSuccess:
+      'Soyez de nouveau le bienvenu! Vous vous êtes connecté avec succès',
+    invalidCredential: 'E-mail ou mot de passe non valide',
+    toManyRequest: 'Trop de tentatives. Réessayez plus tard',
+    networkRequestFailed: 'Erreur réseau. Vérifiez votre connexion',
+    default: 'Impossible de se connecter. Veuillez réessayer',
+  },
+  SignUp: {
+    signUpSuccess: 'Bienvenue! Compte créé avec succès',
+    emailAlreadyInUse: 'E-mail déjà utilisé',
+    default: 'Impossible de créer un nouveau compte',
+  },
+  SignOut: {
+    signOutSuccess: 'Au revoir! Vous avez été déconnecté',
+    error: 'Erreur! Impossible de se déconnecter',
+  },
 };

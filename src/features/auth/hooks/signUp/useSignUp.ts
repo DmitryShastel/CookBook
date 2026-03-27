@@ -1,11 +1,16 @@
 import { useState } from 'react';
 import { createUserWithEmailAndPassword } from '@firebase/auth';
-import { auth } from '../../../../../firebase-config';
-import { showMessage } from 'react-native-flash-message';
 import { useSignInStore } from '@/shared/stores/auth/useSignInStore';
 import { saveToken } from '@/shared/stores/secureStore/SecureStore';
+import { auth } from '@firebase-config';
+import { useToast } from '@/app/reanimated/ToastContext';
+import { useTranslation } from 'react-i18next';
+import { palette } from '@/shared/styles/CommonStyles';
+import { ToastType } from '@/components/ui/toast/Toast.types';
 
 export const useSignUp = () => {
+  const toast = useToast();
+  const { t } = useTranslation();
   const [isLoading, setIsLoading] = useState(false);
   const setUser = useSignInStore((state) => state.setUser);
 
@@ -25,30 +30,24 @@ export const useSignUp = () => {
         email: user.email,
         token: idToken,
       });
-
-      showMessage({
-        message: 'Welcome!',
-        description: 'Account created successfully',
-        type: 'success',
-      });
+      toast.show(
+        t('Welcome! Account created successfully'),
+        ToastType.Top,
+        palette.success,
+      );
     } catch (error: any) {
-      let errorMessage = 'Could not create account';
+      let errorMessage = '';
 
       switch (error.code) {
         case 'auth/email-already-in-use':
-          errorMessage = 'Email already in use';
+          errorMessage = t('SignUp.emailAlreadyInUse');
           break;
         default:
-          errorMessage = 'Could not create a new account';
+          errorMessage = t('SignUp.default');
       }
-      showMessage({
-        message: 'Sign Up Failed',
-        description: errorMessage,
-        type: 'danger',
-      });
+      toast.show(errorMessage, ToastType.Top, palette.error);
       setIsLoading(false);
     }
   };
-
   return { signUp, isLoading };
 };

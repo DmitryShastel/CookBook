@@ -9,36 +9,43 @@ import {
 import { RootPage } from '@/screens/rootPage/RootPage';
 import { useRoute } from '@react-navigation/native';
 import { styles } from './RecipeScreen.styles';
-import { useNavigationHelper } from '@/hooks/useNavigationHelper';
 import { Ionicons } from '@expo/vector-icons';
-import { RecipeRouteProp } from '@/navigation/type';
+import { RecipeRouteProp } from '@/shared/navigation/types/type';
 import { useRecipeQuery } from '@/features/recipeList/api/RecipeListQuery';
 import { Recipe } from '@/features/recipeList/api/types/RecipeList';
-import { Loader } from '@/utils/Loader';
-import { useThemeToggle } from '@/hooks/useThemeToggle';
+import { Loader } from '@/components/ui/loader/Loader';
+import { useThemeToggle } from '@/features/theme/hooks/useThemeToggle';
 import { useAnimatedScreen } from '@/shared/reanimated/hooks/useAnimatedScreen';
 import Animated from 'react-native-reanimated';
+import { useNavigation } from '@react-navigation/native/src';
 
 export const RecipeScreen = () => {
   const route = useRoute<RecipeRouteProp>();
   const { recipeId } = route.params;
   const { data: recipe, isLoading } = useRecipeQuery(recipeId);
-  const { getBack } = useNavigationHelper();
   const { colors } = useThemeToggle();
   const { animatedStyle } = useAnimatedScreen();
+  const navigation = useNavigation();
 
   const getIngredients = () => {
     if (!recipe) return [];
 
-    const ingredients = [];
-    for (let i = 1; i <= 20; i++) {
-      const ingredient = recipe[`strIngredient${i}` as keyof Recipe];
-      const measure = recipe[`strMeasure${i}` as keyof Recipe];
+    return Array.from({ length: 20 }, (_, i) => {
+      const index = i + 1;
+
+      const ingredient = recipe[`strIngredient${index}` as keyof Recipe];
+      const measure = recipe[`strMeasure${index}` as keyof Recipe];
+
       if (ingredient && ingredient.trim() !== '') {
-        ingredients.push({ ingredient, measure });
+        return { ingredient, measure };
       }
-    }
-    return ingredients;
+
+      return null;
+    }).filter(Boolean) as { ingredient: string; measure: string }[];
+  };
+
+  const getBack = () => {
+    navigation.goBack();
   };
 
   const openLink = (url: string) => {

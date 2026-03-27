@@ -1,20 +1,20 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { MainTabNavigator } from '@/navigation/MainTabNavigator';
+import { MainTabNavigator } from '@/app/navigation/MainTabNavigator';
 import { LoginScreen } from '@/screens/auth/login/LoginScreen';
 import { SignUpScreen } from '@/screens/auth/signUp/SignUpScreen';
-import { RootStackParamList } from '@/navigation/type';
+import { RootStackParamList } from '@/shared/navigation/types/type';
 import { HomeScreen } from '@/screens/home/HomeScreen';
 import { useSignInStore } from '@/shared/stores/auth/useSignInStore';
-import { Loader } from '@/utils/Loader';
+import { Loader } from '@/components/ui/loader/Loader';
 import { useEffect } from 'react';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
 export const RootStack = () => {
-  const { setAuthMe, user, isLoading } = useSignInStore();
+  const { initAuth, user, isLoading } = useSignInStore();
 
   useEffect(() => {
-    setAuthMe();
+    initAuth();
   }, []);
 
   if (isLoading) {

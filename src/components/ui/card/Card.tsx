@@ -1,38 +1,35 @@
-import { View } from 'react-native';
-import { Card as RNCard, Text } from 'react-native-elements';
-import { UserInfo } from '@/components/ui/userInfo/UserInfo';
-import { Like } from '@/components/ui/like/Like';
+import { Image, Text, useColorScheme, View } from 'react-native';
 import { styles } from '@/components/ui/card/Card.style';
-import { RecipeCardProps } from '@/components/ui/card/Card.types';
-import { useThemeToggle } from '@/hooks/useThemeToggle';
+import { RecipeCardInterface } from '@/components/ui/card/Card.types';
+import { useThemeToggle } from '@/features/theme/hooks/useThemeToggle';
+import { palette } from '@/shared/styles/CommonStyles';
 
 export const Card = ({
-  initialLiked,
   userName,
   userAvatar,
   recipeImage,
   description,
-  likesCount,
-}: RecipeCardProps) => {
+}: RecipeCardInterface) => {
   const { colors, theme } = useThemeToggle();
+  const themeVariables = useColorScheme();
   return (
-    // <RNCard containerStyle={styles.card}>
-    <RNCard
-      containerStyle={[
+    <View
+      style={[
         styles.card,
         {
           backgroundColor: colors.card?.background || colors.surface,
-
           borderColor: colors.card?.border || colors.border,
-          borderWidth: theme === 'dark' ? 1 : 0,
-
-          shadowColor: theme === 'dark' ? '#000' : '#666',
+          borderWidth: theme === themeVariables ? 1 : 0,
+          shadowColor:
+            theme === themeVariables
+              ? palette.neutral['1000']
+              : palette.neutral['600'],
         },
       ]}
     >
       <View style={styles.userContainer}></View>
 
-      <RNCard.Image
+      <Image
         source={{ uri: recipeImage }}
         style={styles.recipeImage}
         resizeMode="cover"
@@ -49,8 +46,7 @@ export const Card = ({
         >
           {description}
         </Text>
-        {/*<Like initialLiked={initialLiked} likesCount={likesCount} />*/}
       </View>
-    </RNCard>
+    </View>
   );
 };

@@ -1,17 +1,22 @@
 import { StyleSheet } from 'react-native';
-import { border, spacing, typography } from '@/shared/styles/CommonStyles';
+import {
+  border,
+  opacity,
+  palette,
+  spacing,
+  typography,
+} from '@/shared/styles/CommonStyles';
 
 export const styles = StyleSheet.create({
   card: {
-    backgroundColor: '#fff',
+    backgroundColor: palette.neutral['0'],
     borderRadius: border.radius.lg,
-    height: 300,
     marginHorizontal: spacing.margin.md,
     marginVertical: spacing.margin.sm,
-    padding: 12,
-    shadowColor: '#000',
+    padding: spacing.padding.sn,
+    shadowColor: palette.neutral['1000'],
     shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.1,
+    shadowOpacity: opacity.disabled,
     shadowRadius: border.radius.sm,
   },
   contentContainer: {
@@ -19,7 +24,7 @@ export const styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
   description: {
-    color: '#666',
+    color: palette.neutral['600'],
     fontSize: typography.accent.sm,
     lineHeight: 20,
     marginBottom: typography.accent.xs,
@@ -28,8 +33,8 @@ export const styles = StyleSheet.create({
   },
   recipeImage: {
     borderRadius: border.radius.md,
-    height: 200,
     marginBottom: border.radius.lg,
+    minHeight: 200,
     width: '100%',
   },
   userContainer: {

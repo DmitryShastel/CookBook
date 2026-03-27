@@ -1,21 +1,24 @@
-import { ScrollView, View } from 'react-native';
-import { Text } from 'react-native-elements';
+import { ScrollView, View, Text } from 'react-native';
 import { UserProfile } from '@/features/userProfile/ui/UserProfile';
 import { styles } from '@/screens/userProfile/UserProfileScreen.styles';
 import { RootPage } from '@/screens/rootPage/RootPage';
-import { useNavigationHelper } from '@/hooks/useNavigationHelper';
 import { useSignOut } from '@/features/auth/hooks/signOut/useSignOut';
-import { useThemeToggle } from '@/hooks/useThemeToggle';
+import { useThemeToggle } from '@/features/theme/hooks/useThemeToggle';
 import { useTranslation } from 'react-i18next';
 import { useAnimatedScreen } from '@/shared/reanimated/hooks/useAnimatedScreen';
 import Animated from 'react-native-reanimated';
+import { useNavigation } from '@react-navigation/native';
 
 export const UserProfileScreen = () => {
-  const { getBack } = useNavigationHelper();
   const { handleLogout } = useSignOut();
   const { colors } = useThemeToggle();
   const { t } = useTranslation();
   const { animatedStyle } = useAnimatedScreen();
+  const navigation = useNavigation();
+
+  const getBack = () => {
+    navigation.goBack();
+  };
 
   return (
     <Animated.View
@@ -40,7 +43,7 @@ export const UserProfileScreen = () => {
           <UserProfile
             userName="John Doe"
             userEmail="john.doe@example.com"
-            userAvatar="https://png.pngtree.com/png-vector/20231019/ourmid/pngtree-user-profile-avatar-png-image_10211471.png"
+            userAvatar="https://randomuser.me/api/portraits/men/75.jpg"
             onLogout={handleLogout}
           />
 

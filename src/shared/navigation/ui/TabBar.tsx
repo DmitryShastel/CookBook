@@ -1,26 +1,14 @@
 import { BottomTabBarProps } from '@react-navigation/bottom-tabs';
 import { View, TouchableOpacity } from 'react-native';
-import { Icon } from 'react-native-elements';
-import { styles } from '@/navigation/Tab.styles';
-import { useThemeToggle } from '@/hooks/useThemeToggle';
+import { styles } from '@/shared/navigation/ui/Tab.styles';
+import { useThemeToggle } from '@/features/theme/hooks/useThemeToggle';
+import Ionicons from 'react-native-vector-icons/Ionicons';
+import { GetTabIconName } from '@/shared/navigation/lib/getTabIconName';
 
 export const TabBar = ({ state, navigation }: BottomTabBarProps) => {
   const { colors, theme } = useThemeToggle();
   const handleTabPress = (routeName: string) => {
     navigation.navigate(routeName);
-  };
-
-  const getIconName = (routeName: string, isFocused: boolean) => {
-    switch (routeName) {
-      case 'Main':
-        return isFocused ? 'home' : 'home-outline';
-      case 'Settings':
-        return isFocused ? 'settings' : 'settings-outline';
-      case 'Profile':
-        return isFocused ? 'person' : 'person-outline';
-      default:
-        return 'home-outline';
-    }
   };
 
   return (
@@ -46,9 +34,8 @@ export const TabBar = ({ state, navigation }: BottomTabBarProps) => {
             onPress={() => handleTabPress(route.name)}
             style={styles.tabButton}
           >
-            <Icon
-              name={getIconName(route.name, isFocused)}
-              type="ionicon"
+            <Ionicons
+              name={GetTabIconName(route.name, isFocused)}
               size={24}
               color={isFocused ? colors.primary.main : colors.text.secondary}
             />

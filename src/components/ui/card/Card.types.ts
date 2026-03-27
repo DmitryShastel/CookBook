@@ -1,8 +1,6 @@
-export interface RecipeCardProps {
+export interface RecipeCardInterface {
   userName?: string;
   userAvatar?: string;
   recipeImage?: string;
   description?: string;
-  initialLiked?: boolean;
-  likesCount?: number;
 }

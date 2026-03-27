@@ -1,8 +1,8 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { UserProfileScreen } from '@/screens/userProfile/UserProfileScreen';
 import { SettingsScreen } from '@/screens/settings/SettingsScreen';
-import { TabBar } from '@/navigation/TabBar';
-import { HomeStack } from '@/navigation/HomeStack';
+import { TabBar } from '@/shared/navigation/ui/TabBar';
+import { HomeStack } from '@/app/navigation/HomeStack';
 
 const Tab = createBottomTabNavigator();
 

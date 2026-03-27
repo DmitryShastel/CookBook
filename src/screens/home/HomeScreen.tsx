@@ -1,13 +1,15 @@
 import { Text, View } from 'react-native';
-import { Button, Icon } from 'react-native-elements';
 import { styles } from '@/screens/home/HomeScreen.styles';
 import { useNavigation } from '@react-navigation/native';
 import { HomeScreenNavigationProp } from '@/screens/rootPage/type';
-import { useThemeToggle } from '@/hooks/useThemeToggle';
+import { useThemeToggle } from '@/features/theme/hooks/useThemeToggle';
 import { useTranslation } from 'react-i18next';
 import { useAnimatedButton } from '@/shared/reanimated/hooks/useAnimatedButton';
 import Animated from 'react-native-reanimated';
 import { useAnimatedScreen } from '@/shared/reanimated/hooks/useAnimatedScreen';
+import { Button } from '@/components/ui/button/Button';
+import Icon from 'react-native-vector-icons/MaterialIcons';
+import { Routes } from '@/constants/Routes';
 
 export const HomeScreen = () => {
   const { colors } = useThemeToggle();
@@ -18,11 +20,11 @@ export const HomeScreen = () => {
   const { animatedStyle } = useAnimatedScreen();
 
   const handleSignIn = () => {
-    navigation.navigate('Login');
+    navigation.navigate(Routes.login);
   };
 
   const handleSignUp = () => {
-    navigation.navigate('SignUp');
+    navigation.navigate(Routes.SignUp);
   };
 
   return (
@@ -35,7 +37,6 @@ export const HomeScreen = () => {
     >
       <View style={styles.content}>
         <Icon name="account-circle" size={100} color={colors.primary.main} />
-
         <Text style={styles.message}>{t('HomeScreen.message')}</Text>
       </View>
 
@@ -50,7 +51,6 @@ export const HomeScreen = () => {
             titleStyle={styles.buttonTitle}
           />
         </Animated.View>
-
         <Animated.View style={signUpBtn.animatedStyle}>
           <Button
             title={t('HomeScreen.signUp')}

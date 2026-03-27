@@ -1,11 +1,17 @@
 import { signInWithEmailAndPassword } from '@firebase/auth';
-import { auth } from '../../../../../firebase-config';
-import { showMessage } from 'react-native-flash-message';
 import { useState } from 'react';
 import { useSignInStore } from '@/shared/stores/auth/useSignInStore';
 import { saveToken } from '@/shared/stores/secureStore/SecureStore';
+import { ErrorCode } from '@/constants/Errors';
+import { auth } from '@firebase-config';
+import { useToast } from '@/app/reanimated/ToastContext';
+import { useTranslation } from 'react-i18next';
+import { palette } from '@/shared/styles/CommonStyles';
+import { ToastType } from '@/components/ui/toast/Toast.types';
 
 export const useLogin = () => {
+  const toast = useToast();
+  const { t } = useTranslation();
   const [isLoading, setIsLoading] = useState(false);
   const setUser = useSignInStore((state) => state.setUser);
 
@@ -21,35 +27,24 @@ export const useLogin = () => {
         email: user.email,
         token: idToken,
       });
-      console.log(user);
-      showMessage({
-        message: 'Welcome Back!',
-        description: 'You have successfully logged in',
-        type: 'success',
-        duration: 3000,
-      });
+      toast.show(t('Login.loginSuccess'), ToastType.Top, palette.success);
     } catch (error: any) {
       let errorMessage = '';
 
       switch (error.code) {
-        case 'auth/invalid-credential':
-          errorMessage = 'Invalid email or password';
+        case ErrorCode.invalidCredential:
+          errorMessage = t('Login.invalidCredential');
           break;
-        case 'auth/too-many-requests':
-          errorMessage = 'Too many attempts. Try again later';
+        case ErrorCode.toManyRequest:
+          errorMessage = t('Login.toManyRequest');
           break;
-        case 'auth/network-request-failed':
-          errorMessage = 'Network error. Check your connection';
+        case ErrorCode.networkRequestFailed:
+          errorMessage = t('Login.networkRequestFailed');
           break;
         default:
-          errorMessage = 'Could not log in. Please try again';
+          errorMessage = t('Login.default');
       }
-      showMessage({
-        message: 'Login Failed',
-        description: errorMessage,
-        type: 'danger',
-        duration: 3000,
-      });
+      toast.show(errorMessage, ToastType.Top, palette.error);
       setIsLoading(false);
     }
   };

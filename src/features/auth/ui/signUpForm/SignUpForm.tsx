@@ -1,5 +1,4 @@
-import { View } from 'react-native';
-import { Button, Icon, Input } from 'react-native-elements';
+import { View, Text, TouchableOpacity } from 'react-native';
 import { Formik } from 'formik';
 import {
   SignUpFormData,
@@ -11,8 +10,14 @@ import { useNavigation } from '@react-navigation/native/src';
 import { useTranslation } from 'react-i18next';
 import { useAnimatedButton } from '@/shared/reanimated/hooks/useAnimatedButton';
 import Animated from 'react-native-reanimated';
+import { Input } from '@/components/ui/input/Input';
+import Icon from 'react-native-vector-icons/MaterialIcons';
+import { useState } from 'react';
+import { Button } from '@/components/ui/button/Button';
 
 export const SignUpForm = () => {
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const navigation = useNavigation();
   const { signUp, isLoading } = useSignUp();
   const handleSubmit = async (values: SignUpFormData) => {
@@ -43,9 +48,7 @@ export const SignUpForm = () => {
         <View style={styles.container}>
           <Input
             placeholder={t('SignUpScreen.placeholderEmail')}
-            leftIcon={
-              <Icon name="mail-outline" type="ionicon" size={22} color="#666" />
-            }
+            leftIcon={<Icon name="mail-outline" type="ionicon" size={25} />}
             leftIconContainerStyle={styles.iconContainer}
             onChangeText={handleChange('email')}
             onBlur={handleBlur('email')}
@@ -63,17 +66,16 @@ export const SignUpForm = () => {
             placeholder={t('SignUpScreen.placeholderPassword')}
             leftIcon={
               <Icon
-                name="lock-closed-outline"
-                type="ionicon"
-                size={22}
-                color="#666"
+                name={showPassword ? 'visibility-off' : 'visibility'}
+                size={25}
+                onPress={() => setShowPassword((prev) => !prev)}
               />
             }
             leftIconContainerStyle={styles.iconContainer}
             onChangeText={handleChange('password')}
             onBlur={handleBlur('password')}
             value={values.password}
-            secureTextEntry
+            secureTextEntry={!showPassword}
             autoCapitalize="none"
             errorMessage={
               touched.password && errors.password ? errors.password : ''
@@ -88,17 +90,16 @@ export const SignUpForm = () => {
             placeholder={t('SignUpScreen.placeholderConfirmPassword')}
             leftIcon={
               <Icon
-                name="lock-closed-outline"
-                type="ionicon"
-                size={22}
-                color="#666"
+                name={showConfirmPassword ? 'visibility-off' : 'visibility'}
+                size={25}
+                onPress={() => setShowConfirmPassword((prev) => !prev)}
               />
             }
             leftIconContainerStyle={styles.iconContainer}
             onChangeText={handleChange('confirmPassword')}
             onBlur={handleBlur('confirmPassword')}
             value={values.confirmPassword}
-            secureTextEntry
+            secureTextEntry={!showConfirmPassword}
             autoCapitalize="none"
             errorMessage={
               touched.confirmPassword && errors.confirmPassword
@@ -127,13 +128,16 @@ export const SignUpForm = () => {
             />
           </Animated.View>
 
-          <Button
-            title={t('SignUpScreen.referenceSignIn')}
-            type="clear"
+          <TouchableOpacity
             onPress={() => navigation.navigate('Login')}
-            titleStyle={styles.loginText}
-            containerStyle={styles.loginContainer}
-          />
+            style={styles.loginContainer}
+            disabled={isLoading}
+            activeOpacity={0.6}
+          >
+            <Text style={styles.loginText}>
+              {t('SignUpScreen.referenceSignIn')}
+            </Text>
+          </TouchableOpacity>
         </View>
       )}
     </Formik>

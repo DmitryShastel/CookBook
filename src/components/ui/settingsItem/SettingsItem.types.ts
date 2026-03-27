@@ -1,4 +1,4 @@
-export interface SettingItemProps {
+export interface SettingItemInterface {
   icon: string;
   iconBgColor: string;
   iconColor: string;

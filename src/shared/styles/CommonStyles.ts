@@ -85,6 +85,7 @@ export const border = {
   },
 } as const;
 
+//opacity
 export const opacity = {
   disabled: 0.7,
   active: 1,
@@ -92,6 +93,7 @@ export const opacity = {
   pressed: 0.6,
 } as const;
 
+//colors
 export const palette = {
   primary: {
     light: '#64B5F6',

@@ -1,5 +1,5 @@
-import { View } from 'react-native';
-import { Button, Icon, Input } from 'react-native-elements';
+import { TouchableOpacity, View, Text } from 'react-native';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 import { Formik } from 'formik';
 import {
   LoginFormData,
@@ -11,8 +11,12 @@ import { useNavigation } from '@react-navigation/native';
 import { useTranslation } from 'react-i18next';
 import { useAnimatedButton } from '@/shared/reanimated/hooks/useAnimatedButton';
 import Animated from 'react-native-reanimated';
+import { Button } from '@/components/ui/button/Button';
+import { Input } from '@/components/ui/input/Input';
+import { useState } from 'react';
 
 export const LoginForm = () => {
+  const [showPassword, setShowPassword] = useState(false);
   const navigation = useNavigation();
   const { login, isLoading } = useLogin();
   const handleSubmit = async (values: LoginFormData) => {
@@ -49,42 +53,42 @@ export const LoginForm = () => {
             errorMessage={touched.email && errors.email ? errors.email : ''}
             errorStyle={styles.errorText}
             inputContainerStyle={styles.inputContainer}
-            inputStyle={styles.input}
-            containerStyle={styles.inputWrapper}
             disabled={isLoading}
           />
 
           <Input
             placeholder={t('LoginScreen.placeholderPassword')}
             leftIcon={
-              <Icon name="lock-closed-outline" type="ionicon" size={25} />
+              <Icon
+                name={showPassword ? 'visibility-off' : 'visibility'}
+                size={25}
+                onPress={() => setShowPassword((prev) => !prev)}
+              />
             }
             leftIconContainerStyle={styles.iconContainer}
             onChangeText={handleChange('password')}
             onBlur={handleBlur('password')}
             value={values.password}
-            secureTextEntry
+            secureTextEntry={!showPassword}
             autoCapitalize="none"
             errorMessage={
               touched.password && errors.password ? errors.password : ''
             }
             errorStyle={styles.errorText}
             inputContainerStyle={styles.inputContainer}
-            inputStyle={styles.input}
-            containerStyle={styles.inputWrapper}
             disabled={isLoading}
           />
 
-          <Button
-            title={t('LoginScreen.forgotPassword')}
-            type="clear"
+          <TouchableOpacity
             onPress={() => {}}
-            onPressIn={onPressIn}
-            onPressOut={onPressOut}
-            titleStyle={styles.forgotPassword}
-            containerStyle={styles.forgotPasswordContainer}
+            style={styles.forgotPasswordContainer}
             disabled={isLoading}
-          />
+            activeOpacity={0.6}
+          >
+            <Text style={styles.forgotPassword}>
+              {t('LoginScreen.forgotPassword')}
+            </Text>
+          </TouchableOpacity>
 
           <Animated.View style={animatedStyle}>
             <Button
@@ -93,7 +97,7 @@ export const LoginForm = () => {
               onPressOut={onPressOut}
               onPress={handleSubmit}
               disabled={!isValid || isLoading}
-              loading={isLoading}
+              isLoading={isLoading}
               buttonStyle={styles.button}
               titleStyle={styles.buttonText}
               disabledStyle={styles.buttonDisabled}
@@ -101,14 +105,16 @@ export const LoginForm = () => {
               containerStyle={styles.buttonContainer}
             />
           </Animated.View>
-
-          <Button
-            title={t('LoginScreen.referenceSignUp')}
-            type="clear"
+          <TouchableOpacity
             onPress={() => navigation.navigate('SignUp')}
-            titleStyle={styles.signUp}
-            containerStyle={styles.signUpContainer}
-          />
+            style={styles.signUpContainer}
+            disabled={isLoading}
+            activeOpacity={0.6}
+          >
+            <Text style={styles.signUp}>
+              {t('LoginScreen.referenceSignUp')}
+            </Text>
+          </TouchableOpacity>
         </View>
       )}
     </Formik>

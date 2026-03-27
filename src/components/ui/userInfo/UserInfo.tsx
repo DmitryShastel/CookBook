@@ -1,17 +1,11 @@
-import { View } from 'react-native';
-import { Avatar, Text } from 'react-native-elements';
+import { Image, Text, View } from 'react-native';
 import { styles } from '@/components/ui/userInfo/UserInfo.style';
-import { UserInfoProps } from '@/components/ui/userInfo/UserInfo.types';
+import { UserInfoInterface } from '@/components/ui/userInfo/UserInfo.types';
 
-export const UserInfo = ({ userName, userAvatar }: UserInfoProps) => {
+export const UserInfo = ({ userName, userAvatar }: UserInfoInterface) => {
   return (
     <View style={styles.userContainer}>
-      <Avatar
-        source={{ uri: userAvatar }}
-        size={40}
-        rounded
-        containerStyle={styles.avatar}
-      />
+      <Image source={{ uri: userAvatar }} style={styles.avatar} />
       <Text style={styles.userName}>{userName}</Text>
     </View>
   );

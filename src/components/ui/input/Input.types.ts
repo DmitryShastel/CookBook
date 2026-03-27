@@ -1,13 +1,16 @@
-import { TextStyle, ViewStyle } from 'react-native';
+import { ReactNode } from 'react';
+import { StyleProp, TextStyle } from 'react-native';
 
 export interface InputInterface {
-  style?: ViewStyle;
-  inputStyle?: TextStyle;
-  accessibilityLabel: string;
   placeholder?: string;
   value?: string;
   onChangeText?: (text: string) => void;
+  children: ReactNode;
+  leftIcon?: ReactNode;
+  errorMessage?: string;
+  inputContainerStyle?: StyleProp<TextStyle>;
+  errorStyle?: StyleProp<TextStyle>;
   secureTextEntry?: boolean;
-  keyboardType?: 'default' | 'email-address' | 'numeric' | 'phone-pad';
-  autoCapitalize?: 'none' | 'sentences' | 'words' | 'characters';
+  keyboardType?: StyleProp<TextStyle>;
+  autoCapitalize?: string;
 }
