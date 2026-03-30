@@ -1,4 +1,4 @@
-import { SettingItem } from '@/components/ui/settingsItem';
+import { SettingItem } from '@/components/settingsItem';
 import { useThemeToggle } from '@/features/theme/hooks/useThemeToggle';
 import { useTranslation } from 'react-i18next';
 

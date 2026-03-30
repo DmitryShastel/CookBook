@@ -1,8 +1,8 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { RecipeList } from '@/features/recipeList/ui/RecipeList';
-import { RecipeScreen } from '@/screens/recipe/RecipeScreen';
+import { RecipeScreen } from '@/entities/recipe/RecipeScreen';
 import { HomeStackParamList } from '@/shared/navigation/types/type';
-import { CategoryScreen } from '@/screens/category/CategoryScreen';
+import { CategoryScreen } from '@/entities/category/CategoryScreen';
 
 const Stack = createNativeStackNavigator<HomeStackParamList>();
 

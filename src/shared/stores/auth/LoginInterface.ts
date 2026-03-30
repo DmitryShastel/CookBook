@@ -20,6 +20,8 @@ export interface LoginResponseData {
 export interface InitialStateData {
   isLoading: boolean;
   user: LoginResponseData | null;
+  initAuth: () => Promise<void>;
   signOut: () => void;
   setUser: (userData: LoginResponseData) => void;
+  setIsLoading: (isLoading: boolean) => void;
 }

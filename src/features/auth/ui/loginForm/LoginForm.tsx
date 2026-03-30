@@ -11,8 +11,8 @@ import { useNavigation } from '@react-navigation/native';
 import { useTranslation } from 'react-i18next';
 import { useAnimatedButton } from '@/shared/reanimated/hooks/useAnimatedButton';
 import Animated from 'react-native-reanimated';
-import { Button } from '@/components/ui/button/Button';
-import { Input } from '@/components/ui/input/Input';
+import { Button } from '@/components/button/Button';
+import { Input } from '@/components/input/Input';
 import { useState } from 'react';
 
 export const LoginForm = () => {

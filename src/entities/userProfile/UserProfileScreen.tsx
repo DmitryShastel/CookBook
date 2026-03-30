@@ -1,0 +1,103 @@
+import { ScrollView, View, Text } from 'react-native';
+import { UserProfile } from '@/features/userProfile/ui/UserProfile';
+import { styles } from '@/entities/userProfile/UserProfileScreen.styles';
+import { RootPage } from '@/pages/rootPage/RootPage';
+import { useSignOut } from '@/features/auth/hooks/signOut/useSignOut';
+import { useThemeToggle } from '@/features/theme/hooks/useThemeToggle';
+import { useTranslation } from 'react-i18next';
+import { useAnimatedScreen } from '@/shared/reanimated/hooks/useAnimatedScreen';
+import Animated from 'react-native-reanimated';
+import { useNavigation } from '@react-navigation/native';
+
+export const UserProfileScreen = () => {
+  const { handleLogout } = useSignOut();
+  const { colors } = useThemeToggle();
+  const { t } = useTranslation();
+  const { animatedStyle } = useAnimatedScreen();
+  const navigation = useNavigation();
+
+  const getBack = () => {
+    navigation.goBack();
+  };
+
+  return (
+    <Animated.View
+      style={[
+        styles.container,
+        { backgroundColor: colors.background.primary },
+        animatedStyle,
+      ]}
+    >
+      <RootPage
+        title={t('UserProfileScreen.title')}
+        showBackButton={true}
+        onBackPress={getBack}
+      >
+        <ScrollView
+          style={[
+            styles.container,
+            { backgroundColor: colors.background.tertiary },
+          ]}
+          showsVerticalScrollIndicator={false}
+        >
+          <UserProfile
+            userName="John Doe"
+            userEmail="john.doe@example.com"
+            userAvatar="https://randomuser.me/api/portraits/men/75.jpg"
+            onLogout={handleLogout}
+          />
+
+          <View
+            style={[
+              styles.infoCard,
+              { backgroundColor: colors.surface, borderColor: colors.border },
+            ]}
+          >
+            <Text style={[styles.infoTitle, { color: colors.text.secondary }]}>
+              {t('UserProfileScreen.accountInformation')}
+            </Text>
+
+            <View
+              style={[styles.infoRow, { borderBottomColor: colors.border }]}
+            >
+              <Text
+                style={[styles.infoLabel, { color: colors.text.secondary }]}
+              >
+                {t('UserProfileScreen.memberSince')}
+              </Text>
+              <Text style={[styles.infoValue, { color: colors.text.primary }]}>
+                January 2024
+              </Text>
+            </View>
+
+            <View
+              style={[styles.infoRow, { borderBottomColor: colors.border }]}
+            >
+              <Text
+                style={[styles.infoLabel, { color: colors.text.secondary }]}
+              >
+                {t('UserProfileScreen.recipeCreated')}
+              </Text>
+              <Text style={[styles.infoValue, { color: colors.text.primary }]}>
+                12
+              </Text>
+            </View>
+
+            <View
+              style={[styles.infoRow, { borderBottomColor: colors.border }]}
+            >
+              <Text
+                style={[styles.infoLabel, { color: colors.text.secondary }]}
+              >
+                {t('UserProfileScreen.savedRecipes')}
+              </Text>
+              <Text style={[styles.infoValue, { color: colors.text.primary }]}>
+                8
+              </Text>
+            </View>
+          </View>
+        </ScrollView>
+      </RootPage>
+    </Animated.View>
+  );
+};

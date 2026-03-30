@@ -10,10 +10,10 @@ import { useNavigation } from '@react-navigation/native/src';
 import { useTranslation } from 'react-i18next';
 import { useAnimatedButton } from '@/shared/reanimated/hooks/useAnimatedButton';
 import Animated from 'react-native-reanimated';
-import { Input } from '@/components/ui/input/Input';
+import { Input } from '@/components/input/Input';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import { useState } from 'react';
-import { Button } from '@/components/ui/button/Button';
+import { Button } from '@/components/button/Button';
 
 export const SignUpForm = () => {
   const [showPassword, setShowPassword] = useState(false);
