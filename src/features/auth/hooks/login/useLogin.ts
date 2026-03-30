@@ -4,10 +4,10 @@ import { useSignInStore } from '@/shared/stores/auth/useSignInStore';
 import { saveToken } from '@/shared/stores/secureStore/SecureStore';
 import { ErrorCode } from '@/constants/Errors';
 import { auth } from '@firebase-config';
-import { useToast } from '@/app/reanimated/ToastContext';
+import { useToast } from '@/shared/reanimated/ToastContext';
 import { useTranslation } from 'react-i18next';
 import { palette } from '@/shared/styles/CommonStyles';
-import { ToastType } from '@/components/ui/toast/Toast.types';
+import { ToastType } from '@/components/toast/Toast.types';
 
 export const useLogin = () => {
   const toast = useToast();
@@ -28,7 +28,7 @@ export const useLogin = () => {
         token: idToken,
       });
       toast.show(t('Login.loginSuccess'), ToastType.Top, palette.success);
-    } catch (error: any) {
+    } catch (error: unknown) {
       let errorMessage = '';
 
       switch (error.code) {

@@ -12,10 +12,11 @@ export function useCategoryQuery() {
   });
 }
 
-export function useCategoryMealsQuery(categoryTitle: string) {
+export function useCategoryMealsQuery(categoryTitle?: string) {
   return useQuery({
     queryKey: ['category', categoryTitle, 'meals'],
-    queryFn: () => getCategoryByTitle(categoryTitle),
+    queryFn: () => getCategoryByTitle(categoryTitle!),
+    enabled: !!categoryTitle,
   });
 }
 

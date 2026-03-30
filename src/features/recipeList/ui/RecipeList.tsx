@@ -1,15 +1,15 @@
 import { FlatList, ListRenderItem, TouchableOpacity, Text } from 'react-native';
 import { styles } from '@/features/recipeList/ui/RecipeList.style';
-import { Card } from '@/components/ui/card/Card';
+import { Card } from '@/components/card/Card';
 import { useNavigation, useRoute } from '@react-navigation/native';
 import {
   RecipeListNavigationProp,
   RecipeListRouteProp,
 } from '@/shared/navigation/types/type';
-import { RootPage } from '@/screens/rootPage/RootPage';
+import { RootPage } from '@/pages/rootPage/RootPage';
 import { MealSummary } from '@/features/recipeList/api/types/RecipeList';
 import { useCategoryMealsQuery } from '@/features/recipeList/api/RecipeListQuery';
-import { Loader } from '@/components/ui/loader/Loader';
+import { Loader } from '@/components/loader/Loader';
 import { useThemeToggle } from '@/features/theme/hooks/useThemeToggle';
 import { useTranslation } from 'react-i18next';
 
@@ -66,7 +66,7 @@ export const RecipeList = () => {
       onBackPress={getBack}
     >
       <FlatList
-        data={recipes}
+        data={recipes ?? []}
         renderItem={renderRecipeCard as ListRenderItem<MealSummary>}
         keyExtractor={(item) => item.idMeal}
         numColumns={2}

@@ -1,11 +1,11 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { MainTabNavigator } from '@/app/navigation/MainTabNavigator';
-import { LoginScreen } from '@/screens/auth/login/LoginScreen';
-import { SignUpScreen } from '@/screens/auth/signUp/SignUpScreen';
+import { LoginScreen } from '@/entities/auth/login/LoginScreen';
+import { SignUpScreen } from '@/entities/auth/signUp/SignUpScreen';
 import { RootStackParamList } from '@/shared/navigation/types/type';
-import { HomeScreen } from '@/screens/home/HomeScreen';
+import { HomeScreen } from '@/entities/home/HomeScreen';
 import { useSignInStore } from '@/shared/stores/auth/useSignInStore';
-import { Loader } from '@/components/ui/loader/Loader';
+import { Loader } from '@/components/loader/Loader';
 import { useEffect } from 'react';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -30,9 +30,7 @@ export const RootStack = () => {
           <Stack.Screen name="SignUp" component={SignUpScreen} />
         </>
       ) : (
-        <Stack.Screen name="MainTabs">
-          {() => <MainTabNavigator onLogout={() => {}} />}
-        </Stack.Screen>
+        <Stack.Screen name="MainTabs">{MainTabNavigator}</Stack.Screen>
       )}
     </Stack.Navigator>
   );

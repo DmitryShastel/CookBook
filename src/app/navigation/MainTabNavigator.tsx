@@ -1,6 +1,6 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { UserProfileScreen } from '@/screens/userProfile/UserProfileScreen';
-import { SettingsScreen } from '@/screens/settings/SettingsScreen';
+import { UserProfileScreen } from '@/entities/userProfile/UserProfileScreen';
+import { SettingsScreen } from '@/entities/settings/SettingsScreen';
 import { TabBar } from '@/shared/navigation/ui/TabBar';
 import { HomeStack } from '@/app/navigation/HomeStack';
 
