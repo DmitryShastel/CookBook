@@ -1,9 +1,9 @@
 import { StyleSheet } from 'react-native';
-import { spacing, typography } from '@/shared/styles/CommonStyles';
+import { palette, spacing, typography } from '@/shared/styles/CommonStyles';
 
 export const styles = StyleSheet.create({
   cardContainer: {
-    marginBottom: spacing.margin.sn,
+    marginBottom: spacing.margin.sm3,
     width: '50%',
   },
   columnWrapper: {
@@ -12,13 +12,13 @@ export const styles = StyleSheet.create({
     paddingHorizontal: spacing.padding.sm,
   },
   emptyText: {
-    color: '#999',
+    color: palette.neutral['500'],
     fontSize: typography.accent.md,
     marginTop: spacing.margin.xxxl,
     textAlign: 'center',
   },
   list: {
-    paddingVertical: spacing.padding.sn,
+    paddingVertical: spacing.padding.sm2,
   },
   loader: {
     marginTop: spacing.margin.xxxl,

@@ -1,27 +1,32 @@
 import { StyleSheet } from 'react-native';
-import { border, spacing, typography } from '@/shared/styles/CommonStyles';
+import {
+  border,
+  palette,
+  spacing,
+  typography,
+} from '@/shared/styles/CommonStyles';
 
 export const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#f5f5f5',
+    backgroundColor: palette.neutral['0'],
     flex: 1,
   },
   section: {
-    marginTop: spacing.margin.mdd,
+    marginTop: spacing.margin.md3,
   },
   sectionContent: {
-    backgroundColor: '#fff',
-    borderBottomWidth: border.radius.sn,
-    borderColor: '#f0f0f0',
-    borderTopWidth: border.radius.sn,
+    backgroundColor: palette.neutral['0'],
+    borderBottomWidth: border.radius.xs,
+    borderColor: palette.neutral['0'],
+    borderTopWidth: border.radius.xs,
   },
   sectionTitle: {
-    color: '#666',
+    color: palette.neutral['600'],
     fontSize: typography.accent.sm,
     fontWeight: typography.weight.semiBold,
     letterSpacing: 0.5,
     marginBottom: spacing.margin.sm,
-    marginLeft: spacing.margin.mdd,
+    marginLeft: spacing.margin.md3,
     textTransform: 'uppercase',
   },
 });

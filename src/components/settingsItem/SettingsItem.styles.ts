@@ -28,7 +28,7 @@ export const styles = StyleSheet.create({
 
   settingItem: {
     alignItems: 'center',
-    borderBottomWidth: border.radius.sn,
+    borderBottomWidth: border.radius.xs,
     flexDirection: 'row',
     paddingHorizontal: spacing.padding.md,
     paddingVertical: border.radius.xxl,

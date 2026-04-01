@@ -13,7 +13,7 @@ export const styles = StyleSheet.create({
     borderRadius: border.radius.lg,
     marginHorizontal: spacing.margin.md,
     marginVertical: spacing.margin.sm,
-    padding: spacing.padding.sn,
+    padding: spacing.padding.sm2,
     shadowColor: palette.neutral['1000'],
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: opacity.disabled,
@@ -40,6 +40,6 @@ export const styles = StyleSheet.create({
   userContainer: {
     alignItems: 'center',
     flexDirection: 'row',
-    marginBottom: spacing.margin.sn,
+    marginBottom: spacing.margin.sm2,
   },
 });

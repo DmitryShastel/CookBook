@@ -14,7 +14,7 @@ export const styles = StyleSheet.create({
     minHeight: 50,
   },
   buttonContainer: {
-    marginBottom: spacing.margin.mmd,
+    marginBottom: spacing.margin.md2,
     width: '100%',
   },
   buttonDisabled: {
@@ -26,8 +26,8 @@ export const styles = StyleSheet.create({
     fontWeight: typography.weight.semiBold,
   },
   container: {
-    marginBottom: spacing.margin.mdd,
-    paddingHorizontal: spacing.padding.mdd,
+    marginBottom: spacing.margin.md3,
+    paddingHorizontal: spacing.padding.md3,
     width: '100%',
   },
   errorText: {
@@ -41,17 +41,17 @@ export const styles = StyleSheet.create({
   },
   forgotPasswordContainer: {
     alignSelf: 'flex-end',
-    marginBottom: spacing.margin.mdd,
+    marginBottom: spacing.margin.md3,
   },
   iconContainer: {
-    marginRight: spacing.margin.ssm,
+    marginRight: spacing.margin.sm2,
   },
   inputContainer: {
     backgroundColor: palette.neutral['100'],
-    borderBottomWidth: border.radius.s,
+    borderBottomWidth: border.radius.none,
     borderRadius: border.radius.md,
     minHeight: 50,
-    paddingHorizontal: spacing.padding.sn,
+    paddingHorizontal: spacing.padding.xs,
   },
   signUp: {
     color: palette.primary.dark,
