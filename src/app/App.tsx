@@ -11,9 +11,7 @@ const App = () => {
     <QueryClientProvider client={queryClient}>
       <SafeAreaProvider>
         <NavigationContainer>
-          <ToastProvider>
-            <RootStack />
-          </ToastProvider>
+          <ToastProvider>{<RootStack />}</ToastProvider>
         </NavigationContainer>
       </SafeAreaProvider>
     </QueryClientProvider>

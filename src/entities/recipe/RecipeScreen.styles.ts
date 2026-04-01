@@ -10,13 +10,13 @@ export const styles = StyleSheet.create({
   category: {
     color: palette.neutral['600'],
     fontSize: typography.accent.md,
-    marginBottom: spacing.margin.mdd,
+    marginBottom: spacing.margin.md3,
   },
   centerContainer: {
     alignItems: 'center',
     flex: 1,
     justifyContent: 'center',
-    padding: spacing.padding.mdd,
+    padding: spacing.padding.md3,
   },
   container: {
     backgroundColor: palette.neutral['0'],
@@ -32,7 +32,7 @@ export const styles = StyleSheet.create({
     textAlign: 'right',
   },
   ingredientItem: {
-    borderBottomColor: '#e1e4e8',
+    borderBottomColor: palette.neutral['300'],
     borderBottomWidth: spacing.padding.xxs,
     flexDirection: 'row',
     justifyContent: 'space-between',
@@ -77,7 +77,7 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
     flex: 1,
     justifyContent: 'center',
-    padding: spacing.padding.mdd,
+    padding: spacing.padding.md3,
   },
   notFoundText: {
     color: palette.error,
@@ -93,7 +93,7 @@ export const styles = StyleSheet.create({
     color: palette.neutral['1000'],
     fontSize: typography.accent.xl,
     fontWeight: typography.weight.semiBold,
-    marginBottom: spacing.margin.sn,
+    marginBottom: spacing.margin.sm3,
   },
   statItem: {
     alignItems: 'center',
@@ -109,7 +109,7 @@ export const styles = StyleSheet.create({
     fontWeight: typography.weight.semiBold,
   },
   statsContainer: {
-    backgroundColor: '#f8f9fa',
+    backgroundColor: palette.neutral['0'],
     borderRadius: border.radius.lg,
     flexDirection: 'row',
     justifyContent: 'space-around',
@@ -118,12 +118,12 @@ export const styles = StyleSheet.create({
   },
   title: {
     color: palette.neutral['1000'],
-    fontSize: typography.accent.xll,
+    fontSize: typography.accent.xxxl3,
     fontWeight: typography.weight.semiBold,
     marginBottom: spacing.margin.sm,
   },
   youtubeButton: {
-    backgroundColor: '#fff0f0',
+    backgroundColor: palette.neutral['0'],
   },
   youtubeText: {
     color: palette.error,

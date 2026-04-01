@@ -9,8 +9,8 @@ export const styles = StyleSheet.create({
   },
   buttonContainer: {
     gap: 16,
-    paddingBottom: spacing.padding.qqe,
-    paddingHorizontal: spacing.padding.ssw,
+    paddingBottom: spacing.padding.xl4,
+    paddingHorizontal: spacing.padding.xl9,
   },
   buttonTitle: {
     color: '#fff',
@@ -31,8 +31,8 @@ export const styles = StyleSheet.create({
   message: {
     color: '#666',
     fontSize: typography.accent.lg,
-    marginTop: spacing.margin.mdd,
-    paddingHorizontal: spacing.padding.ssw,
+    marginTop: spacing.margin.md3,
+    paddingHorizontal: spacing.padding.xl9,
     textAlign: 'center',
   },
 });

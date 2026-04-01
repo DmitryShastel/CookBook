@@ -9,14 +9,14 @@ import {
 export const styles = StyleSheet.create({
   avatar: {
     borderRadius: border.radius.xxxl,
-    marginRight: spacing.margin.ssm,
+    marginRight: spacing.margin.sm2,
     minHeight: 40,
     width: 40,
   },
   userContainer: {
     alignItems: 'center',
     flexDirection: 'row',
-    marginBottom: spacing.margin.sn,
+    marginBottom: spacing.margin.sm3,
   },
   userName: {
     color: palette.neutral['800'],

@@ -1,4 +1,3 @@
-//spacing
 export const spacing = {
   xxs: 2,
   xs: 4,
@@ -13,41 +12,42 @@ export const spacing = {
     xxs: 2,
     xs: 4,
     sm: 8,
-    sn: 12,
+    sm2: 12,
     md: 16,
-    mmd: 18,
-    mdd: 20,
-    lgg: 22,
-    llg: 24,
-    qwe: 26,
-    wwe: 28,
-    qqe: 30,
-    qqq: 32,
-    www: 34,
-    wsx: 36,
-    wws: 38,
-    ssw: 40,
+    md2: 18,
+    md3: 20,
+    lg2: 22,
+    lg: 24,
+    xl2: 26,
+    xl3: 28,
+    xl4: 30,
+    xl5: 32,
+    xl6: 34,
+    xl7: 36,
+    xl8: 38,
+    xl9: 40,
     xxl: 48,
     xxxl: 50,
   },
+
   margin: {
     x: 0,
     xxs: 2,
     xs: 4,
     sm: 8,
-    ssm: 10,
-    sn: 12,
+    sm2: 10,
+    sm3: 12,
     md: 16,
-    mmd: 18,
-    mdd: 20,
-    lgg: 22,
+    md2: 18,
+    md3: 20,
+    lg2: 22,
     lg: 24,
     xl: 32,
     xxl: 48,
     xxxl: 50,
   },
 } as const;
-//typography
+
 export const typography = {
   weight: {
     regular: '400',
@@ -55,6 +55,7 @@ export const typography = {
     semiBold: '600',
     bold: '700',
   },
+
   accent: {
     xs: 12,
     sm: 14,
@@ -63,18 +64,17 @@ export const typography = {
     xl: 20,
     xxl: 22,
     xxxl: 24,
-    mdd: 26,
-    xll: 28,
-    xml: 30,
-    xmm: 32,
+    xxxl2: 26,
+    xxxl3: 28,
+    xxxl4: 30,
+    xxxl5: 32,
   },
 };
 
-//borders
 export const border = {
   radius: {
-    s: 0,
-    sn: 2,
+    none: 0,
+    xs: 2,
     sm: 4,
     md: 8,
     lg: 12,
@@ -85,7 +85,6 @@ export const border = {
   },
 } as const;
 
-//opacity
 export const opacity = {
   disabled: 0.7,
   active: 1,
@@ -93,7 +92,6 @@ export const opacity = {
   pressed: 0.6,
 } as const;
 
-//colors
 export const palette = {
   primary: {
     light: '#64B5F6',

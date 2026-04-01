@@ -17,8 +17,8 @@ export const styles = StyleSheet.create({
   },
   likeContainer: {
     borderTopColor: palette.neutral['0'],
-    borderTopWidth: border.radius.sn,
-    paddingTop: spacing.padding.sn,
+    borderTopWidth: border.radius.lg,
+    paddingTop: spacing.padding.sm2,
   },
   likeIcon: {
     marginRight: spacing.margin.sm,

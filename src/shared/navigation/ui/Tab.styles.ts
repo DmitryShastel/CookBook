@@ -1,10 +1,12 @@
+import { palette } from '@/shared/styles/CommonStyles';
+
 export const styles = {
   tabBar: {
     flexDirection: 'row' as const,
     minHeight: 60,
-    backgroundColor: '#fff',
+    backgroundColor: palette.neutral['0'],
     borderTopWidth: 1,
-    borderTopColor: '#f0f0f0',
+    borderTopColor: palette.neutral['0'],
   },
   tabButton: {
     flex: 1,

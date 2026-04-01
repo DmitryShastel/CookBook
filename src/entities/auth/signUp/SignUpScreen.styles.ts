@@ -6,12 +6,12 @@ export const styles = StyleSheet.create({
     backgroundColor: '#fff',
     flex: 1,
     justifyContent: 'center',
-    paddingHorizontal: spacing.padding.mdd,
+    paddingHorizontal: spacing.padding.md2,
     paddingTop: spacing.padding.xxxl,
   },
   logoContainer: {
     alignSelf: 'center',
-    marginBottom: spacing.margin.mdd,
+    marginBottom: spacing.margin.md3,
   },
   subtitle: {
     color: '#666',

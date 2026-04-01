@@ -2,29 +2,30 @@ import { StyleSheet } from 'react-native';
 import {
   border,
   opacity,
+  palette,
   spacing,
   typography,
 } from '@/shared/styles/CommonStyles';
 
 export const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#f5f5f5',
+    backgroundColor: palette.neutral['0'],
     flex: 1,
   },
   infoCard: {
-    backgroundColor: '#fff',
+    backgroundColor: palette.neutral['0'],
     borderRadius: border.radius.lg,
     elevation: 3,
     margin: spacing.margin.md,
     marginTop: 0,
-    padding: spacing.padding.mdd,
-    shadowColor: '#000',
+    padding: spacing.padding.md3,
+    shadowColor: palette.neutral['1000'],
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: opacity.pressed,
     shadowRadius: border.radius.sm,
   },
   infoLabel: {
-    color: '#666',
+    color: palette.neutral['700'],
     fontSize: typography.accent.sm,
   },
   infoRow: {
@@ -32,16 +33,16 @@ export const styles = StyleSheet.create({
     borderBottomWidth: spacing.padding.xxs,
     flexDirection: 'row',
     justifyContent: 'space-between',
-    paddingVertical: spacing.padding.sn,
+    paddingVertical: spacing.padding.sm2,
   },
   infoTitle: {
-    color: '#333',
+    color: palette.neutral['800'],
     fontSize: typography.accent.lg,
     fontWeight: typography.weight.semiBold,
     marginBottom: spacing.margin.md,
   },
   infoValue: {
-    color: '#333',
+    color: palette.neutral['800'],
     fontSize: typography.accent.sm,
     fontWeight: typography.weight.medium,
   },

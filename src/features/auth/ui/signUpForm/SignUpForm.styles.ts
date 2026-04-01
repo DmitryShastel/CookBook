@@ -32,7 +32,7 @@ export const styles = StyleSheet.create({
     fontSize: typography.accent.md,
   },
   iconContainer: {
-    marginRight: spacing.margin.ssm,
+    marginRight: spacing.margin.sm2,
   },
   input: {
     fontSize: typography.accent.md,
@@ -40,7 +40,7 @@ export const styles = StyleSheet.create({
   },
   inputContainer: {
     backgroundColor: palette.neutral['100'],
-    borderBottomWidth: border.radius.s,
+    borderBottomWidth: border.radius.none,
     borderRadius: border.radius.md,
     minHeight: 50,
     paddingHorizontal: spacing.padding.sm,

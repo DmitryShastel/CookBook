@@ -10,11 +10,11 @@ export const styles = StyleSheet.create({
     paddingHorizontal: spacing.padding.x,
   },
   logoContainer: {
-    marginBottom: spacing.margin.mdd,
+    marginBottom: spacing.margin.md2,
   },
   title: {
     color: '#000',
-    fontSize: typography.accent.xmm,
+    fontSize: typography.accent.xxxl5,
     fontWeight: typography.weight.semiBold,
     marginBottom: spacing.margin.xxxl,
   },

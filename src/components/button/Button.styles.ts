@@ -12,8 +12,8 @@ export const styles = StyleSheet.create({
     backgroundColor: palette.primary.main,
     borderRadius: border.radius.md,
     justifyContent: 'center',
-    paddingHorizontal: spacing.padding.lg,
-    paddingVertical: spacing.padding.sn,
+    paddingHorizontal: spacing.padding.md,
+    paddingVertical: spacing.padding.sm2,
   },
   disabled: {
     backgroundColor: palette.neutral['400'],

@@ -22,8 +22,8 @@ export const styles = StyleSheet.create({
   },
   cardContent: {
     flex: 1,
-    paddingRight: spacing.padding.sn,
-    paddingVertical: spacing.padding.sn,
+    paddingRight: spacing.padding.sm2,
+    paddingVertical: spacing.padding.sm2,
   },
   cardFooter: {
     flexDirection: 'row',
@@ -31,7 +31,7 @@ export const styles = StyleSheet.create({
   },
   cardImage: {
     borderRadius: border.radius.lg,
-    margin: spacing.margin.sn,
+    margin: spacing.margin.sm3,
     minHeight: 100,
     width: 100,
   },
@@ -54,8 +54,8 @@ export const styles = StyleSheet.create({
   header: {
     backgroundColor: palette.neutral['0'],
     paddingBottom: spacing.padding.md,
-    paddingHorizontal: spacing.padding.mdd,
-    paddingTop: spacing.padding.mdd,
+    paddingHorizontal: spacing.padding.md3,
+    paddingTop: spacing.padding.md3,
   },
   headerSubtitle: {
     color: palette.neutral['600'],
@@ -63,7 +63,7 @@ export const styles = StyleSheet.create({
   },
   headerTitle: {
     color: palette.neutral['1000'],
-    fontSize: typography.accent.xmm,
+    fontSize: typography.accent.xxxl5,
     fontWeight: typography.weight.semiBold,
     marginBottom: spacing.margin.xs,
   },
