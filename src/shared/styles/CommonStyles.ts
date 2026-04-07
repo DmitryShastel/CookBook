@@ -69,7 +69,7 @@ export const typography = {
     xxxl4: 30,
     xxxl5: 32,
   },
-};
+} as const;
 
 export const border = {
   radius: {
@@ -130,4 +130,4 @@ export const palette = {
     medium: '80',
     low: '20',
   },
-};
+} as const;
