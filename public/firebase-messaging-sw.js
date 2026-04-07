@@ -16,7 +16,9 @@ firebase.initializeApp({
 const messaging = firebase.messaging();
 
 messaging.onBackgroundMessage((payload) => {
-  console.log('Payload:', payload);
+  if (self.location.hostname === 'localhost') {
+    self.console.log('Payload:', payload);
+  }
 
   const notification = payload.notification;
 

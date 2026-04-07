@@ -11,8 +11,6 @@ export async function requestWebPushToken() {
       vapidKey:
         'BFz75opVTfUK0GGqSsDrjg6PSEkxnGXnmNgih4wezpSBHZOjejIqQ6OuT9B2805MlR0u9OtEf-v_Aj4jqbgX188',
     });
-
-    console.log('token:', token);
     return token;
   } catch (err) {
     console.error('Error:', err);

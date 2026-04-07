@@ -10,6 +10,7 @@ import {
   requestWebPushToken,
   subscribeToForegroundMessages,
 } from '@/shared/api/firebase/webPush';
+import { Alert } from 'react-native';
 
 const App = () => {
   const toast = useToast();
@@ -26,7 +27,7 @@ const App = () => {
           });
         })
         .catch((err) => {
-          console.error('error description:', err);
+          Alert.alert('error description', String(err));
         });
     }
   }, []);
